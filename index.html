@@ -8,35 +8,33 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <header class="hero">
-        <div class="wrap">
-            <a class="logo" href="/">
-                <img src="assets/img/large-logo.png">
-            </a>
-            <p class="container">ClOSE ENCODERS</p>
-            <!-- <nav>
-                <a href="#posts">Posts</a>
-                <a href="#about">About</a>
-            </nav> -->
-        </div>
-    </header>
+    <div id="header-space"></div>
 
     <main class="wrap">
-        <section id="posts" class="section">
-            <div class="posts">
-                <p>coming soon</p>
+        <section id="posts-space" class="section">
+            <div class="posts-search">
+                <div class="posts-search-row">
+                    <input id="posts-search-input" type="search" placeholder="Search Content" autocomplete="off">
+                    <button id="posts-search-button" type="button" aria-label="Search posts">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                            <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                        </svg>
+                    </button>
+                    <button id="posts-reset-button" type="button" aria-label="Reset search">
+                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+                            <path d="M21 12a9 9 0 1 1-3.1-6.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+                            <path d="M21 3v6h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
+            <div id="posts-list" class="posts"></div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="wrap footer-inner">
-            <small class="rights">All rights reserved.</small>
-            <div id="social-links" class="social-links" aria-label="Social links">
-                <!-- Dynamically injected social links -->
-            </div>
-        </div>
-    </footer>
+    <div id="footer-space"></div>
 
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>

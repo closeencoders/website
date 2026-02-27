@@ -34,6 +34,7 @@ body {
     color: var(--text);
 }
 
+
 a {
     color: inherit;
     text-decoration: none;
@@ -94,6 +95,62 @@ input {
     font-size: 0.85rem;
 }
 
+.muted {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.posts-search {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.posts-search-row {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+}
+
+#posts-search-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text);
+}
+
+#posts-search-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+}
+
+#posts-reset-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+}
+
+#posts-search-button svg,
+#posts-reset-button svg {
+    width: 20px;
+    height: 20px;
+}
+
 .hero .wrap {
     display: flex;
     align-items: center;
@@ -128,6 +185,26 @@ p {
     width: 5rem;
 }
 
+.logo-spin {
+    transform-origin: 50% 50%;
+}
+
+@supports (transform-style: preserve-3d) {
+    .logo-spin {
+        animation: logo-spin 18s linear infinite;
+        transform-style: preserve-3d;
+    }
+
+    @keyframes logo-spin {
+        from {
+            transform: perspective(500px) rotateY(0deg);
+        }
+        to {
+            transform: perspective(500px) rotateY(360deg);
+        }
+    }
+}
+
 nav {
     grid-auto-flow: column;
     justify-content: start;
@@ -154,4 +231,3 @@ h2 {
     font-size: 1.3rem;
     margin-bottom: 10px;
 }
-
