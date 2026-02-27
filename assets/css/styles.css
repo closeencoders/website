@@ -51,9 +51,17 @@ input {
 
 .hero,
 .section {
-    padding: 40px 0;
     border-bottom: 1px solid var(--line);
 }
+
+.hero {
+    padding: 10px 0;
+}
+
+.section {
+    padding: 40px 0;
+}
+
 
 .site-footer {
     padding: 28px 0;
@@ -98,8 +106,8 @@ input {
 .section-head,
 .posts,
 .subscribe form {
-  display: grid;
-  gap: 16px;
+    display: grid;
+    gap: 16px;
 }
 
 .logo,
@@ -111,7 +119,7 @@ p {
 }
 
 .logo img {
-    width: 100px;
+    width: 5rem;
 }
 
 nav {
