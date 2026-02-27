@@ -49,13 +49,12 @@ input {
     margin: 0 auto;
 }
 
-.hero,
-.section {
+.hero {
     border-bottom: 1px solid var(--line);
 }
 
 .hero {
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .section {
@@ -100,6 +99,13 @@ input {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    /* font-family: 'Courier New', monospace; */
+    font-weight: bolder;
+    user-select: none;
 }
 
 .hero nav,
@@ -148,3 +154,4 @@ h2 {
     font-size: 1.3rem;
     margin-bottom: 10px;
 }
+
