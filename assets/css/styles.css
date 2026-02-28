@@ -6,7 +6,7 @@
     --card: #f7f7f7;
     --accent: #111111;
     --accent-soft: #f0f0f0;
-    --max: 720px;
+    --max: 800px;
     --space: 24px;
     --radius: 16px;
 }
@@ -42,7 +42,7 @@ input {
     align-items: center;
     justify-content: center;
     border: 1px solid var(--line);
-    border-radius: 12px;
+    border-radius: 5px;
     background: transparent;
     color: var(--text);
     cursor: pointer;
@@ -68,8 +68,8 @@ input {
 }
 
 .hero {
-    border-bottom: 1px solid var(--line);
-    padding: 5px 0;
+    /* border-bottom: 1px solid var(--line); */
+    padding: 15px 0;
 }
 
 .section {
@@ -79,7 +79,7 @@ input {
 
 .site-footer {
     padding: 28px 0;
-    border-top: 1px solid var(--line);
+    /* border-top: 1px solid var(--line); */
 }
 
 .footer-inner {
@@ -119,12 +119,16 @@ input {
     align-items: center;
     gap: 8px;
     margin-bottom: 16px;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .posts-search-row {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .hero .posts-search {
@@ -134,10 +138,12 @@ input {
 
 .posts-search-panel {
     display: none;
+    flex: 1;
 }
 
 .posts-search-panel.is-open {
     display: block;
+    width: 100%;
 }
 
 .posts-search.is-open #posts-search-toggle {
@@ -152,10 +158,10 @@ input {
 }
 
 #posts-search-input {
-    flex: 1;
+    flex: 1 1 500px;
     padding: 10px 12px;
     border: 1px solid var(--line);
-    border-radius: 12px;
+    border-radius: 5px;
     background: transparent;
     color: var(--text);
     height: 44px;
@@ -205,7 +211,7 @@ p {
 }
 
 .logo img {
-    width: 4.2rem;
+    width: 3rem;
     display: block;
 }
 
@@ -254,4 +260,8 @@ h1 {
 h2 {
     font-size: 1.3rem;
     margin-bottom: 10px;
+}
+
+.post-header {
+    margin-bottom: 16px;
 }
