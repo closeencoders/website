@@ -22,11 +22,10 @@ html {
 
 body {
     margin: 0;
-    font: 17px/1.6 Arial, Helvetica, sans-serif;
+    font: 1.25rem Arial, Helvetica, sans-serif;
     background: var(--bg);
     color: var(--text);
 }
-
 
 a {
     color: inherit;
@@ -38,17 +37,17 @@ input {
     font: inherit;
 }
 
-code,
+/* code,
 pre {
     font-family: "Courier New", Courier, monospace;
     font-size: 0.95em;
-}
+} */
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--line);
+    border: none;
     border-radius: 5px;
     background: transparent;
     color: var(--text);
@@ -60,7 +59,7 @@ pre {
 
 .btn:hover {
     background: var(--accent-soft);
-    border-color: var(--accent);
+    /* border-color: var(--accent); */
 }
 
 .btn:active {
@@ -75,7 +74,6 @@ pre {
 }
 
 .hero {
-    /* border-bottom: 1px solid var(--line); */
     padding: 15px 0;
 }
 
@@ -86,7 +84,6 @@ pre {
 
 .site-footer {
     padding: 28px 0;
-    /* border-top: 1px solid var(--line); */
 }
 
 .footer-inner {
@@ -177,10 +174,14 @@ pre {
 #posts-search-toggle img,
 #posts-search-button img,
 #posts-reset-button img {
-    width: 20px;
-    height: 20px;
-    shape-rendering: geometricPrecision;
+    width: 26px;
+    height: 26px;
+    shape-rendering: crispEdges;
     display: block;
+}
+
+svg {
+     image-rendering: auto;
 }
 
 .hero .wrap {
@@ -201,7 +202,7 @@ pre {
 .posts,
 .subscribe form {
     display: grid;
-    gap: 16px;
+    gap: 14px;
 }
 
 .logo,
@@ -236,6 +237,7 @@ p {
         from {
             transform: perspective(500px) rotateY(0deg);
         }
+
         to {
             transform: perspective(500px) rotateY(360deg);
         }
@@ -265,7 +267,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     /* margin-bottom: 10px; */
 }
 
@@ -291,4 +293,20 @@ h2 {
     object-fit: cover;
     object-position: center;
     display: block;
+}
+
+.post-card {
+    /* padding: 5px; */
+    border-radius: 5px;
+}
+
+.post-card h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.post-card:hover {
+    cursor: pointer;
+    background-color: var(--accent-soft);
+    color: var(--muted);
 }

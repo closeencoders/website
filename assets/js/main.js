@@ -74,13 +74,8 @@
       .map((post) => {
         const title = post.title || post.slug || "Untitled";
         const description = post.description || "";
-        const date = post.date ? `<small class="muted">${post.date}</small>` : "";
         return `
-          <article class="post-card">
-            <h2><a href="${post.url}">${title}</a></h2>
-            ${date}
-            ${description ? `<p>${description}</p>` : ""}
-          </article>
+            <a class="post-card" href = '${post.url}';">${title} <small class="muted">${post.date}<br>${description ? `${description}` : ""}</small></a>
         `;
       })
       .join("");
