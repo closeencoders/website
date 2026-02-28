@@ -22,7 +22,7 @@ html {
 
 body {
     margin: 0;
-    font: 16px/1.6 Inter, system-ui, sans-serif;
+    font: 17px/1.6 Arial, Helvetica, sans-serif;
     background: var(--bg);
     color: var(--text);
 }
@@ -36,6 +36,12 @@ a {
 button,
 input {
     font: inherit;
+}
+
+code,
+pre {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.95em;
 }
 
 .btn {
