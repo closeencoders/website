@@ -88,29 +88,17 @@ pre {
 
 .footer-inner {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     gap: 16px;
 }
 
 .rights {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--muted);
     letter-spacing: 0.02em;
-}
-
-.social-links {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.social-links a {
-    padding: 6px 10px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    font-size: 0.85rem;
+    text-align: center;
+    width: 100%;
 }
 
 .muted {
@@ -169,19 +157,6 @@ pre {
     background: transparent;
     color: var(--text);
     height: 44px;
-}
-
-#posts-search-toggle img,
-#posts-search-button img,
-#posts-reset-button img {
-    width: 26px;
-    height: 26px;
-    shape-rendering: crispEdges;
-    display: block;
-}
-
-svg {
-     image-rendering: auto;
 }
 
 .hero .wrap {
@@ -307,6 +282,33 @@ h2 {
 
 .post-card:hover {
     cursor: pointer;
-    background-color: var(--accent-soft);
+    /* background-color: var(--accent-soft); */
     color: var(--muted);
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-links a:hover {
+    color: var(--muted);
+}
+
+.social-links .social-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    flex: 0 0 auto;
+    max-width: none;
+    max-height: none;
+    vertical-align: middle;
 }
