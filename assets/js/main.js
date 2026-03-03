@@ -45,8 +45,15 @@
       .map((post) => {
         const title = post.title || post.slug || "Untitled";
         const description = post.description || "";
+        const image = post.image || "";
         return `
-            <a class="post-card" href = '${post.url}';">${title} <small class="muted">${post.date}<br>${description ? `${description}` : ""}</small></a>
+            <a class="post-card" href="${post.url}">
+              <span class="post-card-text">
+                ${title}
+                <small class="muted">${post.date} - ${description ? `${description}` : ""}</small>
+              </span>
+              ${image ? `<img class="post-card-image" src="${image}" alt="">` : ""}
+            </a>
         `;
       })
       .join("");

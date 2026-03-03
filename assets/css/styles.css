@@ -232,6 +232,27 @@ h2 {
     object-position: center;
 }
 
+.post-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-radius: 5px;
+}
+.post-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.post-card-image {
+    width: 120px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex: 0 0 auto;
+    border: 1px solid var(--line);
+}
+
 .post-card:hover {
     cursor: pointer;
     color: var(--muted);
