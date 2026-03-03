@@ -8,13 +8,11 @@
     --accent-soft: #f0f0f0;
     --logo-size: 4rem;
     --max: 960px;
-    --space: 24px;
-    --radius: 16px;
 }
 
 body {
     margin: 0;
-    font: 1.25rem Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
+    font: 1.1rem Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
     background: var(--bg);
     color: var(--text);
 }
@@ -67,6 +65,10 @@ a {
     letter-spacing: 0.02em;
     text-align: center;
     width: 100%;
+}
+.rights a {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
 }
 
 .muted {
