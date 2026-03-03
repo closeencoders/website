@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Allow: /posts/
+Disallow: /data
 Disallow: /404
 Disallow: /video
 Disallow: /privacy
