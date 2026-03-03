@@ -53,8 +53,6 @@ pre {
     color: var(--text);
     cursor: pointer;
     transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 80ms ease;
-    user-select: none;
-    -webkit-user-drag: none;
 }
 
 .btn:hover {
@@ -169,7 +167,6 @@ pre {
 .hero p {
     font-size: 1.5rem;
     font-weight: bolder;
-    user-select: none;
 }
 
 .hero nav,
@@ -259,7 +256,6 @@ h2 {
     overflow: hidden;
     display: block;
     max-width: 100%;
-    user-select: none;
 }
 
 .post-hero img {
@@ -296,7 +292,21 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
+}
+
+.btn,
+.rights,
+.hero p,
+.post-hero,
+.social-links,
+.social-links a {
+    user-select: none;
+}
+
+.btn,
+.rights {
+    -webkit-user-drag: none;
 }
 
 .social-links a:hover {
@@ -304,11 +314,16 @@ h2 {
 }
 
 .social-links .social-icon {
-    width: 24px;
-    height: 24px;
+    width: 2.6rem;
+    height: 2.6rem;
     display: inline-block;
     flex: 0 0 auto;
     max-width: none;
     max-height: none;
     vertical-align: middle;
+    transform-origin: center;
+}
+
+.social-links a:hover .social-icon {
+    filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.25));
 }
