@@ -42,9 +42,9 @@
     }
 
     try {
-      const response = await fetch("/posts.json", { cache: "no-store" });
+      const response = await fetch("/data/posts.json", { cache: "no-store" });
       if (!response.ok) {
-        throw new Error(`Failed to load posts.json: ${response.status}`);
+        throw new Error(`Failed to load data/posts.json: ${response.status}`);
       }
       const posts = await response.json();
       if (!Array.isArray(posts) || posts.length === 0) {

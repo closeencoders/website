@@ -138,8 +138,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-
-/data
 server*
 /vscode
 .vscode
@@ -151,6 +149,7 @@ server*
 /.obsiian
 
 
-/scripts
+/_scripts
 /_temp
 /_posts
+/_templates
