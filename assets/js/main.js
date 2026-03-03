@@ -1,37 +1,8 @@
 (() => {
   const state = { posts: [], postsLoaded: false };
 
-  const fetchHtml = async (path) => {
-    try {
-      const response = await fetch(path, { cache: "no-store" });
-      if (!response.ok) {
-        throw new Error(`Failed to load ${path}: ${response.status}`);
-      }
-      return await response.text();
-    } catch (error) {
-      console.error(error);
-      return "";
-    }
-  };
-
-  const injectHtml = async (targetId, path) => {
-    const target = document.getElementById(targetId);
-    if (!target) {
-      return;
-    }
-    const html = await fetchHtml(path);
-    if (!html) {
-      return;
-    }
-    target.innerHTML = html;
-    if (targetId === "header-space") {
-      setupPostSearch();
-    }
-  };
-
-  const injectParts = () => {
-    void injectHtml("header-space", "/components/header.html");
-    void injectHtml("footer-space", "/components/footer.html");
+  const initPage = () => {
+    setupPostSearch();
     void injectPosts();
   };
 
@@ -189,8 +160,8 @@
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", injectParts);
+    document.addEventListener("DOMContentLoaded", initPage);
   } else {
-    injectParts();
+    initPage();
   }
 })();
