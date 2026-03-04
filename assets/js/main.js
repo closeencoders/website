@@ -1,5 +1,12 @@
 (() => {
-  const state = { posts: [], postsLoaded: false };
+  const state = {
+    posts: [],
+    postsLoaded: false,
+    searchWindowStart: 0,
+    searchCount: 0,
+    lastSearchAt: 0,
+  };
+  const getEl = (id) => document.getElementById(id);
 
   const initPage = () => {
     setupPostSearch();
@@ -7,7 +14,7 @@
   };
 
   const injectPosts = async () => {
-    const target = document.getElementById("posts-space");
+    const target = getEl("posts-space");
     if (!target) {
       return;
     }
@@ -15,7 +22,7 @@
     try {
       const response = await fetch("/data/posts.json", { cache: "no-store" });
       if (!response.ok) {
-        throw new Error(`Failed to load data/posts.json: ${response.status}`);
+        throw new Error(`Failed to load posts: ${response.status}`);
       }
       const posts = await response.json();
       if (!Array.isArray(posts) || posts.length === 0) {
@@ -31,7 +38,7 @@
   };
 
   const renderPosts = (posts) => {
-    const target = document.getElementById("posts-list");
+    const target = getEl("posts-list");
     if (!target) {
       return;
     }
@@ -76,10 +83,10 @@
   };
 
   const setupPostSearch = () => {
-    const input = document.getElementById("posts-search-input");
-    const button = document.getElementById("posts-search-button");
-    const reset = document.getElementById("posts-reset-button");
-    const toggle = document.getElementById("posts-search-toggle");
+    const input = getEl("posts-search-input");
+    const button = getEl("posts-search-button");
+    const reset = getEl("posts-reset-button");
+    const toggle = getEl("posts-search-toggle");
     const panel = document.querySelector(".posts-search-panel");
     if (!input) {
       return;
@@ -122,10 +129,8 @@
 
   const applySearch = (rawQuery) => {
     const query = (rawQuery ?? getQueryParam("q")).trim();
-    const input = document.getElementById("posts-search-input");
-    if (input) {
-      input.value = query;
-    }
+    const input = getEl("posts-search-input");
+    if (input) input.value = query;
 
     if (!isHomePage()) {
       const url = query ? `/?q=${encodeURIComponent(query)}` : "/";
@@ -136,9 +141,13 @@
       return;
     }
 
-    if (!query) {
-      renderPosts(state.posts);
+    if (!query || query.length < 3) {
+      renderPostsMessage("Less than 3 characters, too many potential results.");
       updateQueryParam("");
+      return;
+    }
+
+    if (!canRunSearch()) {
       return;
     }
 
@@ -146,10 +155,13 @@
     updateQueryParam(query);
   };
 
-  const getQueryParam = (key) => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get(key) || "";
+  const renderPostsMessage = (message) => {
+    const target = getEl("posts-list");
+    if (target) target.innerHTML = `<p>${message}</p>`;
   };
+
+  const getQueryParam = (key) =>
+    new URLSearchParams(window.location.search).get(key) || "";
 
   const updateQueryParam = (value) => {
     const url = new URL(window.location.href);
@@ -161,9 +173,28 @@
     window.history.replaceState({}, "", url);
   };
 
-  const isHomePage = () => {
-    const path = window.location.pathname;
-    return path === "/" || path.endsWith("/index.html");
+  const isHomePage = () =>
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/index.html");
+
+  const SEARCH_MIN_INTERVAL_MS = 750;
+  const SEARCH_WINDOW_MS = 5000;
+  const SEARCH_MAX_PER_WINDOW = 20;
+
+  const canRunSearch = () => {
+    const now = Date.now();
+    const sinceLast = now - state.lastSearchAt;
+    if (sinceLast < SEARCH_MIN_INTERVAL_MS) {
+      return false;
+    }
+    const windowAge = now - state.searchWindowStart;
+    if (!state.searchWindowStart || windowAge > SEARCH_WINDOW_MS) {
+      state.searchWindowStart = now;
+      state.searchCount = 0;
+    }
+    state.searchCount += 1;
+    state.lastSearchAt = now;
+    return state.searchCount <= SEARCH_MAX_PER_WINDOW;
   };
 
   if (document.readyState === "loading") {
