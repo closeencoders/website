@@ -128,6 +128,7 @@
   };
 
   const applySearch = (rawQuery) => {
+    const isManual = rawQuery !== undefined;
     const query = (rawQuery ?? getQueryParam("q")).trim();
     const input = getEl("posts-search-input");
     if (input) input.value = query;
@@ -141,7 +142,13 @@
       return;
     }
 
-    if (!query || query.length < 3) {
+    if (!query) {
+      renderPosts(state.posts);
+      updateQueryParam("");
+      return;
+    }
+
+    if (isManual && query.length < 3) {
       renderPostsMessage("Less than 3 characters, too many potential results.");
       updateQueryParam("");
       return;
