@@ -48,6 +48,11 @@ a {
 .section {
     padding: 20px 0;
 }
+
+.section p {
+    padding-bottom: 10px;
+}
+
 .site-footer {
     padding: 28px 0;
 }
