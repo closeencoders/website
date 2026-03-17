@@ -55,11 +55,11 @@
         const image = post.image || "";
         return `
             <a class="post-card" href="${post.url}">
+              ${image ? `<img class="post-card-image" src="${image}" alt="">` : ""}
               <span class="post-card-text">
                 ${title}
                 <small class="muted">${post.date} - ${description ? `${description}` : ""}</small>
               </span>
-              ${image ? `<img class="post-card-image" src="${image}" alt="">` : ""}
             </a>
         `;
       })

@@ -250,32 +250,30 @@ h2 {
     object-position: center;
 }
 
-@media (max-width: 800px) {
-    .post-hero {
-        height: 250px;
-    }
-}
-
 .post-card {
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: space-between;
-    gap: 16px;
-    border-radius: 5px;
+    gap: 14px;
+}
+
+.post-card:hover .post-card-image {
+    transform: scale(1.1);
 }
 
 .post-card-text {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    gap: 4px;
+    gap: 1px;
 }
 
 .post-card-image {
-    width: 120px;
-    height: 72px;
+    width: 140px;
+    height: 92px;
     object-fit: cover;
-    border-radius: 6px;
     flex: 0 0 auto;
+    transition-duration: 0.3s;
     border: 1px solid var(--line);
 }
 
@@ -322,4 +320,20 @@ h2 {
     max-height: none;
     vertical-align: middle;
     transform-origin: center;
+}
+
+@media (max-width: 799px) {
+    .post-hero {
+        height: 250px;
+    }
+
+    .post-card:hover .post-card-image {
+        transform: none;
+    }
+
+    .post-card-image {
+        width: 90px;
+        height: 55px;
+        transition: none;
+    }
 }
