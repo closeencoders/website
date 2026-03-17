@@ -57,11 +57,11 @@ a {
 
 .section p {
     padding-bottom: 10px;
-    text-align: justify;
+    /* text-align: justify;
     letter-spacing: 0.01em;
-    word-spacing: -0.05em;
+    word-spacing: -0.05em; */
     /* text-justify: inter-word; */
-    hyphens: auto;
+    /* hyphens: auto; */
     line-height: 1.5;
 }
 
