@@ -52,6 +52,7 @@ a {
 
 .section a {
     color: cornflowerblue;
+    text-decoration: underline;
 }
 
 .section p {
@@ -62,10 +63,6 @@ a {
     /* text-justify: inter-word; */
     hyphens: auto;
     line-height: 1.5;
-}
-
-.section a {
-    text-decoration: underline;
 }
 
 .site-footer {
