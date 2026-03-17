@@ -12,7 +12,7 @@
 
 body {
     margin: 0;
-    font: 1.1rem Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
+    font: 1.1rem Arial, "Helvetica Neue", Helvetica, sans-serif;
     background: var(--bg);
     color: var(--text);
 }
@@ -50,8 +50,17 @@ a {
     padding: 20px 0;
 }
 
+.section a {
+    color: cornflowerblue;
+}
+
 .section p {
     padding-bottom: 10px;
+    text-align: justify;
+    letter-spacing: 0.01em;
+    word-spacing: -0.05em;
+    /* text-justify: inter-word; */
+    hyphens: auto;
     line-height: 1.5;
 }
 
