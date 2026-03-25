@@ -61,7 +61,7 @@
         const title = post.title || post.slug || "Untitled";
         const description = post.description || "";
         const image = post.image || "";
-        const dateStr = new Date(post.date).toLocaleDateString()
+        const dateStr = new Date(post.date).toISOString().split('T')[0];
         console.log(dateStr)
         return `
             <a class="post-card" href="${post.url}">
