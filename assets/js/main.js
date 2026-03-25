@@ -48,17 +48,27 @@
       return;
     }
 
+    // TODO: This is a bit ghetto and need to be option and faster
+    const compareDates = (a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB - dateA;
+    };
+    posts = posts.sort(compareDates);
+
     const items = posts
       .map((post) => {
         const title = post.title || post.slug || "Untitled";
         const description = post.description || "";
         const image = post.image || "";
+        const dateStr = new Date(post.date).toLocaleDateString()
+        console.log(dateStr)
         return `
             <a class="post-card" href="${post.url}">
               ${image ? `<img class="post-card-image" src="${image}" alt="">` : ""}
               <span class="post-card-text">
                 ${title}
-                <small class="muted">${post.date} - ${description ? `${description}` : ""}</small>
+                <small class="muted">${dateStr} ${description ? `${description}` : ""}</small>
               </span>
             </a>
         `;
