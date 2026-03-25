@@ -5,7 +5,8 @@
     --line: #eaeaea;
     --card: #f7f7f7;
     --accent: #111111;
-    --accent-soft: #f0f0f0;
+    --accent-light: #f3f3f3;
+    --accent-soft: #dedede;
     --logo-size: 4rem;
     --max: 960px;
 }
@@ -28,7 +29,7 @@ a {
     justify-content: center;
     border: none;
     border-radius: 5px;
-    background: transparent;
+    background: var(--accent-light);
     color: var(--text);
     cursor: pointer;
 }
