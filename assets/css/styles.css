@@ -107,6 +107,14 @@ a {
     justify-content: flex-end;
 }
 
+.posts-search .btn {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.posts-search img {
+    width: inherit;
+}
+
 .posts-search-row {
     gap: 5px;
     flex-wrap: wrap;
@@ -130,13 +138,6 @@ a {
 
 .posts-search.is-open #posts-search-toggle {
     display: none;
-}
-
-#posts-search-toggle,
-#posts-search-button,
-#posts-reset-button {
-    width: 44px;
-    height: 44px;
 }
 
 #posts-search-input {

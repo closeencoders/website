@@ -62,7 +62,6 @@
         const description = post.description || "";
         const image = post.image || "";
         const dateStr = new Date(post.date).toISOString().split('T')[0];
-        console.log(dateStr)
         return `
             <a class="post-card" href="${post.url}">
               ${image ? `<img class="post-card-image" src="${image}" alt="">` : ""}
@@ -115,25 +114,30 @@
       button.addEventListener("click", runSearch);
     }
 
-    if (reset) {
+    if (reset && panel && input) {
       reset.addEventListener("click", () => {
         input.value = "";
         applySearch("");
+        toggleSearch(toggle, panel, input);
       });
     }
 
-    if (toggle && panel) {
+    if (toggle && panel && input) {
       toggle.addEventListener("click", () => {
-        const container = toggle.closest(".posts-search");
-        const isOpen = panel.classList.toggle("is-open");
-        panel.setAttribute("aria-hidden", isOpen ? "false" : "true");
-        if (container) {
-          container.classList.toggle("is-open", isOpen);
-        }
-        if (isOpen) {
-          input.focus();
-        }
+        toggleSearch(toggle, panel, input);
       });
+    }
+  };
+
+  const toggleSearch = (toggle, panel, input) => {
+    const container = toggle.closest(".posts-search");
+    const isOpen = panel.classList.toggle("is-open");
+    panel.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    if (container) {
+      container.classList.toggle("is-open", isOpen);
+    }
+    if (isOpen) {
+      input.focus();
     }
   };
 
