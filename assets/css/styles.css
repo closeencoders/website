@@ -365,10 +365,6 @@ nav a {
 }
 
 @media (max-width: 799px) {
-    .post-hero {
-        height: 250px;
-    }
-
     .post-card:hover img {
         transform: none;
     }

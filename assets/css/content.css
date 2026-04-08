@@ -26,3 +26,9 @@
     object-fit: cover;
     object-position: center;
 }
+
+@media (max-width: 720px) {
+    .post-hero {
+        height: 300px;
+    }
+}
