@@ -6,221 +6,177 @@
     searchCount: 0,
     lastSearchAt: 0,
   };
+
+  const CONFIG = {
+    MIN_QUERY_LEN: 3,
+    SEARCH_MIN_INTERVAL_MS: 750,
+    SEARCH_WINDOW_MS: 5000,
+    SEARCH_MAX_PER_WINDOW: 20,
+    DATA_URL: "/data/posts.json"
+  };
+
   const getEl = (id) => document.getElementById(id);
 
-  const initPage = () => {
-    setupPostSearch();
-    void injectPosts();
+  const isHomePage = () => {
+    const path = window.location.pathname;
+    const isHome = path === "/" || path === "/index.html" || path.endsWith("/index.html");
+    return isHome;
+  };
+
+  const updateUI = (html) => {
+    const target = getEl("posts-list");
+    if (target) target.innerHTML = html;
+  };
+
+  const renderPostsMessage = (msg) => {
+    updateUI(`<p>${msg}</p>`);
+  };
+
+  const updateQueryParam = (value) => {
+    const url = new URL(window.location.href);
+    value ? url.searchParams.set("q", value) : url.searchParams.delete("q");
+    window.history.replaceState({}, "", url);
   };
 
   const injectPosts = async () => {
     const target = getEl("posts-space");
-    if (!target) {
-      return;
-    }
+    if (!target) return
 
     try {
-      const response = await fetch("/data/posts.json", { cache: "no-store" });
-      if (!response.ok) {
-        throw new Error(`Failed to load posts: ${response.status}`);
-      }
+      const response = await fetch(CONFIG.DATA_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error(`Status: ${response.status}`);
+      
       const posts = await response.json();
       if (!Array.isArray(posts) || posts.length === 0) {
-        target.innerHTML = "<p>No posts yet.</p>";
-        return;
+        return renderPostsMessage("No posts yet.");
       }
+
       state.posts = posts;
       state.postsLoaded = true;
       applySearch();
     } catch (error) {
-      console.error(error);
+      console.error("Load failed:", error);
     }
   };
 
   const renderPosts = (posts) => {
-    const target = getEl("posts-list");
-    if (!target) {
-      return;
-    }
+    if (!posts?.length) return renderPostsMessage("No posts found.");
 
-    if (!posts || posts.length === 0) {
-      target.innerHTML = "<p>No posts found.</p>";
-      return;
-    }
-
-    // TODO: This is a bit ghetto and need to be option and faster
-    const compareDates = (a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB - dateA;
-    };
-    posts = posts.sort(compareDates);
-
-    const items = posts
+    const items = [...posts]
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
       .map((post) => {
         const title = post.title || post.slug || "Untitled";
-        const description = post.description || "";
-        const image = post.image || "";
         const dateStr = new Date(post.date).toISOString().split('T')[0];
         return `
-            <a class="post-card" href="${post.url}">
-              ${image ? `<img class="post-card-image" src="${image}" alt="">` : ""}
-              <span class="post-card-text">
-                ${title}
-                <small class="muted">${dateStr} ${description ? `${description}` : ""}</small>
-              </span>
-            </a>
-        `;
-      })
-      .join("");
+          <a class="post-card" href="${post.url}">
+            ${post.image ? `<img class="post-card-image" src="${post.image}" alt="">` : ""}
+            <div class="post-card-text">
+              <h2>${title}</h2>${dateStr} ${post.description || ""}
+            </div>
+          </a>`;
+      }).join("");
 
-    target.innerHTML = items;
+    updateUI(items);
   };
 
-  const filterPosts = (query) => {
-    const lowered = query.toLowerCase();
-    return state.posts.filter((post) => {
-      const title = (post.title || "").toLowerCase();
-      const description = (post.description || "").toLowerCase();
-      const slug = (post.slug || "").toLowerCase();
-      return (
-        title.includes(lowered) ||
-        description.includes(lowered) ||
-        slug.includes(lowered)
-      );
-    });
-  };
-
-  const setupPostSearch = () => {
-    const input = getEl("posts-search-input");
-    const button = getEl("posts-search-button");
-    const reset = getEl("posts-reset-button");
-    const toggle = getEl("posts-search-toggle");
-    const panel = document.querySelector(".posts-search-panel");
-    if (!input) {
-      return;
+  const canRunSearch = () => {
+    const now = Date.now();
+    if (now - state.lastSearchAt < CONFIG.SEARCH_MIN_INTERVAL_MS) {
+      return false;
     }
 
-    const runSearch = () => applySearch(input.value);
-
-    input.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        runSearch();
-      }
-    });
-
-    if (button) {
-      button.addEventListener("click", runSearch);
+    if (!state.searchWindowStart || (now - state.searchWindowStart > CONFIG.SEARCH_WINDOW_MS)) {
+      state.searchWindowStart = now;
+      state.searchCount = 0;
     }
 
-    if (reset && panel && input) {
-      reset.addEventListener("click", () => {
-        input.value = "";
-        applySearch("");
-        toggleSearch(toggle, panel, input);
-      });
-    }
-
-    if (toggle && panel && input) {
-      toggle.addEventListener("click", () => {
-        toggleSearch(toggle, panel, input);
-      });
-    }
-  };
-
-  const toggleSearch = (toggle, panel, input) => {
-    const container = toggle.closest(".posts-search");
-    const isOpen = panel.classList.toggle("is-open");
-    panel.setAttribute("aria-hidden", isOpen ? "false" : "true");
-    if (container) {
-      container.classList.toggle("is-open", isOpen);
-    }
-    if (isOpen) {
-      input.focus();
-    }
+    state.lastSearchAt = now;
+    const allowed = ++state.searchCount <= CONFIG.SEARCH_MAX_PER_WINDOW;
+    return allowed;
   };
 
   const applySearch = (rawQuery) => {
-    const isManual = rawQuery !== undefined;
-    const query = (rawQuery ?? getQueryParam("q")).trim();
+    const query = (rawQuery ?? new URLSearchParams(window.location.search).get("q") ?? "").trim();
     const input = getEl("posts-search-input");
     if (input) input.value = query;
 
+    const isShort = query.length > 0 && query.length < CONFIG.MIN_QUERY_LEN;
+    const isManualAction = rawQuery !== undefined;
+
+    // REDIRECT LOGIC
     if (!isHomePage()) {
-      const url = query ? `/?q=${encodeURIComponent(query)}` : "/";
-      window.location.href = url;
+      if (isManualAction) {
+        if (isShort) {
+          return renderPostsMessage("Less than 3 characters, too many potential results.");
+        }
+        const targetUrl = query ? `/?q=${encodeURIComponent(query)}` : "/";
+        window.location.href = targetUrl;
+      }
       return;
     }
+
+    // HOME PAGE LOGIC
     if (!state.postsLoaded) {
       return;
     }
 
     if (!query) {
-      renderPosts(state.posts);
       updateQueryParam("");
-      return;
+      return renderPosts(state.posts);
     }
 
-    if (isManual && query.length < 3) {
-      renderPostsMessage("Less than 3 characters, too many potential results.");
+    if (isShort) {
       updateQueryParam("");
-      return;
+      return renderPostsMessage("Less than 3 characters, too many potential results.");
     }
 
-    if (!canRunSearch()) {
-      return;
+    if (canRunSearch()) {
+      const lowered = query.toLowerCase();
+      const filtered = state.posts.filter(p => 
+        (p.title || "").toLowerCase().includes(lowered) || 
+        (p.description || "").toLowerCase().includes(lowered)
+      );
+      renderPosts(filtered);
+      updateQueryParam(query);
     }
-
-    renderPosts(filterPosts(query));
-    updateQueryParam(query);
   };
 
-  const renderPostsMessage = (message) => {
-    const target = getEl("posts-list");
-    if (target) target.innerHTML = `<p>${message}</p>`;
+  const toggleSearch = (toggle, panel, input) => {
+    const isOpen = panel.classList.toggle("is-open");
+    panel.setAttribute("aria-hidden", !isOpen);
+    toggle.closest(".posts-search")?.classList.toggle("is-open", isOpen);
+    if (isOpen) {
+      input.focus();
+    }
   };
 
-  const getQueryParam = (key) =>
-    new URLSearchParams(window.location.search).get(key) || "";
+  const setupPostSearch = () => {
+    const input = getEl("posts-search-input");
+    const toggle = getEl("posts-search-toggle");
+    const panel = document.querySelector(".posts-search-panel");
+    const run = () => {
+      applySearch(input.value);
+    };
 
-  const updateQueryParam = (value) => {
-    const url = new URL(window.location.href);
-    if (!value) {
-      url.searchParams.delete("q");
-    } else {
-      url.searchParams.set("q", value);
+    input.addEventListener("keydown", e => e.key === "Enter" && (e.preventDefault(), run()));
+    getEl("posts-search-button")?.addEventListener("click", run);
+
+    if (toggle && panel) {
+      toggle.addEventListener("click", () => toggleSearch(toggle, panel, input));
+      getEl("posts-reset-button")?.addEventListener("click", () => {
+        input.value = "";
+        applySearch("");
+        toggleSearch(toggle, panel, input);
+      });
     }
-    window.history.replaceState({}, "", url);
   };
 
-  const isHomePage = () =>
-    window.location.pathname === "/" ||
-    window.location.pathname.endsWith("/index.html");
-
-  const SEARCH_MIN_INTERVAL_MS = 750;
-  const SEARCH_WINDOW_MS = 5000;
-  const SEARCH_MAX_PER_WINDOW = 20;
-
-  const canRunSearch = () => {
-    const now = Date.now();
-    const sinceLast = now - state.lastSearchAt;
-    if (sinceLast < SEARCH_MIN_INTERVAL_MS) {
-      return false;
-    }
-    const windowAge = now - state.searchWindowStart;
-    if (!state.searchWindowStart || windowAge > SEARCH_WINDOW_MS) {
-      state.searchWindowStart = now;
-      state.searchCount = 0;
-    }
-    state.searchCount += 1;
-    state.lastSearchAt = now;
-    return state.searchCount <= SEARCH_MAX_PER_WINDOW;
+  const init = () => {
+    setupPostSearch();
+    void injectPosts();
   };
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initPage);
-  } else {
-    initPage();
-  }
+  document.readyState === "loading" 
+    ? document.addEventListener("DOMContentLoaded", init) 
+    : init();
 })();
