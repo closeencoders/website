@@ -1,0 +1,28 @@
+.post-header {
+    padding-top: 100px;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.post-header h1,
+.post-header p {
+    margin: 0;
+}
+
+.post-hero,
+.post-hero img {
+    width: 100%;
+    display: block;
+}
+
+.post-hero {
+    height: 550px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.post-hero img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
