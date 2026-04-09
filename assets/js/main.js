@@ -1,66 +1,152 @@
-(() => {
-  const state = {
-    posts: [],
-    postsLoaded: false,
-    searchWindowStart: 0,
-    searchCount: 0,
-    lastSearchAt: 0,
-  };
+class PostManager {
+  constructor(config = {}) {
 
-  const CONFIG = {
-    MIN_QUERY_LEN: 3,
-    SEARCH_MIN_INTERVAL_MS: 750,
-    SEARCH_WINDOW_MS: 5000,
-    SEARCH_MAX_PER_WINDOW: 20,
-    DATA_URL: "/data/posts.json",
-    SEARCH_PAGE_PATH: "/search/"
-  };
+    this.CONFIG = {
+      MIN_QUERY_LEN: 3,
+      SEARCH_MIN_INTERVAL_MS: 750,
+      SEARCH_WINDOW_MS: 5000,
+      SEARCH_MAX_PER_WINDOW: 20,
+      DATA_URL: "/data/posts.json",
+      SEARCH_PAGE_PATH: "/search/",
+      ...config
+    };
 
-  const getEl = (id) => document.getElementById(id);
+    this.state = {
+      posts: [],
+      postsLoaded: false,
+      searchWindowStart: 0,
+      searchCount: 0,
+      lastSearchAt: 0,
+    };
 
-  const isSearchPage = () => {
+    this.init();
+  }
+
+  init() {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => this.setup());
+    } else {
+      this.setup();
+    }
+  }
+
+  setup() {
+    this.setupEventListeners();
+    this.fetchAndInjectPosts();
+    this.handleNavigationState();
+  }
+
+  getEl(id) {
+    return document.getElementById(id);
+  }
+
+  isSearchPage() {
     const path = window.location.pathname;
-    return path === CONFIG.SEARCH_PAGE_PATH || path === `${CONFIG.SEARCH_PAGE_PATH}index.html`;
-  };
+    return path === this.CONFIG.SEARCH_PAGE_PATH || path === `${this.CONFIG.SEARCH_PAGE_PATH}index.html`;
+  }
 
-  const updateUI = (html) => {
-    const target = getEl("posts-list");
+  updateUI(html) {
+    const target = this.getEl("posts-list");
     if (target) target.innerHTML = html;
-  };
+  }
 
-  const renderPostsMessage = (msg) => {
-    updateUI(`<p>${msg}</p>`);
-  };
+  renderMessage(msg) {
+    this.updateUI(`<p>${msg}</p>`);
+  }
 
-  const updateQueryParam = (value) => {
+  updateQueryParam(value) {
     const url = new URL(window.location.href);
     value ? url.searchParams.set("q", value) : url.searchParams.delete("q");
     window.history.replaceState({}, "", url);
-  };
+  }
 
-  const injectPosts = async () => {
-    const target = getEl("posts-space");
+  /**
+   * DATA HANDLING
+   */
+  async fetchAndInjectPosts() {
+    const target = this.getEl("posts-space");
     if (!target) return;
 
     try {
-      const response = await fetch(CONFIG.DATA_URL, { cache: "no-store" });
+      const response = await fetch(this.CONFIG.DATA_URL, { cache: "no-store" });
       if (!response.ok) throw new Error(`Status: ${response.status}`);
-      
+
       const posts = await response.json();
       if (!Array.isArray(posts) || posts.length === 0) {
-        return renderPostsMessage("No posts yet.");
+        return this.renderMessage("No posts yet.");
       }
 
-      state.posts = posts;
-      state.postsLoaded = true;
-      applySearch();
+      this.state.posts = posts;
+      this.state.postsLoaded = true;
+      this.applySearch(); // Initial search application based on URL
     } catch (error) {
       console.error("Load failed:", error);
     }
-  };
+  }
 
-  const renderPosts = (posts) => {
-    if (!posts?.length) return renderPostsMessage("No posts found.");
+  canRunSearch() {
+    const now = Date.now();
+    if (now - this.state.lastSearchAt < this.CONFIG.SEARCH_MIN_INTERVAL_MS) return false;
+
+    if (!this.state.searchWindowStart || (now - this.state.searchWindowStart > this.CONFIG.SEARCH_WINDOW_MS)) {
+      this.state.searchWindowStart = now;
+      this.state.searchCount = 0;
+    }
+
+    this.state.lastSearchAt = now;
+    return ++this.state.searchCount <= this.CONFIG.SEARCH_MAX_PER_WINDOW;
+  }
+
+  applySearch(rawQuery) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryFromUrl = urlParams.get("q") || "";
+    const query = (rawQuery !== undefined ? rawQuery : queryFromUrl).trim();
+
+    const input = this.getEl("posts-search-input");
+    if (input && rawQuery === undefined) input.value = query;
+
+    const isManualAction = rawQuery !== undefined;
+
+    // REDIRECT LOGIC: If not on search page and user typed something, go to search page
+    if (!this.isSearchPage() && isManualAction) {
+      const targetUrl = query
+        ? `${this.CONFIG.SEARCH_PAGE_PATH}?q=${encodeURIComponent(query)}`
+        : this.CONFIG.SEARCH_PAGE_PATH;
+      window.location.href = targetUrl;
+      return;
+    }
+
+    if (!this.state.postsLoaded) return;
+
+    // On Home: Show everything
+    if (!this.isSearchPage()) {
+      return this.renderPosts(this.state.posts);
+    }
+
+    // On Search Page: Logic for filtering
+    if (!query) {
+      this.updateQueryParam("");
+      return this.renderPosts(this.state.posts);
+    }
+
+    if (query.length < this.CONFIG.MIN_QUERY_LEN) {
+      this.updateQueryParam("");
+      return this.renderMessage("Search term too short.");
+    }
+
+    if (this.canRunSearch()) {
+      const lowered = query.toLowerCase();
+      const filtered = this.state.posts.filter(p =>
+        (p.title || "").toLowerCase().includes(lowered) ||
+        (p.description || "").toLowerCase().includes(lowered)
+      );
+      this.renderPosts(filtered);
+      this.updateQueryParam(query);
+    }
+  }
+
+  renderPosts(posts) {
+    if (!posts?.length) return this.renderMessage("No posts found.");
 
     const items = [...posts]
       .sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -76,106 +162,91 @@
           </a>`;
       }).join("");
 
-    updateUI(items);
-  };
+    this.updateUI(items);
+  }
 
-  const canRunSearch = () => {
-    const now = Date.now();
-    if (now - state.lastSearchAt < CONFIG.SEARCH_MIN_INTERVAL_MS) return false;
-    if (!state.searchWindowStart || (now - state.searchWindowStart > CONFIG.SEARCH_WINDOW_MS)) {
-      state.searchWindowStart = now;
-      state.searchCount = 0;
-    }
-    state.lastSearchAt = now;
-    return ++state.searchCount <= CONFIG.SEARCH_MAX_PER_WINDOW;
-  };
-
-  const applySearch = (rawQuery) => {
-    const queryFromUrl = new URLSearchParams(window.location.search).get("q") || "";
-    const query = (rawQuery !== undefined ? rawQuery : queryFromUrl).trim();
-    
-    const input = getEl("posts-search-input");
-    if (input && rawQuery === undefined) input.value = query;
-
-    const isManualAction = rawQuery !== undefined;
-
-    // REDIRECT LOGIC
-    if (!isSearchPage() && isManualAction) {
-      const targetUrl = query ? `${CONFIG.SEARCH_PAGE_PATH}?q=${encodeURIComponent(query)}` : CONFIG.SEARCH_PAGE_PATH;
-      window.location.href = targetUrl;
-      return;
-    }
-
-    if (!state.postsLoaded) return;
-
-    // On Home: Show everything
-    if (!isSearchPage()) {
-      return renderPosts(state.posts);
-    }
-
-    // On Search: Filter
-    if (!query) {
-      updateQueryParam("");
-      return renderPosts(state.posts);
-    }
-
-    if (query.length < CONFIG.MIN_QUERY_LEN) {
-      updateQueryParam("");
-      return renderPostsMessage("Search term too short.");
-    }
-
-    if (canRunSearch()) {
-      const lowered = query.toLowerCase();
-      const filtered = state.posts.filter(p => 
-        (p.title || "").toLowerCase().includes(lowered) || 
-        (p.description || "").toLowerCase().includes(lowered)
-      );
-      renderPosts(filtered);
-      updateQueryParam(query);
-    }
-  };
-
-  // RE-ADDED: Toggle logic for opening/closing the search bar UI
-  const toggleSearch = (toggle, panel, input) => {
+  /**
+   * UI INTERACTIONS
+   */
+  toggleSearchUI(toggle, panel, input) {
     const isOpen = panel.classList.toggle("is-open");
     panel.setAttribute("aria-hidden", !isOpen);
     toggle.closest(".posts-search")?.classList.toggle("is-open", isOpen);
     if (isOpen) {
       input.focus();
     }
-  };
+  }
 
-  const setupPostSearch = () => {
-    const input = getEl("posts-search-input");
-    const toggle = getEl("posts-search-toggle");
+  setupEventListeners() {
+    const input = this.getEl("posts-search-input");
+    const toggle = this.getEl("posts-search-toggle");
     const panel = document.querySelector(".posts-search-panel");
-    const run = () => applySearch(input.value);
+    const searchBtn = this.getEl("posts-search-button");
+    const resetBtn = this.getEl("posts-reset-button");
 
-    input?.addEventListener("keydown", e => e.key === "Enter" && (e.preventDefault(), run()));
-    getEl("posts-search-button")?.addEventListener("click", run);
+    const runSearch = () => this.applySearch(input.value);
 
-    // Re-bind the toggle click event
+    // Search Execution
+    input?.addEventListener("keydown", e => e.key === "Enter" && (e.preventDefault(), runSearch()));
+    searchBtn?.addEventListener("click", runSearch);
+
+    // Toggle logic
     if (toggle && panel && input) {
-      toggle.addEventListener("click", () => toggleSearch(toggle, panel, input));
+      toggle.addEventListener("click", () => this.toggleSearchUI(toggle, panel, input));
     }
 
-    getEl("posts-reset-button")?.addEventListener("click", () => {
+    // Reset logic
+    resetBtn?.addEventListener("click", () => {
       if (input) input.value = "";
-      if (isSearchPage()) {
-        applySearch("");
+      if (this.isSearchPage()) {
+        this.applySearch("");
       } else if (toggle && panel && input) {
-        // If on home, just close the panel on reset
-        toggleSearch(toggle, panel, input);
+        this.toggleSearchUI(toggle, panel, input);
       }
     });
-  };
 
-  const init = () => {
-    setupPostSearch();
-    void injectPosts();
-  };
+    const burgerBtn = document.querySelector(".mobile-nav-burger");
+    if (burgerBtn) {
+      burgerBtn.addEventListener("click", () => this.toggleMobileNav());
+    }
+  }
 
-  document.readyState === "loading" 
-    ? document.addEventListener("DOMContentLoaded", init) 
-    : init();
-})();
+  handleNavigationState() {
+    const path = window.location.pathname;
+    let targetId = "home";
+    if (path !== "/" && path !== "") {
+      const match = path.match(/\/(about|social)/);
+      targetId = match ? match[1] : null;
+    }
+    document.querySelectorAll('.active').forEach(el => {
+      el.classList.remove('active');
+    });
+    if (targetId) {
+      const targetEl = this.getEl(targetId);
+      if (targetEl) {
+        targetEl.classList.add('active');
+      }
+    }
+  }
+
+  toggleMobileNav() {
+    const navItems = this.getEl("top-nav-items");
+    const burgerBtn = document.querySelector(".mobile-nav-burger");
+
+    if (!navItems) return;
+
+    // Toggle a class to handle visibility via CSS
+    const isExpanded = navItems.classList.toggle("is-active");
+
+    // Accessibility: Update aria-expanded if the button exists
+    if (burgerBtn) {
+      burgerBtn.setAttribute("aria-expanded", isExpanded);
+    }
+
+    // Optional: Prevent body scroll when menu is open
+    // document.body.style.overflow = isExpanded ? 'hidden' : '';
+  }
+}
+
+// Initialize the app
+const blogApp = new PostManager();

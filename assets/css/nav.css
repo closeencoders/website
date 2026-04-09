@@ -1,0 +1,158 @@
+.posts-search-panel {
+    background-color: var(--bg-color);
+    display: none;
+    width: 0;
+    flex: 1;
+}
+
+.posts-search-panel input {
+    color: var(--accent-soft) !important;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.wrap {
+    width: min(calc(100% - 32px), var(--max-width));
+    margin: 0 auto;
+}
+
+.header {
+    width: 100%;
+}
+
+.top-nav-items,
+.top-nav-constant,
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.top-nav-constant {
+    margin-right: auto;
+}
+
+.top-nav .logo {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.header .posts-search {
+    margin: 0;
+    align-self: center;
+}
+
+.posts-search,
+.posts-search-row {
+    display: flex;
+    align-items: center;
+}
+
+.top-nav .btn {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.posts-search-row {
+    gap: 3px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.posts-search-panel.is-open {
+    display: block;
+    width: 100%;
+}
+
+.posts-search.is-open #posts-search-toggle {
+    display: none;
+    width: 0;
+    visibility: hidden;
+}
+
+#posts-search-input {
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    height: 44px;
+}
+
+.logo img {
+    width: var(--logo-size);
+}
+
+.logo-spin {
+    transform-origin: 50% 50%;
+}
+
+@supports (transform-style: preserve-3d) {
+    .logo-spin {
+        animation: logo-spin 11s linear infinite;
+        transform-style: preserve-3d;
+    }
+
+    @keyframes logo-spin {
+        from {
+            transform: perspective(500px) rotateY(0deg);
+        }
+
+        to {
+            transform: perspective(500px) rotateY(360deg);
+        }
+    }
+}
+
+.mobile-nav-burger {
+    visibility: hidden;
+    display: none;
+}
+
+#top-nav-items.is-active {
+    display: flex;
+}
+
+@media (max-width: 640px) {
+
+    .top-nav,
+    .top-nav-items {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .nav-item {
+        padding: 10px;
+    }
+
+    .top-nav-items {
+        padding: 15px;
+    }
+
+    .top-nav-constant {
+        width: 100%;
+    }
+
+    .mobile-nav-burger {
+        visibility: visible;
+        display: flex;
+    }
+
+    #top-nav-items {
+        display: none;
+    }
+}
+
+.active {
+    text-decoration: underline;
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 30px #fff;
+}
