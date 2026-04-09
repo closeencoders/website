@@ -27,7 +27,6 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
     min-height: 100dvh;
-    /* Overrides 100vh if supported, modern standard */
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -248,7 +247,7 @@ a {
 
 @supports (transform-style: preserve-3d) {
     .logo-spin {
-        animation: logo-spin 18s linear infinite;
+        animation: logo-spin 11s linear infinite;
         transform-style: preserve-3d;
     }
 
@@ -444,4 +443,12 @@ nav a {
 
 .share-icon:hover {
     fill: var(--accent-soft);
+}
+
+.no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }

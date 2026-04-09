@@ -68,10 +68,10 @@
         const title = post.title || post.slug || "Untitled";
         const dateStr = new Date(post.date).toISOString().split('T')[0];
         return `
-          <a class="post-card opacity-gradient glass-panel" href="${post.url}">
-            <div class="post-card-image">${post.image ? `<img src="${post.image}" alt="">` : ""}</div>
+          <a draggable="false" class="post-card opacity-gradient glass-panel" href="${post.url}">
+            <div class="post-card-image">${post.image ? `<img draggable="false" src="${post.image}" alt="">` : ""}</div>
             <div class="post-card-text">
-              <h2 class="broken-neon">${title}</h2>
+              <h2>${title}</h2>
               <p>${post.description || ""}</p>
             </div>
           </a>`;
