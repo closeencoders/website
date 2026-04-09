@@ -26,10 +26,13 @@
     -webkit-user-drag: none;
 }
 
+.home-overlap {
+    margin-top: -120px;
+}
+
 #posts-space {
     position: relative;
     z-index: 10;
-    margin-top: -120px;
 }
 
 .neon-text {
