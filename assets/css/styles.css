@@ -162,7 +162,7 @@ a {
 
 .post-card-image {
     display: flex;
-    width: 45%;
+    width: 38%;
     min-width: 300px;
     height: 220px;
     flex: 0 0 auto;
@@ -179,6 +179,11 @@ a {
 .post-card:hover {
     cursor: pointer;
     color: var(--accent-light);
+}
+
+.post-card h2 {
+    padding: 0;
+    margin: 0;
 }
 
 .post-card:hover h2 {
@@ -247,12 +252,11 @@ a {
     }
 
     .post-card-image {
-        width: 40%;
         transition: none;
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
     .post-card {
         flex-direction: column;
         padding: 1px 1px 15px 1px;
@@ -325,54 +329,54 @@ a {
 
 
 .social-tree-container {
-  max-width: 450px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
-  text-align: center;
-  color: #fff;
+    max-width: 450px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+    color: #fff;
 }
 
 .social-header h1 {
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  margin-top: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 1rem;
 }
 
 .social-header p {
-  font-size: 0.8rem;
-  color: #888;
-  margin-bottom: 2.5rem;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 2.5rem;
 }
 
 .social-links-tree {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .social-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 1.5rem;
-  text-decoration: none;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  position: relative;
-  overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .social-card:hover {
-  background: rgba(255, 255, 255, 1);
-  color: #000;
-  transform: translateX(5px);
-  border-color: #fff;
-  box-shadow: -5px 0px 0px #fff;
+    background: rgba(255, 255, 255, 1);
+    color: #000;
+    transform: translateX(5px);
+    border-color: #fff;
+    box-shadow: -5px 0px 0px #fff;
 }
 
 .social-tree-container.active {
-  border-left: 2px solid #909090;
-  padding-left: 2rem;
+    border-left: 2px solid #909090;
+    padding-left: 2rem;
 }

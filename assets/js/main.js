@@ -60,9 +60,6 @@ class PostManager {
     window.history.replaceState({}, "", url);
   }
 
-  /**
-   * DATA HANDLING
-   */
   async fetchAndInjectPosts() {
     const target = this.getEl("posts-space");
     if (!target) return;
@@ -78,7 +75,7 @@ class PostManager {
 
       this.state.posts = posts;
       this.state.postsLoaded = true;
-      this.applySearch(); // Initial search application based on URL
+      this.applySearch();
     } catch (error) {
       console.error("Load failed:", error);
     }
@@ -107,7 +104,7 @@ class PostManager {
 
     const isManualAction = rawQuery !== undefined;
 
-    // REDIRECT LOGIC: If not on search page and user typed something, go to search page
+    // If not on search page and user typed something, go to search page
     if (!this.isSearchPage() && isManualAction) {
       const targetUrl = query
         ? `${this.CONFIG.SEARCH_PAGE_PATH}?q=${encodeURIComponent(query)}`
@@ -165,9 +162,6 @@ class PostManager {
     this.updateUI(items);
   }
 
-  /**
-   * UI INTERACTIONS
-   */
   toggleSearchUI(toggle, panel, input) {
     const isOpen = panel.classList.toggle("is-open");
     panel.setAttribute("aria-hidden", !isOpen);
@@ -190,7 +184,6 @@ class PostManager {
     input?.addEventListener("keydown", e => e.key === "Enter" && (e.preventDefault(), runSearch()));
     searchBtn?.addEventListener("click", runSearch);
 
-    // Toggle logic
     if (toggle && panel && input) {
       toggle.addEventListener("click", () => this.toggleSearchUI(toggle, panel, input));
     }
@@ -234,19 +227,11 @@ class PostManager {
     const burgerBtn = document.querySelector(".mobile-nav-burger");
 
     if (!navItems) return;
-
-    // Toggle a class to handle visibility via CSS
     const isExpanded = navItems.classList.toggle("is-active");
-
-    // Accessibility: Update aria-expanded if the button exists
     if (burgerBtn) {
       burgerBtn.setAttribute("aria-expanded", isExpanded);
     }
-
-    // Optional: Prevent body scroll when menu is open
-    // document.body.style.overflow = isExpanded ? 'hidden' : '';
   }
 }
 
-// Initialize the app
 const blogApp = new PostManager();
