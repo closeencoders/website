@@ -293,11 +293,6 @@ a {
     gap: 14px;
 }
 
-.social-links a {
-    margin: 0;
-    display: inline-flex;
-    align-items: center;
-}
 
 .post-card {
     display: flex;
@@ -353,43 +348,16 @@ a {
     text-decoration: underline;
 }
 
-.social-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-}
-
-.social-links a {
-    gap: 8px;
-}
-
 .btn,
 .rights,
 .header p,
 .post-hero,
-.social-links,
-.social-links a {
-    user-select: none;
-}
 
 .btn,
 .rights {
     -webkit-user-drag: none;
 }
 
-.social-links a:hover {
-    color: var(--muted);
-}
-
-.social-links .social-icon {
-    width: 2.2rem;
-    height: 2.2rem;
-    display: inline-block;
-    flex: 0 0 auto;
-    vertical-align: middle;
-    transform-origin: center;
-}
 
 @media (max-width: 799px) {
     .post-card:hover img {
@@ -451,25 +419,20 @@ a {
 
 .share-container {
     display: flex;
-    gap: 1.5rem;
+    gap: .5rem;
     align-items: center;
-    padding: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
 .share-icon {
-    width: 24px;
-    height: 24px;
-    fill: var(--muted);
+    width: 40px;
+    height: 40px;
     display: inline-flex;
 }
 
 .share-icon svg {
-    width: 100%;
-    height: 100%;
-}
-
-.share-icon:hover {
-    fill: var(--accent-soft);
+    width: inherit
 }
 
 .no-select {
@@ -479,8 +442,6 @@ a {
     user-select: none;
     -webkit-user-drag: none;
 }
-
-
 
 .social-tree-container {
     max-width: 450px;
