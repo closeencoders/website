@@ -54,7 +54,6 @@ h6 {
 
 h1 {
     font-size: clamp(2.0rem, 8vw, 4rem);
-    /* Final override kept */
     line-height: 1;
     letter-spacing: -0.04em;
     padding-bottom: 10px;
@@ -62,7 +61,6 @@ h1 {
 
 h2 {
     font-size: 1.65rem;
-    /* Final override kept */
     letter-spacing: -0.01em;
 }
 
