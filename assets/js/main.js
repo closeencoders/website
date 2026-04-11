@@ -160,7 +160,7 @@ return `
     </div>
     <div class="post-card-text">
       <h2>${post.title}</h2>
-      <p>${post.description || ""}</p>
+      <p>${post.description || ""} <span>>>></span></p>
     </div>
   </a>
 </div>

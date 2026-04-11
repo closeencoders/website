@@ -284,6 +284,7 @@ a {
     container-type: inline-size;
     width: 100%;
 }
+
 /* 
 .card-wrapper:nth-child(3n+1) {
     grid-column: span 2;
@@ -340,9 +341,13 @@ a {
     transition: color 0.2s;
 }
 
-.post-card:hover h2 {
+.post-card:hover h2,
+.post-card:hover span {
     color: #fff;
     text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+}
+
+.post-card:hover h2 {
     text-decoration: underline;
 }
 
@@ -392,9 +397,11 @@ a {
 .glass {
     /* position: relative; */
     /* Remove mask-image from here to prevent blur artifacts */
-    background: rgba(255, 255, 255, 0.05); /* Lighter, cleaner glass base */
-    backdrop-filter: blur(10px); /* Increased for a more premium look */
-    
+    background: rgba(255, 255, 255, 0.05);
+    /* Lighter, cleaner glass base */
+    backdrop-filter: blur(10px);
+    /* Increased for a more premium look */
+
     /* This creates a cleaner hardware-accelerated layer */
     transform: translateZ(0);
     backface-visibility: hidden;
@@ -404,20 +411,16 @@ a {
 .glass,
 .opacity-gradient {
     /* Use 'mask-composite' or a more granular gradient for smoother steps */
-    -webkit-mask-image: linear-gradient(
-        to bottom, 
-        black 0%, 
-        black 40%, 
-        rgba(0, 0, 0, 0.8) 60%, 
-        rgba(0, 0, 0, 0) 100%
-    );
-    mask-image: linear-gradient(
-        to bottom, 
-        black 0%, 
-        black 40%, 
-        rgba(0, 0, 0, 0.8) 60%, 
-        rgba(0, 0, 0, 0) 100%
-    );
+    -webkit-mask-image: linear-gradient(to bottom,
+            black 0%,
+            black 40%,
+            rgba(0, 0, 0, 0.8) 60%,
+            rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom,
+            black 0%,
+            black 40%,
+            rgba(0, 0, 0, 0.8) 60%,
+            rgba(0, 0, 0, 0) 100%);
 }
 
 /* Optional: Add a subtle border to define the glass shape without blur-bleed */
@@ -426,7 +429,8 @@ a {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    mask-image: inherit; /* Matches the parent fade */
+    mask-image: inherit;
+    /* Matches the parent fade */
 }
 
 .share-container {
