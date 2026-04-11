@@ -12,8 +12,6 @@
 }
 
 html {
-    /* Layout & Box Model */
-    box-sizing: border-box;
     scrollbar-gutter: stable;
 
     background-color: var(--bg-color);
@@ -21,18 +19,9 @@ html {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
 
-    /* Rendering optimizations */
     text-rendering: optimizeSpeed;
-    /* 'optimizeLegibility' can cause lag on long blog posts */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-/* Ensure all elements respect the border-box set in html */
-*,
-::before,
-::after {
-    box-sizing: inherit;
 }
 
 body {
@@ -48,9 +37,8 @@ p {
 }
 
 h1 {
-    font-size: clamp(2.0rem, 8vw, 4rem);
+    font-size: clamp(2.0rem, 10vw, 3.4rem);
     line-height: 1;
-    letter-spacing: -0.04em;
     padding-bottom: 10px;
 }
 
@@ -274,7 +262,6 @@ a {
 
 .posts-list {
     display: grid;
-    /* auto-fill is often better for dynamic grids than auto-fit */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: minmax(220px, auto);
     gap: 1.5rem;
@@ -363,27 +350,20 @@ a {
     }
 }
 
-/* ... Keep your existing grid and nth-child logic ... */
-
 @media (max-width: 770px) {
     .posts-list {
-        /* Force the grid to only have one column */
         grid-template-columns: 1fr;
-        /* Allow rows to grow based on content */
         grid-auto-rows: auto;
     }
 
-    /* Reset the span so the first of every 3rd card doesn't try to span 2 columns */
     .card-wrapper:nth-child(3n+1) {
         grid-column: span 1;
     }
 
-    /* Optional: You can reduce the gap on mobile if it feels too loose */
     .posts-list {
         gap: 1rem;
     }
 
-    /* Clean up hovers for mobile/small cards */
     .post-card:hover img {
         transform: none;
     }
@@ -395,14 +375,8 @@ a {
 }
 
 .glass {
-    /* position: relative; */
-    /* Remove mask-image from here to prevent blur artifacts */
     background: rgba(255, 255, 255, 0.05);
-    /* Lighter, cleaner glass base */
     backdrop-filter: blur(10px);
-    /* Increased for a more premium look */
-
-    /* This creates a cleaner hardware-accelerated layer */
     transform: translateZ(0);
     backface-visibility: hidden;
     will-change: backdrop-filter;
@@ -410,7 +384,6 @@ a {
 
 .glass,
 .opacity-gradient {
-    /* Use 'mask-composite' or a more granular gradient for smoother steps */
     -webkit-mask-image: linear-gradient(to bottom,
             black 0%,
             black 40%,
@@ -423,14 +396,12 @@ a {
             rgba(0, 0, 0, 0) 100%);
 }
 
-/* Optional: Add a subtle border to define the glass shape without blur-bleed */
 .glass::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
     mask-image: inherit;
-    /* Matches the parent fade */
 }
 
 .share-container {
