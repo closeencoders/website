@@ -149,14 +149,22 @@ class PostManager {
       .sort((a, b) => new Date(b.date) - new Date(a.date))
       .map((post) => {
         const title = post.title || post.slug || "Untitled";
-        return `
-          <a draggable="false" class="post-card opacity-gradient glass-panel" href="${post.url}">
-            <div class="post-card-image">${post.image ? `<img draggable="false" src="${post.image}" alt="">` : ""}</div>
-            <div class="post-card-text">
-              <h2>${title}</h2>
-              <p>${post.description || ""}</p>
-            </div>
-          </a>`;
+return `
+<div class="card-wrapper">
+  <a draggable="false" class="post-card glass" href="${post.url}">
+    <div class="post-card-image">
+        <picture>
+          ${post.image ? `<source srcset="${post.image}" type="image/webp">` : ""}
+          <img src="/assets/img/large-logo.png" alt="${post.title}" loading="lazy">
+        </picture>
+    </div>
+    <div class="post-card-text">
+      <h2>${post.title}</h2>
+      <p>${post.description || ""}</p>
+    </div>
+  </a>
+</div>
+`;
       }).join("");
 
     this.updateUI(items);
