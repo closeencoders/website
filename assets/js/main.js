@@ -148,23 +148,10 @@ class PostManager {
     const items = [...posts]
       .sort((a, b) => new Date(b.date) - new Date(a.date))
       .map((post) => {
+        const dateOnly = post.date.split('T')[0];
         const title = post.title || post.slug || "Untitled";
-return `
-<div class="card-wrapper">
-  <a draggable="false" class="post-card glass" href="${post.url}">
-    <div class="post-card-image">
-        <picture>
-          ${post.image ? `<source srcset="${post.image}" type="image/webp">` : ""}
-          <img src="/assets/img/large-logo.png" alt="${post.title}" loading="lazy">
-        </picture>
-    </div>
-    <div class="post-card-text">
-      <h2>${post.title}</h2>
-      <p>${post.description || ""} <span>>>></span></p>
-    </div>
-  </a>
-</div>
-`;
+        return `<a draggable="false" class="post-card" href="${post.url}">${post.image ? `<img src="${post.image}" draggable="false" loading="lazy" alt="${title}">` : ""}
+            <div class="post-card-text"><h2>${title}</h2><span>${dateOnly}</span><p>${post.description || ""} <span>...</span></p></div></a>`;
       }).join("");
 
     this.updateUI(items);
