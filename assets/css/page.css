@@ -82,6 +82,14 @@
   z-index: 10;
 }
 
+.post-search {
+  padding-top: 10px;
+}
+.post-search h2 {
+  padding: 0;
+  margin: 0;
+}
+
 @keyframes shimmer {
   to {
     background-position: 100%;

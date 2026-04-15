@@ -117,13 +117,13 @@ class PostManager {
 
     // On Home: Show everything
     if (!this.isSearchPage()) {
-      return this.renderPosts(this.state.posts);
+      return this.renderHomePosts(this.state.posts);
     }
 
     // On Search Page: Logic for filtering
     if (!query) {
       this.updateQueryParam("");
-      return this.renderPosts(this.state.posts);
+      return this.renderSearchPosts(this.state.posts);
     }
 
     if (query.length < this.CONFIG.MIN_QUERY_LEN) {
@@ -137,21 +137,32 @@ class PostManager {
         (p.title || "").toLowerCase().includes(lowered) ||
         (p.description || "").toLowerCase().includes(lowered)
       );
-      this.renderPosts(filtered);
+      this.renderSearchPosts(filtered);
       this.updateQueryParam(query);
     }
   }
 
-  renderPosts(posts) {
+  renderSearchPosts(posts) {
     if (!posts?.length) return this.renderMessage("No posts found.");
+    const items = [...posts]
+      .map((post) => {
+        const dateOnly = post.date.split('T')[0];
+        const title = post.title || post.slug || "Untitled";
+        return `<a draggable="false" href="${post.url}"><h2>${title}</h2>${dateOnly}${post.tags ? " | " + post.tags + " | " : ""}${post.description + "..." || ""}</a>`;
+      }).join("");
 
+    this.updateUI(items);
+  }
+
+  renderHomePosts(posts) {
+    if (!posts?.length) return this.renderMessage("No posts found.");
     const items = [...posts]
       .sort((a, b) => new Date(b.date) - new Date(a.date))
       .map((post) => {
         const dateOnly = post.date.split('T')[0];
         const title = post.title || post.slug || "Untitled";
         return `<a draggable="false" class="post-card" href="${post.url}">${post.image ? `<img src="${post.image}" draggable="false" loading="lazy" alt="${title}">` : ""}
-            <div class="post-card-text"><h2>${title}</h2><span>${dateOnly}</span><p>${post.description || ""} <span>...</span></p></div></a>`;
+            <div class="post-card-text"><h2>${title}</h2><span>${dateOnly} ${post.tags ? "| " + post.tags : ""}</span><p>${post.description || ""} <span>...</span></p></div></a>`;
       }).join("");
 
     this.updateUI(items);
