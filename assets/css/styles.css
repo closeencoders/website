@@ -69,6 +69,9 @@ a {
   cursor: pointer;
 }
 
+.top-nav {
+  z-index: 100;
+}
 .top-nav-items,
 .top-nav-constant,
 .top-nav {
