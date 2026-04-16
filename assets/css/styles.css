@@ -46,11 +46,9 @@ h1 {
   line-height: 1;
   padding-bottom: 10px;
   font-weight: 800;
-  /* Emphasis: Extra Bold */
 }
 
 h2 {
-  /* Scales between 1.8rem and 2.4rem */
   font-size: clamp(1.8rem, 5vw, 2.4rem);
   line-height: 1.1;
   font-weight: 700;
@@ -73,11 +71,9 @@ h5 {
 }
 
 h6 {
-  /* Kept at 1.25rem to stay comfortably above 1.1rem */
   font-size: 1.25rem;
   font-weight: 600;
   text-transform: uppercase;
-  /* Optional: adds distinction for very small headings */
   letter-spacing: 0.05rem;
 }
 a {
