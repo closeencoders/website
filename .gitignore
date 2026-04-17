@@ -148,7 +148,6 @@ server*
 .obsidian
 /.obsiian
 
-
 /_scripts
 /_temp
 /_posts
@@ -158,3 +157,5 @@ server*
 /idea
 /.idea
 website.iml
+
+.slapstatic
