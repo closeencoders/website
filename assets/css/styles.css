@@ -14,8 +14,8 @@
   --bg-color: #181a1b;
   --text-color: #d5dade;
 
-  --max-width: 76rem;
-  --read-width: 51rem;
+  --max-width: 72rem;
+  --read-width: 45rem;
 }
 
 html {
@@ -242,13 +242,6 @@ a {
   text-underline-offset: 0.15em;
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: backdrop-filter;
-}
 .opacity-gradient {
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0) 100%);
   mask-image: linear-gradient(to bottom, black 0%, black 40%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0) 100%);

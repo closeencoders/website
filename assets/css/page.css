@@ -92,3 +92,67 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.banner {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: -85px;
+
+  height: 30vh;
+  min-height: 300px;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  background-image: url("/assets/img/main-banner.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  -webkit-mask-image: linear-gradient(to bottom,
+      black 0%,
+      rgba(0, 0, 0, 0.981) 8.6%,
+      rgba(0, 0, 0, 0.925) 16.3%,
+      rgba(0, 0, 0, 0.837) 23.5%,
+      rgba(0, 0, 0, 0.724) 30.5%,
+      rgba(0, 0, 0, 0.594) 37.7%,
+      rgba(0, 0, 0, 0.457) 45.5%,
+      rgba(0, 0, 0, 0.323) 54.3%,
+      rgba(0, 0, 0, 0.203) 64.7%,
+      rgba(0, 0, 0, 0.106) 77.4%,
+      rgba(0, 0, 0, 0.038) 92.4%,
+      transparent 100%);
+
+  mask-image: linear-gradient(to bottom,
+      black 0%,
+      rgba(0, 0, 0, 0.981) 8.6%,
+      rgba(0, 0, 0, 0.925) 16.3%,
+      rgba(0, 0, 0, 0.837) 23.5%,
+      rgba(0, 0, 0, 0.724) 30.5%,
+      rgba(0, 0, 0, 0.594) 37.7%,
+      rgba(0, 0, 0, 0.457) 45.5%,
+      rgba(0, 0, 0, 0.323) 54.3%,
+      rgba(0, 0, 0, 0.203) 64.7%,
+      rgba(0, 0, 0, 0.106) 77.4%,
+      rgba(0, 0, 0, 0.038) 92.4%,
+      transparent 100%);
+
+  text-shadow: var(--active-effect);
+  color: var(--active);
+}
+
+.banner-content {
+  text-align: center;
+}
