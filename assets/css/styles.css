@@ -31,12 +31,10 @@ body {
   min-height: 100dvh;
   overflow-x: hidden;
 }
-
 code {
   font-size: 12pt;
   padding: 8px;
 }
-
 p {
   font-size: 1.15rem;
   line-height: 1.7;
@@ -45,34 +43,21 @@ h1 {
   font-size: clamp(2rem, 10vw, 3.4rem);
   line-height: 1;
   padding-bottom: 10px;
-  font-weight: 800;
 }
-
 h2 {
   font-size: clamp(1.8rem, 5vw, 2.4rem);
-  line-height: 1.1;
-  font-weight: 700;
 }
-
 h3 {
   font-size: 1.80rem;
-  line-height: 1.2;
-  font-weight: 700;
 }
-
 h4 {
   font-size: 1.60rem;
-  font-weight: 600;
 }
-
 h5 {
   font-size: 1.40rem;
-  font-weight: 600;
 }
-
 h6 {
   font-size: 1.25rem;
-  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
 }
@@ -82,12 +67,11 @@ a {
 }
 
 .wrap {
-  width: min(calc(100% - 32px), var(--max-width));
+  width: min(calc(100% - 25px), var(--max-width));
   margin: 0 auto;
 }
 
 .btn {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
@@ -114,9 +98,10 @@ a {
   align-items: center;
   margin-right: auto;
 }
-.top-nav .btn {
-  width: 2.5rem;
-  height: 2.5rem;
+.top-nav .btn,
+.top-nav-items .btn {
+  width: 2rem;
+  height: 2rem;
 }
 
 .logo-spin {
@@ -126,45 +111,35 @@ a {
 .header {
   width: 100%;
   background-color: var(--bg-color);
-}
-.header .posts-search {
-  margin: 0;
-  align-self: center;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
 }
 
 .posts-search-panel {
+  display: flex;
   background-color: var(--bg-color);
-  display: none;
-  flex: 1;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .posts-search-panel input {
   color: var(--accent-soft) !important;
+  flex-grow: 1;
 }
-.posts-search,
-.posts-search-row {
-  display: flex;
-  align-items: center;
+.posts-search-panel .btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
 }
-.posts-search-row {
-  gap: 3px;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.posts-search-panel.is-open {
-  display: block;
-  width: 100%;
-}
-.posts-search.is-open #posts-search-toggle {
-  display: none;
-  width: 0;
-  visibility: hidden;
-}
+
 #posts-search-input {
   padding: 10px 12px;
   border: 1px solid var(--line);
   background: transparent;
   color: var(--text-color);
-  height: 44px;
+  height: 3rem;
+  margin: auto;
+  font-size: 14pt;
 }
 
 @supports (transform-style: preserve-3d) {

@@ -1,6 +1,5 @@
 class PostManager {
   constructor(config = {}) {
-
     this.CONFIG = {
       MIN_QUERY_LEN: 3,
       SEARCH_MIN_INTERVAL_MS: 750,
@@ -104,7 +103,6 @@ class PostManager {
 
     const isManualAction = rawQuery !== undefined;
 
-    // If not on search page and user typed something, go to search page
     if (!this.isSearchPage() && isManualAction) {
       const targetUrl = query
         ? `${this.CONFIG.SEARCH_PAGE_PATH}?q=${encodeURIComponent(query)}`
@@ -115,12 +113,8 @@ class PostManager {
 
     if (!this.state.postsLoaded) return;
 
-    // On Home: Show everything
-    if (!this.isSearchPage()) {
-      return this.renderHomePosts(this.state.posts);
-    }
+    if (!this.isSearchPage()) return;
 
-    // On Search Page: Logic for filtering
     if (!query) {
       this.updateQueryParam("");
       return this.renderSearchPosts(this.state.posts);
@@ -154,33 +148,8 @@ class PostManager {
     this.updateUI(items);
   }
 
-  renderHomePosts(posts) {
-    if (!posts?.length) return this.renderMessage("No posts found.");
-    const items = [...posts]
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
-      .map((post) => {
-        const dateOnly = post.date.split('T')[0];
-        const title = post.title || post.slug || "Untitled";
-        return `<a draggable="false" class="post-card" href="${post.url}">${post.image ? `<img src="${post.image}" draggable="false" loading="lazy" alt="${title}">` : ""}
-            <div class="post-card-text"><h2>${title}</h2><span>${dateOnly} ${post.tags ? "| " + post.tags : ""}</span><p>${post.description || ""} <span>...</span></p></div></a>`;
-      }).join("");
-
-    this.updateUI(items);
-  }
-
-  toggleSearchUI(toggle, panel, input) {
-    const isOpen = panel.classList.toggle("is-open");
-    panel.setAttribute("aria-hidden", !isOpen);
-    toggle.closest(".posts-search")?.classList.toggle("is-open", isOpen);
-    if (isOpen) {
-      input.focus();
-    }
-  }
-
   setupEventListeners() {
     const input = this.getEl("posts-search-input");
-    const toggle = this.getEl("posts-search-toggle");
-    const panel = document.querySelector(".posts-search-panel");
     const searchBtn = this.getEl("posts-search-button");
     const resetBtn = this.getEl("posts-reset-button");
 
@@ -190,17 +159,13 @@ class PostManager {
     input?.addEventListener("keydown", e => e.key === "Enter" && (e.preventDefault(), runSearch()));
     searchBtn?.addEventListener("click", runSearch);
 
-    if (toggle && panel && input) {
-      toggle.addEventListener("click", () => this.toggleSearchUI(toggle, panel, input));
-    }
-
     // Reset logic
     resetBtn?.addEventListener("click", () => {
-      if (input) input.value = "";
-      if (this.isSearchPage()) {
-        this.applySearch("");
-      } else if (toggle && panel && input) {
-        this.toggleSearchUI(toggle, panel, input);
+      if (input) {
+        input.value = "";
+        if (this.isSearchPage()) {
+          this.applySearch("");
+        }
       }
     });
 
@@ -217,14 +182,10 @@ class PostManager {
       const match = path.match(/\/(about|social)/);
       targetId = match ? match[1] : null;
     }
-    document.querySelectorAll('.active').forEach(el => {
-      el.classList.remove('active');
-    });
+    document.querySelectorAll('.active').forEach(el => el.classList.remove('active'));
     if (targetId) {
       const targetEl = this.getEl(targetId);
-      if (targetEl) {
-        targetEl.classList.add('active');
-      }
+      if (targetEl) targetEl.classList.add('active');
     }
   }
 

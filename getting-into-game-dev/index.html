@@ -1,1 +1,166 @@
-<!doctype html><html lang="en"><head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <base href="/"> <title>Learning Game Development as a Noob</title> <meta name="description" content="I want to make video games and know how they work at a deeper level. Not generate code and assets with an AI, or let a modern game engine do all the work"> <meta name="robots" content="index, follow"> <link rel="canonical" href="https://closeencoders.com/getting-into-game-dev"> <meta property="og:site_name" content="Close Encoders"> <meta property="og:type" content="article"> <meta property="og:title" content="Learning Game Development as a Noob"> <meta property="og:description" content="I want to make video games and know how they work at a deeper level. Not generate code and assets with an AI, or let a modern game engine do all the work"> <meta property="og:url" content="https://closeencoders.com/getting-into-game-dev"> <meta property="og:image" content="/assets/img/posts/2026/first-game-with-raylib-and-go.webp"> <meta property="og:image:alt" content="Learning Game Development as a Noob"> <meta property="article:published_time" content="2026-03-11 00:00:00 &#43;0000 UTC"> <meta property="article:author" content="@closeencoders"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:site" content="@closeencoders"> <meta name="twitter:creator" content="@closeencoders"> <meta name="twitter:title" content="Learning Game Development as a Noob"> <meta name="twitter:description" content="I want to make video games and know how they work at a deeper level. Not generate code and assets with an AI, or let a modern game engine do all the work"> <meta name="twitter:image" content="/assets/img/posts/2026/first-game-with-raylib-and-go.webp"> <meta name="twitter:image:alt" content="Learning Game Development as a Noob"> <link rel="icon" href="/favicon.webp" type="image/webp"> <link rel="stylesheet" href="/assets/css/styles.css"> <link rel="stylesheet" href="/assets/css/content.css"> <link rel="stylesheet" href="/assets/css/highlight/atom-one-dark-reasonable.css"> <script src="/assets/js/highlight/highlight.min.js"></script></head><body> <header class="header" data-nosnippet> <nav class="wrap top-nav"> <div class="top-nav-constant"> <a draggable="false" class="logo no-select" href="/"> <svg draggable="false" class="logo-spin no-select" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 600 600"> <path fill-rule="evenodd" stroke="#fff" stroke-width="6" d="m412 375 57 72 2 5-63 78h47l6-4 59-74-62-77Zm15-305 54 68v4l-63 78-1 3h53l66-80v-2l-57-70ZM218 177l-71 91v73l15 23 59 67h202l-49-61H246l-36-41 141-1 21-59-160-1 35-39h132l46-58H232ZM187 72l-21 16L61 221v167l102 129 16 11 195 2 49-62H201l-14-11-76-97-1-105 94-118 238-3-51-64Z"/> </svg> </a> <button class="btn mobile-nav-burger"> <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="4" y1="6" x2="20" y2="6"></line> <line x1="4" y1="12" x2="20" y2="12"></line> <line x1="4" y1="18" x2="20" y2="18"></line> </svg> </button> </div> <div id="top-nav-items" class="top-nav-items"> <a draggable="false" id="home" class="nav-item no-select" href="/">HOME</a> <a draggable="false" id="about" class="nav-item no-select" href="/about/">ABOUT</a> <div draggable="false" class="posts-search nav-item"> <button id="posts-search-toggle" class="btn" type="button" aria-label="Open search"> <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </button> <div class="posts-search-panel" aria-hidden="true"> <div class="posts-search-row"> <input id="posts-search-input" type="search" placeholder="Search posts..." autocomplete="off"> <button id="posts-search-button" class="btn" type="button" aria-label="Search posts"> <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </button> <button id="posts-reset-button" class="btn" type="button" aria-label="Reset search"> <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line> </svg> </button> </div> </div> </div> </div> </nav></header> <main class="wrap"> <article class="section"> <header class="post-header"> <h1>Learning Game Development as a Noob</h1> <p>2026-03-11</p> <div class="post-hero"> <picture> <source srcset="/assets/img/posts/2026/first-game-with-raylib-and-go.webp" type="image/webp"> <img src="/assets/img/large-logo.png" alt="Learning Game Development as a Noob" loading="lazy"> </picture> </div> </header> <div class="read-content"> <p>I want to make video games and know how they work at a deeper level.</p><p>Not generate code and assets with an AI, or let a modern <a href="https://en.wikipedia.org/wiki/Game_engine">game engine</a> do all the work, I want to understand what’s happening under the hood to feel like I’m getting my hands dirty before using more advanced tools. My hope is that other people do too, and if someone reads this, maybe they can learn from my mistakes.</p><p>In a previous life, I tried to make a few games in Java, but it always felt clunky, like the language was fighting me. Java would scream, “Where is my Jira ticket number and business requirements!?” as I forced it to loop through entities in some static factory thing. I’m sure that for some, Java is a great tool for making games, but it’s just not for me.</p><p>I wondered if making games was just not my cup of tea for a while, but the itch never really went away. It just looks so cool and rewarding.</p><h2>Trying New Things</h2><p>So I am trying to make the switch to another language that will let me mess around with <a href="https://www.raylib.com/">Raylib</a> and get the hang of the basics before I jump off the deep end.</p><p>The only real criteria was to loop through some assets and run update() and render() at 60fps in a simple 2D world for a bit without wasting a bunch of time. That’s all I want and could ever ask for. A bonus point if the language is general-purpose.</p><p>So, I took it into my own hands to waste my time instead and looked at C, C++, C#, Zig, Python, Odin, (took a peek at Jai), and even, despite the fact that I want to wait to use power tools <a href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html">GDScript</a> in something like <a href="https://godotengine.org/">Godot</a>.</p><p>I feel like I looked at everything and sucked at it. You name it. I never looked at the <a href="https://unity.com/">Unity</a> engine, though, I hope I don’t regret that.</p><h3>Landing on GO</h3><p>While Jai looks epic and writing C made me feel cool, I felt too incompetent to use them effectively (yet). So, after enough time passed, I landed on <a href="https://go.dev/">GO</a> of all things. I really want to give Jai a real try after it’s out of beta. I do enjoy a good <a href="https://www.youtube.com/@jblow888">Jonathan Blow</a> video or rant every once in a while too.</p><p>I originally disliked Go coming from Java. Using pointers and method receivers felt like jumping into a pool of ice water at first. However, as time went on, I kept gravitating back to the bizarrely simple, easy to read syntax, even with its quirks and repetitive not nil error checking.</p><pre><code class="language-go">if err != nil {    aaaahhhhh!}</code></pre><p>It just does what I need it to do without some weird pattern, straight to an .exe. I don’t need a Gradle build, a Maven repository, or to package a jar thingy in another thingy just because the thingy said so with an annotation that can’t load it into memory because your POJO is sad!</p><p>(Sorry, repressed feelings. Java is its own thing with pros and cons like any other language.)</p><p>I have more on my journey learning Go <a href="/getting-into-go">here</a></p><h3>Tools and Sites To Help Research</h3><p>Other tools I have found that let you research tools and preferences as you learn.</p><ul><li><a href="https://enginesdatabase.com/">Engines Database</a></li><li><a href="https://develop.games/#nav-tools">Develop Games</a></li></ul><h2>First Raylib + GO Game Tutorial</h2><p>I wanted a tutorial so simple it was painful. I landed on <a href="https://www.youtube.com/@jarreed0/videos">@jarreed</a>. In seven episodes, I had all the basics set up, Go with Raylib installed, a basic game loop, and some practice sprites to make your character walk around. I really wish he had continued the series. Sadly, there are not too many video Go + Raylib tutorials out there.</p><p>Using Raylib and Go has worked really well so far, but I can already see how difficult just a simple 2D game would be without a framework like Raylib or trying to build something even more complex without an out of the box engine like Godot.</p><p>I have more respect for the process now. The mistake I made here is going head first into tutorial h311. I broke out of it and started making my own projects on the side to build more real world skill, but that is only because I have been here before.</p><h2>My Biggest Mistake</h2><p>If you are in the same position as I am, trying to figure out what to do or how to build a game, my advice is not to worry about the tech stack or programming languages, within reason, of course.</p><p>My biggest mistake was bouncing around trying to use lots of different languages to try to make a game,  it was like tutorial hell, but worse. Take your primary language and dive deep into it to grasp the basics of what you’re trying to learn first, to see if you even want to do it.</p><p>I now understand and respect how insanely difficult it is to make a larger game, and I wish I had attempted to build more projects and gained that respect and built some additional skill sooner.</p><p>Even if you don’t know how to code yet, choose a general-purpose language and/or game engine that seems interesting to you. It matters far less than it seems in the beginning because you have no idea what you are doing anyways.</p> </div> </article> </main> <footer class="site-footer" data-nosnippet> <div class="wrap footer-inner"> <div class="social-container"> <a href="https://www.youtube.com/@CloseEncoders" target="_blank" class="social-icon"> <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <rect x="2" y="5" width="20" height="14" rx="4" ry="4" fill="black"/> <polygon points="9.2,8.6 16.8,12 9.2,15.4" fill="#ffffff"/> </svg> </a> <a href="https://www.instagram.com/closeencoders" target="_blank" class="social-icon"> <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <rect x="2" y="5" width="20" height="14" rx="4" ry="4" fill="black"/> <rect x="7" y="7.5" width="10" height="9" rx="2" ry="2" fill="none" stroke="#ffffff" stroke-width="1.5"/> <circle cx="12" cy="12" r="2.2" fill="none" stroke="#ffffff" stroke-width="1.5"/> <circle cx="15.2" cy="9.3" r="0.8" fill="#ffffff"/> </svg> </a> <a href="https://x.com/closeencoders" target="_blank" class="social-icon"> <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <rect x="2" y="5" width="20" height="14" rx="4" ry="4" fill="black"/> <path d="M13.1,11.1l4.3-4.7h-1l-3.8,4.1l-3-4.1H6l4.6,6.2l-4.7,5h1.1l4.1-4.4l3.3,4.4H18L13.1,11.1z M7.6,7.2h1.6l7.2,9.7h-1.6L7.6,7.2z" fill="#ffffff"/> </svg> </a> <a href="https://www.pinterest.com/closeencoders" target="_blank" class="social-icon"> <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <rect x="2" y="5" width="20" height="14" rx="4" ry="4" fill="black"/> <path d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z" fill="#ffffff" transform="translate(7.5 5.3) scale(0.024)"/> </svg> </a> </div> <small class="rights">© 2026 Close Encoders. All rights reserved. <br> <a href="/privacy/">Privacy</a> </small> </div></footer> <script src="/assets/js/main.js" defer></script> <script>hljs.highlightAll();</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+
+    <title>Learning Game Development as a Noob</title>
+    <meta name="description" content="I want to make video games and know how they work at a deeper level. I don&#39;t want to generate code and assets with an AI, or let a modern game engine do all the work">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://closeencoders.com/getting-into-game-dev">
+
+    <meta property="og:site_name" content="Close Encoders">
+    <meta property="og:type" content="">
+    <meta property="og:title" content="Learning Game Development as a Noob">
+    <meta property="og:description" content="I want to make video games and know how they work at a deeper level. I don&#39;t want to generate code and assets with an AI, or let a modern game engine do all the work">
+    <meta property="og:url" content="https://closeencoders.com/getting-into-game-dev">
+    <meta property="og:image" content="/assets/img/posts/2026/first-game-with-raylib-and-go.webp">
+    <meta property="og:image:alt" content="Learning Game Development as a Noob">
+
+    <meta property="article:published_time" content="2026-03-11 00:00:00 &#43;0000 UTC">
+    <meta property="article:author" content="@closeencoders">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@closeencoders">
+    <meta name="twitter:creator" content="@closeencoders">
+    <meta name="twitter:title" content="Learning Game Development as a Noob">
+    <meta name="twitter:description" content="I want to make video games and know how they work at a deeper level. I don&#39;t want to generate code and assets with an AI, or let a modern game engine do all the work">
+    <meta name="twitter:image" content="/assets/img/posts/2026/first-game-with-raylib-and-go.webp">
+    <meta name="twitter:image:alt" content="Learning Game Development as a Noob">
+
+    <link rel="icon" href="/favicon.webp" type="image/webp">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/highlight/atom-one-dark-reasonable.css">
+    <script src="/assets/js/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <header class="header" data-nosnippet>
+    <nav class="wrap top-nav">
+        <div class="top-nav-constant">
+            <a draggable="false" class="logo no-select" href="/">
+                <svg draggable="false" class="logo-spin no-select" xmlns="http://www.w3.org/2000/svg" width="64"
+                     height="64" viewBox="0 0 600 600">
+                    <path fill-rule="evenodd" stroke="#fff" stroke-width="6"
+                          d="m412 375 57 72 2 5-63 78h47l6-4 59-74-62-77Zm15-305 54 68v4l-63 78-1 3h53l66-80v-2l-57-70ZM218 177l-71 91v73l15 23 59 67h202l-49-61H246l-36-41 141-1 21-59-160-1 35-39h132l46-58H232ZM187 72l-21 16L61 221v167l102 129 16 11 195 2 49-62H201l-14-11-76-97-1-105 94-118 238-3-51-64Z"/>
+                </svg>
+            </a>
+            <button class="btn mobile-nav-burger">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div id="top-nav-items" class="top-nav-items">
+            <a draggable="false" id="home" class="nav-item no-select" href="/">HOME</a>
+            <a draggable="false" id="about" class="nav-item no-select" href="/about/">ABOUT</a>
+            <a draggable="false" class="btn posts-search nav-item" href="/search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </a>
+        </div>
+    </nav>
+</header>
+
+    <main class="wrap">
+        <article class="section">
+            <header class="post-header">
+                <h1>Learning Game Development as a Noob</h1>
+                <p>Posted Mar 11, 2026</p>
+                <div class="post-hero">
+                    <picture>
+                        <source srcset="/assets/img/posts/2026/first-game-with-raylib-and-go.webp" type="image/webp">
+                        <img src="/assets/img/large-logo.png" alt="Learning Game Development as a Noob" loading="lazy">
+                    </picture>
+                </div>
+            </header>
+            <div class="read-content">
+                <p>I want to make video games and know how they work at a deeper level.</p>
+<p>I don't want to generate code and assets with an AI, or let a modern <a href="https://en.wikipedia.org/wiki/Game_engine">game engine</a> do all the work, I want to understand what’s happening under the hood to feel like I’m getting my hands dirty before using more advanced tools. My hope is that other people do too, and if someone reads this, maybe they can learn from my mistakes.</p>
+<p>In a previous life, I tried to make a few games in Java, but it always felt clunky, like the language was fighting me. Java would scream, “Where is my Jira ticket number and business requirements!?” as I forced it to loop through entities in some static factory thing. I’m sure that for some, Java is a great tool for making games, but it’s just not for me.</p>
+<p>I wondered if making games was just not my cup of tea for a while, but the itch never really went away. It just looks so cool and rewarding.</p>
+<h2>Trying New Things</h2>
+<p>So I am trying to make the switch to another language that will let me mess around with <a href="https://www.raylib.com/">Raylib</a> and get the hang of the basics before I jump off the deep end.</p>
+<p>The only real criteria was to loop through some assets and run update() and render() at 60fps in a simple 2D world for a bit without wasting a bunch of time. That’s all I want and could ever ask for. A bonus point if the language is general-purpose.</p>
+<p>So, I took it into my own hands to waste my time instead and looked at C, C++, C#, Zig, Python, Odin, (took a peek at Jai), and even, despite the fact that I want to wait to use power tools <a href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html">GDScript</a> in something like <a href="https://godotengine.org/">Godot</a>.</p>
+<p>I feel like I looked at everything and sucked at it. You name it. I never looked at the <a href="https://unity.com/">Unity</a> engine, though, I hope I don’t regret that.</p>
+<h3>Landing on GO</h3>
+<p>While Jai looks epic and writing C made me feel cool, I felt too incompetent to use them effectively (yet). So, after enough time passed, I landed on <a href="https://go.dev/">GO</a> of all things. I really want to give Jai a real try after it’s out of beta. I do enjoy a good <a href="https://www.youtube.com/@jblow888">Jonathan Blow</a> video or rant every once in a while too.</p>
+<p>I originally disliked Go coming from Java. Using pointers and method receivers felt like jumping into a pool of ice water at first. However, as time went on, I kept gravitating back to the bizarrely simple, easy to read syntax, even with its quirks and repetitive not nil error checking.</p>
+<pre><code class="language-go">if err != nil {
+    aaaahhhhh!
+}
+</code></pre>
+<p>It just does what I need it to do without some weird pattern, straight to an .exe. I don’t need a Gradle build, a Maven repository, or to package a jar thingy in another thingy just because the thingy said so with an annotation that can’t load it into memory because your POJO is sad!</p>
+<p>(Sorry, repressed feelings. Java is its own thing with pros and cons like any other language.)</p>
+<p>I have more on my journey learning Go <a href="/getting-into-go">here</a></p>
+<h3>Tools and Sites To Help Research</h3>
+<p>Other tools I have found that let you research tools and preferences as you learn.</p>
+<ul>
+<li><a href="https://enginesdatabase.com/">Engines Database</a></li>
+<li><a href="https://develop.games/#nav-tools">Develop Games</a></li>
+</ul>
+<h2>First Raylib + GO Game Tutorial</h2>
+<p>I wanted a tutorial so simple it was painful. I landed on <a href="https://www.youtube.com/@jarreed0/videos">@jarreed</a>. In seven episodes, I had all the basics set up, Go with Raylib installed, a basic game loop, and some practice sprites to make your character walk around. I really wish he had continued the series. Sadly, there are not too many video Go + Raylib tutorials out there.</p>
+<p>Using Raylib and Go has worked really well so far, but I can already see how difficult just a simple 2D game would be without a framework like Raylib or trying to build something even more complex without an out of the box engine like Godot.</p>
+<p>I have more respect for the process now. The mistake I made here is going head first into tutorial h311. I broke out of it and started making my own projects on the side to build more real world skill, but that is only because I have been here before.</p>
+<h2>My Biggest Mistake</h2>
+<p>If you are in the same position as I am, trying to figure out what to do or how to build a game, my advice is not to worry about the tech stack or programming languages, within reason, of course.</p>
+<p>My biggest mistake was bouncing around trying to use lots of different languages to try to make a game,  it was like tutorial hell, but worse. Take your primary language and dive deep into it to grasp the basics of what you’re trying to learn first, to see if you even want to do it.</p>
+<p>I now understand and respect how insanely difficult it is to make a larger game, and I wish I had attempted to build more projects and gained that respect and built some additional skill sooner.</p>
+<p>Even if you don’t know how to code yet, choose a general-purpose language and/or game engine that seems interesting to you. It matters far less than it seems in the beginning because you have no idea what you are doing anyways.</p>
+
+            </div>
+        </article>
+    </main>
+    <footer class="site-footer" data-nosnippet>
+    <div class="wrap footer-inner">
+        <div class="social-container">
+            <a href="https://www.youtube.com/@CloseEncoders" target="_blank" class="social-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="5" width="20" height="14" rx="4" ry="4" fill="black"/>
+                    <polygon points="9.2,8.6 16.8,12 9.2,15.4" fill="#ffffff"/>
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/closeencoders" target="_blank" class="social-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="5" width="20" height="14" rx="4" ry="4" fill="black"/>
+                    <rect x="7" y="7.5" width="10" height="9" rx="2" ry="2" fill="none" stroke="#ffffff"
+                          stroke-width="1.5"/>
+                    <circle cx="12" cy="12" r="2.2" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+                    <circle cx="15.2" cy="9.3" r="0.8" fill="#ffffff"/>
+                </svg>
+            </a>
+            <a href="https://x.com/closeencoders" target="_blank" class="social-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="5" width="20" height="14" rx="4" ry="4" fill="black"/>
+                    <path d="M13.1,11.1l4.3-4.7h-1l-3.8,4.1l-3-4.1H6l4.6,6.2l-4.7,5h1.1l4.1-4.4l3.3,4.4H18L13.1,11.1z M7.6,7.2h1.6l7.2,9.7h-1.6L7.6,7.2z"
+                          fill="#ffffff"/>
+                </svg>
+            </a>
+            <a href="https://www.pinterest.com/closeencoders" target="_blank" class="social-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="5" width="20" height="14" rx="4" ry="4" fill="black"/>
+                    <path d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"
+                          fill="#ffffff" transform="translate(7.5 5.3) scale(0.024)"/>
+                </svg>
+            </a>
+        </div>
+        <small class="rights">© 2026 Close Encoders. All rights reserved.
+            <br>
+            <a href="/privacy/">Privacy</a>
+        </small>
+    </div>
+</footer>
+
+    <script src="/assets/js/main.js" defer></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
