@@ -35,17 +35,18 @@ code {
   font-size: 12pt;
   padding: 8px;
 }
-p {
-  font-size: 1.15rem;
+p, ul {
+  font-size: 1.2rem;
   line-height: 1.7;
 }
 h1 {
   font-size: clamp(2rem, 10vw, 3.4rem);
-  line-height: 1;
+  line-height: 1.1;
   padding-bottom: 10px;
 }
 h2 {
   font-size: clamp(1.8rem, 5vw, 2.4rem);
+  line-height: 1.1;
 }
 h3 {
   font-size: 1.80rem;
@@ -67,7 +68,7 @@ a {
 }
 
 .wrap {
-  width: min(calc(100% - 25px), var(--max-width));
+  width: min(calc(100% - 20px), var(--max-width));
   margin: 0 auto;
 }
 
@@ -112,34 +113,6 @@ a {
   width: 100%;
   background-color: var(--bg-color);
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
-}
-
-.posts-search-panel {
-  display: flex;
-  background-color: var(--bg-color);
-  align-items: center;
-  gap: 0.5rem;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.posts-search-panel input {
-  color: var(--accent-soft) !important;
-  flex-grow: 1;
-}
-.posts-search-panel .btn {
-  width: 2.5rem;
-  height: 2.5rem;
-  flex-shrink: 0;
-}
-
-#posts-search-input {
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--text-color);
-  height: 3rem;
-  margin: auto;
-  font-size: 14pt;
 }
 
 @supports (transform-style: preserve-3d) {
