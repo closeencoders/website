@@ -71,7 +71,7 @@
 </header>
 
     <main class="wrap">
-        <article class="section">
+        <article class="section read-content">
             <header class="post-header">
                 <h1>Learning GO as a Noob</h1>
                 <p>Posted Mar 17, 2026</p>
@@ -82,17 +82,17 @@
                     </picture>
                 </div>
             </header>
-            <div class="read-content">
-                <p>Learning <a href="https://go.dev/">Go</a> with a heavy <a href="https://www.java.com/en/">Java</a> background has been relatively easy for me so far, but I really want to get into the nitty-gritty. I’m rather agnostic with what I do in code as long as it's fun, so a year from now I might drop Go entirely if I find it annoying, but currently it feels extremely simple and easy to use.</p>
+            <div class="post-content">
+            <p>Learning <a href="https://go.dev/">Go</a> with a heavy <a href="https://www.java.com/en/">Java</a> background has been relatively easy for me so far, but I really want to get into the nitty-gritty. I’m rather agnostic with what I do in code as long as it's fun, so a year from now I might drop Go entirely if I find it annoying, but currently it feels extremely simple and easy to use.</p>
 <p>I want to document the hurdles and issues I have run into and some of the key differences in what some of the community would refer to as “Effective Go” or “Best Practices”. Some of these practices are an opinion, but to at least know of them can help with readability for other developers and help alleviate some frustration as you make your own judgments about the language.</p>
 <p>Lastly, I am collecting tutorials and resources, so I am assuming others will too. The internet has a plethora of resources, but which ones are relevant?</p>
 <h2>Starting Out</h2>
-<p>Unsurprisingly coming from a Java bro, the most difficult thing for me has been not having classes or inheritance and interfaces being less verbose than Java. Method receivers and pointers were a bit of a dance at first, but not to difficult.</p>
+<p>Unsurprisingly coming from a 'Java bro', the most difficult thing has been not having classes or inheritance and interfaces being less verbose than Java. Method receivers and pointers were a bit of a dance at first, but not to difficult.</p>
 <p>While It's possible to mimic the feel of OOP in Go, overdoing it because you want an OOP vibe in a complex code base will become frustrating, and the language may start to fight you. They explicitly state this is a bad idea in the introduction of <a href="https://go.dev/doc/effective_go">Effective Go</a> on the official Go website.</p>
 <p>Quote: &quot;A straightforward translation of a C++ or Java program into Go is unlikely to produce a satisfactory result — Java programs are written in Java, not Go.&quot;</p>
-<p>This does not mean you can’t force the code to look like its using <a href="https://en.wikipedia.org/wiki/Design_Patterns">GOF-inspired patterns</a> if you want, but Go can be annoying if you want several layers of abstraction and immutability and other various things that patterns may rely on in a classic sense. For example, you can use the final keyword in Java on lots of things, Go in contrast uses const and is a bit more restrictive with what you can use it on to make it immutable.</p>
+<p>This does not mean you can’t force the code to look like its using <a href="https://www.digitalocean.com/community/tutorials/gangs-of-four-gof-design-patterns">GOF-inspired patterns</a> if you want, but Go can be annoying if you want several layers of abstraction and immutability and other various things that patterns may rely on in a classic sense. For example, you can use the final keyword in Java on lots of things, Go in contrast uses const and is a bit more restrictive with what you can use it on to make it immutable.</p>
 <p>So making something like a <a href="https://en.wikipedia.org/wiki/Singleton_pattern">singleton</a> without static or final coming from Java might feel weird if you try to do it like you would in Java. I would also question why you are doing that in the first place.</p>
-<p>I'm using <a href="https://en.wikipedia.org/wiki/Singleton_pattern">singleton</a> as an example because its so simple, but this is a common issue I see others run into as well. Many developers have spent a huge chunk of their career in OOP land and just hate the procedural feel.</p>
+<p>I'm using singleton as an example because its simple, but this is a common issue I see others run into as well. Many developers have spent a huge chunk of their career in OOP land and just hate the procedural feel.</p>
 <ul>
 <li><a href="https://refactoring.guru/design-patterns/singleton/java/example">Java Singleton Example</a></li>
 <li><a href="https://refactoring.guru/design-patterns/singleton/go/example">Go Singleton Example</a></li>
