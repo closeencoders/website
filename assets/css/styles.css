@@ -14,7 +14,7 @@
   --bg-color: #181a1b;
   --text-color: #d5dade;
 
-  --max-width: 72rem;
+  --max-width: 74rem;
   --read-width: 45rem;
 }
 
@@ -99,35 +99,19 @@ a {
   align-items: center;
   margin-right: auto;
 }
+.logo img {
+  width: 70px;
+}
 .top-nav .btn,
 .top-nav-items .btn {
   width: 2rem;
   height: 2rem;
 }
 
-.logo-spin {
-  transform-origin: 50% 50%;
-}
-
 .header {
   width: 100%;
   background-color: var(--bg-color);
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
-}
-
-@supports (transform-style: preserve-3d) {
-  .logo-spin {
-    animation: logo-spin 11s linear infinite;
-    transform-style: preserve-3d;
-  }
-  @keyframes logo-spin {
-    from {
-      transform: perspective(500px) rotateY(0deg);
-    }
-    to {
-      transform: perspective(500px) rotateY(360deg);
-    }
-  }
 }
 
 .mobile-nav-burger {
@@ -148,7 +132,7 @@ a {
   .top-nav,
   .top-nav-items {
     flex-direction: column;
-    gap: 5px;
+    gap: .5rem;
   }
   .top-nav-items,
   .nav-item {
