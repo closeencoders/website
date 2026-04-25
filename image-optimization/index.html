@@ -175,8 +175,14 @@
     </div>
 </footer>
 
-    <script src="/assets/js/highlight/highlight.min.js"></script>
+    <script src="/assets/js/highlight/highlight.min.js" async></script>
     <script src="/assets/js/main.js" defer></script>
-    <script defer>hljs.highlightAll();</script>
+    <script>
+        window.addEventListener('load', function() {
+            if (typeof hljs !== 'undefined') {
+            hljs.highlightAll();
+            }
+        });
+    </script>
 </body>
 </html>
