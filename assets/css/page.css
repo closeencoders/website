@@ -105,7 +105,7 @@
   justify-content: center;
   overflow: hidden;
 
-  background-image: url("/assets/img/main-banner.webp");
+  /* background-image: url("/assets/img/main-banner.webp"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
