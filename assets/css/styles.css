@@ -76,42 +76,43 @@ a {
   cursor: pointer;
 }
 
-.logo img {
-  width: 70px;
-}
-.top-nav {
-  height: 70px;
-}
-.top-nav-items,
-.top-nav-constant,
-.top-nav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.top-nav-constant {
-  margin-right: auto;
-}
-.top-nav .logo {
-  display: flex;
-  align-items: center;
-  margin-right: auto;
-}
-.top-nav .btn,
-.top-nav-items .btn {
-  width: 2rem;
-  height: 2rem;
-}
-
+/* --- Base Styles --- */
 .header {
   width: 100%;
   background-color: var(--bg-color);
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1000;
 }
 
-.mobile-nav-burger {
-  visibility: hidden;
-  display: none;
+.top-nav {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  gap: 15px;
+}
+
+.logo img {
+  width: 70px;
+  display: block;
+}
+
+.top-nav-constant {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.top-nav-items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.top-nav .btn,
+.top-nav-items .btn {
+  width: 2rem;
+  height: 2rem;
 }
 
 .active {
@@ -119,29 +120,53 @@ a {
   color: var(--active);
   text-shadow: var(--active-effect);
 }
-#top-nav-items.is-active {
-  display: flex;
+
+.mobile-nav-burger {
+  display: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
 }
 
 @media (max-width: 640px) {
-  .top-nav,
-  .top-nav-items {
-    flex-direction: column;
-    gap: .5rem;
-  }
-  .top-nav-items,
-  .nav-item {
-    padding: 10px;
-  }
+
   .top-nav-constant {
     width: 100%;
+    margin-right: 0;
   }
+
   .mobile-nav-burger {
-    visibility: visible;
     display: flex;
+    /* This pushes the burger to the right without affecting other elements */
+    margin-left: auto;
   }
+
   #top-nav-items {
+
     display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 0;
+    background-color: var(--bg-color);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  #top-nav-items.is-active {
+    display: flex !important;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
   }
 }
 
