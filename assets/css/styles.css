@@ -4,16 +4,13 @@
   --accent: #111111;
   --accent-light: #f3f3f3;
   --accent-soft: #dedede;
-
+  --bg-color: #181a1b;
+  --text-color: #d5dade;
   --active: #fff;
   --active-effect:
     0 0 10px var(--active),
     0 0 10px var(--active),
     0 0 30px var(--active);
-
-  --bg-color: #181a1b;
-  --text-color: #d5dade;
-
   --max-width: 74rem;
   --read-width: 45rem;
 }
@@ -28,7 +25,6 @@ html {
 }
 body {
   margin: 0;
-  min-height: 100dvh;
   overflow-x: hidden;
 }
 code {
@@ -80,27 +76,26 @@ a {
   cursor: pointer;
 }
 
+.logo img {
+  width: 70px;
+}
 .top-nav {
-  z-index: 100;
+  height: 70px;
 }
 .top-nav-items,
 .top-nav-constant,
 .top-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 15px;
 }
 .top-nav-constant {
   margin-right: auto;
 }
 .top-nav .logo {
-  margin: 0;
   display: flex;
   align-items: center;
   margin-right: auto;
-}
-.logo img {
-  width: 70px;
 }
 .top-nav .btn,
 .top-nav-items .btn {
@@ -184,24 +179,18 @@ a {
   margin: auto;
 }
 .social-icon {
-  width: 3rem;
+  width: 2.8rem;
 }
 
 .rights {
   font-size: 0.7rem;
   color: var(--muted);
-  letter-spacing: 0.02em;
   text-align: center;
   width: 100%;
 }
 .rights a {
   text-decoration: underline;
   text-underline-offset: 0.15em;
-}
-
-.opacity-gradient {
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 40%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(to bottom, black 0%, black 40%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0) 100%);
 }
 
 .no-select {
