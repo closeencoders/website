@@ -22,6 +22,7 @@ Disallow: /archive
 # User-agent: PerplexityBot
 # User-agent: Perplexity-ai
 # User-agent: DuckAssistBot
+# User-agent: AhrefsBot
 
 User-agent: GPTBot
 User-agent: Google-Extended
@@ -71,7 +72,6 @@ User-agent: NewsNow
 User-agent: news-please
 User-agent: Perplexity-User
 User-agent: Meta-ExternalFetcher
-User-agent: AhrefsBot
 User-agent: BLEXBot
 User-agent: Brightbot 1.0
 User-agent: DotBot
