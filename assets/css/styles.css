@@ -138,27 +138,22 @@ a {
 
   .mobile-nav-burger {
     display: flex;
-    /* This pushes the burger to the right without affecting other elements */
     margin-left: auto;
   }
 
   #top-nav-items {
-
     display: none;
     position: absolute;
     top: 70px;
     left: 0;
     width: 100%;
     z-index: 100;
-
     flex-direction: column;
     gap: 0;
     padding: 20px 0;
     background-color: var(--bg-color);
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
   }
-
   #top-nav-items.is-active {
     display: flex !important;
   }
@@ -219,7 +214,6 @@ a {
 }
 
 .no-select {
-  /* Prevent text selection/highlighting */
   -webkit-user-select: none;
   /* Safari */
   -moz-user-select: none;

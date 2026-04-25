@@ -10,8 +10,8 @@
     
     
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/content.css">
-    <link rel="stylesheet" href="/assets/css/highlight/atom-one-dark-reasonable.css">
+    <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/assets/css/content.css"></noscript>
 
     <title>Image Optimization</title>
     <meta name="description" content="If one can cache cheaply, then cache you should. But I found out the hard way that without good edge caching or simply that ONE time the user has to load your site for the first time and you don&#39;t have any optimization">
