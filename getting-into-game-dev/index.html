@@ -84,16 +84,16 @@
                 </div>
             </header>
             <p>I want to make video games and know how they work at a deeper level.</p>
-<p>I don't want to generate code and assets with an AI, or let a modern <a href="https://en.wikipedia.org/wiki/Game_engine">game engine</a> do all the work, I want to understand what’s happening under the hood to feel like I’m getting my hands dirty before using more advanced tools. My hope is that other people do too, and if someone reads this, maybe they can learn from my mistakes.</p>
+<p>I don't want to generate code and assets with an AI, or let a modern <a href="https://en.wikipedia.org/wiki/Game_engine" target="_blank" rel="nofollow noopener noreferrer">game engine</a> do all the work, I want to understand what’s happening under the hood to feel like I’m getting my hands dirty before using more advanced tools. My hope is that other people do too, and if someone reads this, maybe they can learn from my mistakes.</p>
 <p>In a previous life, I tried to make a few games in Java, but it always felt clunky, like the language was fighting me. Java would scream, “Where is my Jira ticket number and business requirements!?” as I forced it to loop through entities in some static factory thing. I’m sure that for some, Java is a great tool for making games, but it’s just not for me.</p>
 <p>I wondered if making games was just not my cup of tea for a while, but the itch never really went away. It just looks so cool and rewarding.</p>
 <h2>Trying New Things</h2>
-<p>So I am trying to make the switch to another language that will let me mess around with <a href="https://www.raylib.com/">Raylib</a> and get the hang of the basics before I jump off the deep end.</p>
+<p>So I am trying to make the switch to another language that will let me mess around with <a href="https://www.raylib.com/" target="_blank" rel="nofollow noopener noreferrer">Raylib</a> and get the hang of the basics before I jump off the deep end.</p>
 <p>The only real criteria was to loop through some assets and run update() and render() at 60fps in a simple 2D world for a bit without wasting a bunch of time. That’s all I want and could ever ask for. A bonus point if the language is general-purpose.</p>
-<p>So, I took it into my own hands to waste my time instead and looked at C, C++, C#, Zig, Python, Odin, (took a peek at Jai), and even, despite the fact that I want to wait to use power tools <a href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html">GDScript</a> in something like <a href="https://godotengine.org/">Godot</a>.</p>
-<p>I feel like I looked at everything and sucked at it. You name it. I never looked at the <a href="https://unity.com/">Unity</a> engine, though, I hope I don’t regret that.</p>
+<p>So, I took it into my own hands to waste my time instead and looked at C, C++, C#, Zig, Python, Odin, (took a peek at Jai), and even, despite the fact that I want to wait to use power tools <a href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html" target="_blank" rel="nofollow noopener noreferrer">GDScript</a> in something like <a href="https://godotengine.org/" target="_blank" rel="nofollow noopener noreferrer">Godot</a>.</p>
+<p>I feel like I looked at everything and sucked at it. You name it. I never looked at the <a href="https://unity.com/" target="_blank" rel="nofollow noopener noreferrer">Unity</a> engine, though, I hope I don’t regret that.</p>
 <h3>Landing on GO</h3>
-<p>While Jai looks epic and writing C made me feel cool, I felt too incompetent to use them effectively (yet). So, after enough time passed, I landed on <a href="https://go.dev/">GO</a> of all things. I really want to give Jai a real try after it’s out of beta. I do enjoy a good <a href="https://www.youtube.com/@jblow888">Jonathan Blow</a> video or rant every once in a while too.</p>
+<p>While Jai looks epic and writing C made me feel cool, I felt too incompetent to use them effectively (yet). So, after enough time passed, I landed on <a href="https://go.dev/" target="_blank" rel="nofollow noopener noreferrer">GO</a> of all things. I really want to give Jai a real try after it’s out of beta. I do enjoy a good <a href="https://www.youtube.com/@jblow888" target="_blank" rel="nofollow noopener noreferrer">Jonathan Blow</a> video or rant every once in a while too.</p>
 <p>I originally disliked Go coming from Java. Using pointers and method receivers felt like jumping into a pool of ice water at first. However, as time went on, I kept gravitating back to the bizarrely simple, easy to read syntax, even with its quirks and repetitive not nil error checking.</p>
 <pre><code class="language-go">if err != nil {
     aaaahhhhh!
@@ -101,15 +101,15 @@
 </code></pre>
 <p>It just does what I need it to do without some weird pattern, straight to an .exe. I don’t need a Gradle build, a Maven repository, or to package a jar thingy in another thingy just because the thingy said so with an annotation that can’t load it into memory because your POJO is sad!</p>
 <p>(Sorry, repressed feelings. Java is its own thing with pros and cons like any other language.)</p>
-<p>I have more on my journey learning Go <a href="/getting-into-go">here</a></p>
+<p>I have more on my journey learning Go <a href="/getting-into-go" target="_blank" rel="nofollow noopener noreferrer">here</a></p>
 <h3>Tools and Sites To Help Research</h3>
 <p>Other tools I have found that let you research tools and preferences as you learn.</p>
 <ul>
-<li><a href="https://enginesdatabase.com/">Engines Database</a></li>
-<li><a href="https://develop.games/#nav-tools">Develop Games</a></li>
+<li><a href="https://enginesdatabase.com/" target="_blank" rel="nofollow noopener noreferrer">Engines Database</a></li>
+<li><a href="https://develop.games/#nav-tools" target="_blank" rel="nofollow noopener noreferrer">Develop Games</a></li>
 </ul>
 <h2>First Raylib + GO Game Tutorial</h2>
-<p>I wanted a tutorial so simple it was painful. I landed on <a href="https://www.youtube.com/@jarreed0/videos">@jarreed</a>. In seven episodes, I had all the basics set up, Go with Raylib installed, a basic game loop, and some practice sprites to make your character walk around. I really wish he had continued the series. Sadly, there are not too many video Go + Raylib tutorials out there.</p>
+<p>I wanted a tutorial so simple it was painful. I landed on <a href="https://www.youtube.com/@jarreed0/videos" target="_blank" rel="nofollow noopener noreferrer">@jarreed</a>. In seven episodes, I had all the basics set up, Go with Raylib installed, a basic game loop, and some practice sprites to make your character walk around. I really wish he had continued the series. Sadly, there are not too many video Go + Raylib tutorials out there.</p>
 <p>Using Raylib and Go has worked really well so far, but I can already see how difficult just a simple 2D game would be without a framework like Raylib or trying to build something even more complex without an out of the box engine like Godot.</p>
 <p>I have more respect for the process now. The mistake I made here is going head first into tutorial h311. I broke out of it and started making my own projects on the side to build more real world skill, but that is only because I have been here before.</p>
 <h2>My Biggest Mistake</h2>
