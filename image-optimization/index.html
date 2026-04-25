@@ -11,7 +11,9 @@
     
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/assets/css/content.css"></noscript>
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/content.css">
+    </noscript>
 
     <title>Image Optimization</title>
     <meta name="description" content="If one can cache cheaply, then cache you should. But I found out the hard way that without good edge caching or simply that ONE time the user has to load your site for the first time and you don&#39;t have any optimization">
@@ -81,8 +83,7 @@
                     </picture>
                 </div>
             </header>
-            <div class="post-content">
-                <p>If one can cache cheaply, then cache you should.</p>
+            <p>If one can cache cheaply, then cache you should.</p>
 <p>But I found out the hard way that without good edge caching or simply that ONE time the user has to load your site for the first time, and you don’t have any optimization, the image size and quantity of them loaded can matter a lot for page load times.</p>
 <p>This is a topic I don’t see talked about for simple static sites too often, but I think it can really make a difference to have some nice-looking images that load quickly. It just feels good.</p>
 <p>So, I went on a bit of a journey to learn about images and image files. It can get complicated fast. I am not claiming to be an expert, but understanding the gist has helped me recently with minor image optimization.</p>
@@ -135,7 +136,6 @@
 <pre><code class="language-html">&lt;img src=&quot;large-photo.jpg&quot; loading=&quot;lazy&quot; alt=&quot;Description&quot;&gt;
 </code></pre>
 
-            </div>
         </article>
     </main>
     <footer class="site-footer">
