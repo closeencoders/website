@@ -89,7 +89,7 @@
 <p>So, I went on a bit of a journey to learn about images and image files. It can get complicated fast. I am not claiming to be an expert, but understanding the gist has helped me recently with minor image optimization.</p>
 <p>There are several tools out there for making images smaller, but the simplest way is to just take the image and open it in GIMP or Photoshop, reduce it down to the smallest canvas size and resolution possible with a common aspect ratio, then export it as a .jpeg, or better if you can.</p>
 <p>Some larger images sprinkled here and there are usually fine for a modern internet connection, but consider that many people viewing your site may also have a bad connection or use accessibility tools, I don’t want my site to be completely inaccessible to those people.</p>
-<h2>Size Matters</h2>
+<h2 id="size-matters">Size Matters</h2>
 <p>Ensuring images are the size they appear on screen can help significantly. This can simplify CSS for images and maintain consistent aspect ratios to alleviate unnecessary rendering in the browser.</p>
 <p>If you have to, using SVGs instead of other formats like JPEG allows for better dynamic resizing and a crisper visual. Or at least it's supposed to, depending on your browser settings.</p>
 <p>Also, another advantage of images like SVGs is that placing them ‘inline’ also prevents the browser from having to fetch or cache external files.</p>
@@ -101,18 +101,18 @@
     &lt;path fill-rule=&quot;evenodd&quot; stroke=&quot;#fff&quot; stroke-width=&quot;6&quot; d=&quot;m412 375 57 72 2 5-63 ....&quot;/&gt;
 &lt;/svg&gt;
 </code></pre>
-<h3>Aspect Ratio</h3>
+<h3 id="aspect-ratio">Aspect Ratio</h3>
 <p>Another point, I typically use a 16:9 aspect ratio just because its so common and very close to many social media platforms and screens that additional optimization is usually not worth the hassle for a small site. I then scale the image in increments up to a max of 1280x720. Anything larger is usually overkill unless the circumstances are unique.</p>
 <p>Again, it's super easy to open the image you want, change the scaling and image size to what you want with a bit of cropping, and export in the appropriate format. Oftentimes, you don’t need to take it any further.</p>
-<h3>Testing</h3>
+<h3 id="testing">Testing</h3>
 <p>So see the results, in your browser of choice &gt; right click or settings &gt; inspect &gt; network tab.</p>
 <p>In here, I want to visually see load times and sizes of files fetched as I load pages and resources. It's not very scientific, but I can confirm I reduced page load times by almost a second in some cases just by making the images smaller, using some lazy loading, and removing unnecessary CSS.</p>
 <img src="/assets/img/posts/2026/network-tab.webp" loading="lazy" alt="network tab">
-<h2>Compression Algorithms Used</h2>
+<h2 id="compression-algorithms-used">Compression Algorithms Used</h2>
 <p>JPEG and PNG image formats are great, but they are a bit dated. If you want to take it a step further, you can ditch that smelly old JPEG for a fancy new algorithm.</p>
 <p>The popular new kids on the block are <a href="https://developers.google.com/speed/webp" target="_blank" rel="nofollow noopener noreferrer">WebP</a> and <a href="https://en.wikipedia.org/wiki/AVIF" target="_blank" rel="nofollow noopener noreferrer">AV1 Image File Format (AVIF)</a>. Despite AVIF having some advantages, it is a bit newer than WebP, so to help with slightly better support, I typically gravitate toward WebP for now and use a PNG or JPEG fallback. If you can't use WebP or AVIF, you could always give <a href="https://github.com/mozilla/mozjpeg" target="_blank" rel="nofollow noopener noreferrer">MozJPEG</a> or <a href="https://github.com/oxipng/oxipng" target="_blank" rel="nofollow noopener noreferrer">OxiPNG</a> a try. I have heard great things about them.</p>
 <p>Note that image compression is not a silver bullet for making images smaller, and depending on how you are using the compression, it might result in worse performance. So always benchmark! Don’t read some dribble like this and randomly go do it on a whim.</p>
-<h3>Free Compression Tools</h3>
+<h3 id="free-compression-tools">Free Compression Tools</h3>
 <p>I am not affiliated with these sites or companies in any way, but here are some free tools I use for image compression. As with any online “free” tool, please don’t just give them personal information or use them irresponsibly for mission-critical applications. Use common sense:</p>
 <img src="/assets/img/posts/2026/squoosh-example.webp" loading="lazy" alt="squoosh">
 <ul>
@@ -122,7 +122,7 @@
 <li><a href="https://ezgif.com/video-to-gif" target="_blank" rel="nofollow noopener noreferrer">Ezgif</a> - Mp4 to Gif and compress the gif</li>
 <li>...</li>
 </ul>
-<h2>Fallback Images</h2>
+<h2 id="fallback-images">Fallback Images</h2>
 <p>For newer algorithms, some older browsers and tools just don’t support them.</p>
 <p>This will tell the browser that you want WebP, but if the person viewing your site is allergic to updating their browser/PC, it will attempt to use the fallback, and in the worst case, use your alt text.</p>
 <pre><code class="language-html">&lt;picture&gt;
@@ -131,7 +131,7 @@
 &lt;/picture&gt;
 </code></pre>
 <p>Keep in mind that if you try to test the fallback manually, just breaking the path to the WebP file will not always invoke the browser to use the fallback image, it's only going to use the fallback if the type is not supported, not if the image literally does not load in some cases. I found this out the hard way. Your mileage may vary.</p>
-<h2>Lazy Loading</h2>
+<h2 id="lazy-loading">Lazy Loading</h2>
 <p>If you have a ton of unavoidable images on the screen, try lazy loading a few of them if it won’t break the visual effect you are going for. Modern browsers support the loading=&quot;lazy&quot; attribute. This tells the browser to hold off on the request until the image is near the viewport.</p>
 <pre><code class="language-html">&lt;img src=&quot;large-photo.jpg&quot; loading=&quot;lazy&quot; alt=&quot;Description&quot;&gt;
 </code></pre>
