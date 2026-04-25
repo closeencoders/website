@@ -5,6 +5,7 @@ Disallow: /data
 Disallow: /404
 Disallow: /video
 Disallow: /privacy
+Disallow: /search
 Disallow: /social
 Disallow: /reports
 Disallow: /about
