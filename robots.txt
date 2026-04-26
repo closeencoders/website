@@ -16,7 +16,6 @@ Disallow: /archive
 
 # --- ALLOWED FOR SEO & SOCIAL VISIBILITY ---
 # User-agent: Applebot
-# User-agent: Applebot-Extended
 # User-agent: Meta-ExternalAgent
 # User-agent: Meta-ExternalFetcher
 # User-agent: PerplexityBot
