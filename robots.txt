@@ -1,6 +1,7 @@
 Sitemap: https://www.closeencoders.com/sitemap.xml
 
-# General rules for search engines (Google, Bing, etc.)
+# --- SEARCH ENGINES ---
+# General rules for reputable search engines
 User-agent: *
 Disallow: /data
 Disallow: /404
@@ -15,6 +16,7 @@ Disallow: /archive
 
 # --- ALLOWED FOR SEO & SOCIAL VISIBILITY ---
 # User-agent: Applebot
+# User-agent: Applebot-Extended
 # User-agent: Meta-ExternalAgent
 # User-agent: Meta-ExternalFetcher
 # User-agent: PerplexityBot
@@ -30,14 +32,20 @@ Disallow: /archive
 # User-agent: iaskspider
 
 # --- NOT ALLOWED ---
-User-agent: Applebot-Extended
 User-agent: GPTBot
 User-agent: Google-Extended
 User-agent: Google-CloudVertexBot
-User-agent: CCBot
-User-agent: ChatGPT-User
-User-agent: anthropic-ai
+User-agent: ClaudeBot
 User-agent: Claude-User
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: GrokBot
+User-agent: ERNIEBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: Applebot-Extended
+
+User-agent: ChatGPT-User
 User-agent: cohere-ai
 User-agent: cohere-training-data-crawler
 User-agent: ia_archiver
@@ -45,9 +53,7 @@ User-agent: omgili
 User-agent: omgilibot
 User-agent: MJ12bot
 User-agent: PiplBot
-User-agent: Bytespider
 User-agent: Diffbot
-User-agent: Amazonbot
 User-agent: YouBot
 User-agent: Petalbot
 User-agent: ImagesiftBot
@@ -69,13 +75,11 @@ User-agent: Meltwater
 User-agent: Seekr
 User-agent: peer39_crawler
 User-agent: FirecrawlAgent
-User-agent: ClaudeBot
 User-agent: Claude-Web
 User-agent: FacebookBot
 User-agent: magpie-crawler
 User-agent: NewsNow
 User-agent: news-please
-User-agent: Meta-ExternalFetcher
 User-agent: BLEXBot
 User-agent: Brightbot 1.0
 User-agent: DotBot
