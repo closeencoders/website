@@ -1,3 +1,4 @@
+//Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved
 class PostManager {
   constructor(config = {}) {
     this.CONFIG = {
@@ -202,3 +203,4 @@ class PostManager {
 }
 
 const blogApp = new PostManager();
+// Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved

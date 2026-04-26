@@ -1,3 +1,4 @@
+/* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
 :root {
   --muted: #7a7a7a;
   --line: #eaeaea;
@@ -165,6 +166,8 @@ a {
   }
 }
 
+/* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
+
 .read-content {
   max-width: var(--read-width);
 }
@@ -222,3 +225,4 @@ a {
   /* IE10+/Edge */
   user-select: none;
 }
+/* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
