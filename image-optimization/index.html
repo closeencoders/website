@@ -29,6 +29,7 @@
     <meta property="og:url" content="https://closeencoders.com/image-optimization">
     <meta property="og:image" content="/assets/img/posts/2026/compression.webp">
     <meta property="og:image:alt" content="Image Optimization">
+    <meta property="og:locale" content="en_US">
 
     <meta property="article:published_time" content="2026-04-13 00:00:00 &#43;0000 UTC">
     <meta property="article:author" content="@closeencoders">
@@ -74,13 +75,14 @@
 </header>
 
     <main class="wrap">
-        <article class="section read-content">
+        <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
             <header class="post-header">
-                <h1>Image Optimization</h1>
-                <p>
-                    Posted Apr 13, 2026
-                     | Tags: software
-                </p>
+                <h1 itemprop="headline">Image Optimization</h1>
+                <div data-nosnippet>
+                    <p>
+                        By <a href="/about" rel="noopener">Josh</a> On <time datetime="2026-04-13T00:00:00Z" itemprop="datePublished">Apr 13, 2026</time>
+                        <span> | </span><span itemprop="keywords">software</span></p>
+                </div>
                 <div class="post-hero">
                     <picture>
                         <source srcset="/assets/img/posts/2026/compression.webp" type="image/webp">
@@ -88,7 +90,8 @@
                     </picture>
                 </div>
             </header>
-            <p>If one can cache cheaply, then cache you should.</p>
+            <div itemprop="articleBody">
+                <p>If one can cache cheaply, then cache you should.</p>
 <p>But I found out the hard way that without good edge caching or simply that ONE time the user has to load your site for the first time, and you don’t have any optimization, the image size and quantity of them loaded can matter a lot for page load times.</p>
 <p>This is a topic I don’t see talked about for simple static sites too often, but I think it can really make a difference to have some nice-looking images that load quickly. It just feels good.</p>
 <p>So, I went on a bit of a journey to learn about images and image files. It can get complicated fast. I am not claiming to be an expert, but understanding the gist has helped me recently with minor image optimization.</p>
@@ -141,6 +144,7 @@
 <pre><code class="language-html">&lt;img src=&quot;large-photo.jpg&quot; loading=&quot;lazy&quot; alt=&quot;Description&quot;&gt;
 </code></pre>
 
+            </div>
         </article>
     </main>
     <footer class="site-footer">
