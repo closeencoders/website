@@ -1,7 +1,7 @@
 Sitemap: https://www.closeencoders.com/sitemap.xml
 
 # TDM Reservation for AI Training (W3C TDMRep)
-x-tdm-reservation: 1
+# x-tdm-reservation: 1
 
 # General rules for reputable search engines
 User-agent: *
