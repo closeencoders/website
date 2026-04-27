@@ -96,15 +96,16 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 /* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
 .post-header {
     width: 100%;
-    padding: 3rem 0 1rem;
+    padding: 2.5rem 0 1rem;
 }
 .post-header p,
 .post-header h1 {
     margin: 0;
-    padding: 0 0 1.5rem;
+    padding: 0 0 1.2rem;
 }
 .post-header p {
     font-style: oblique;
+    line-height: 1.2;
 }
 .post-header figure {
     padding: 0;
