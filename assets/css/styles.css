@@ -19,14 +19,14 @@
 html {
   scrollbar-gutter: stable;
   background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
-  text-rendering: optimizeSpeed;
 }
 body {
   margin: 0;
   overflow-x: hidden;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-color);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 code {
   font-size: 12pt;
@@ -34,16 +34,19 @@ code {
 }
 p, ul {
   font-size: 1.2rem;
-  line-height: 1.7;
+  line-height: 1.8;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  font-variant-ligatures: common-ligatures;
+  letter-spacing: -0.07em;
+  word-spacing: -0.02em;
 }
 h1 {
-  font-size: clamp(2rem, 10vw, 3rem);
-  line-height: 1.1;
-  padding-bottom: 10px;
+  font-size: clamp(2.5rem, 8vw, 3rem);
 }
 h2 {
   font-size: 2rem;
-  line-height: 1.1;
 }
 h3 {
   font-size: 1.80rem;
@@ -57,15 +60,16 @@ h5 {
 h6 {
   font-size: 1.25rem;
   text-transform: uppercase;
-  letter-spacing: 0.05rem;
+  font-weight: 700;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
 .wrap {
-  width: min(calc(100% - 20px), var(--max-width));
+  width: min(calc(100% - 1.8rem), var(--max-width));
   margin: 0 auto;
 }
 
@@ -130,8 +134,12 @@ a {
   margin-left: auto;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
 
+  p, ul {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
   .top-nav-constant {
     width: 100%;
     margin-right: 0;
