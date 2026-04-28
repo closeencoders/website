@@ -3,16 +3,13 @@
   --muted: #828282;
   --line: #eaeaea;
   --accent: #111111;
-  --accent-light: #f3f3f3;
-  --accent-soft: #dedede;
-  --bg-color: #181a1b;
+  --accent-light: #E1E8F0;
+  --accent-soft: #F5F5DC;
+  --bg-color: #1A1A1B;
   --alt-text-color: #cacaca;
-  --text-color: #dde3e7;
-  --active: #fff;
-  --active-effect:
-    0 0 10px var(--active),
-    0 0 10px var(--active),
-    0 0 30px var(--active);
+  --text-color: #D1D1D1;
+  --active: #ffffff;
+  --active-effect: 0 0 6px var(--active);
   --max-width: 74rem;
   --read-width: 45rem;
 }

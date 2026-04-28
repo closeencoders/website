@@ -15,17 +15,20 @@
   object-fit: cover;
   transition: transform .1s ease-in-out;
 }
+
+.post-card h2,
+.post-card p {
+  margin: .6rem 0 0;
+  line-height: 1.1;
+  padding: 0;
+}
 .post-card h2 {
-  margin: 1rem 0 0;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 .post-card p {
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--alt-text-color);
-  font-size: 16px;
-  line-height: 1.2;
-  margin-top: 7px;
-  margin-bottom: 0;
+  font-size: 1rem;
 }
 .post-card:hover h2 {
   color: var(--active);

@@ -47,9 +47,9 @@
 <body>
     <header class="header" data-nosnippet>
     <nav class="wrap top-nav">
-        <div class="top-nav-constant">
+        <div draggable="false" class="top-nav-constant">
             <a draggable="false" class="logo no-select" rel="noopener" href="/">
-                <img src="/assets/img/white-logo-70.webp" alt="Close Encoders">
+                <img draggable="false" src="/favicon.webp" alt="Close Encoders">
             </a>
             <button class="btn mobile-nav-burger" aria-label="Toggle Navigation">
                 <svg role="img" aria-labelledby="Toggle Navigation Icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
@@ -85,15 +85,20 @@
                         
                     </p>
                     <p class="post-metadata" data-nosnippet>
-                    By <a href="/about" rel="noopener">Josh</a> - <time datetime="2026-04-24T00:00:00Z" itemprop="datePublished">Apr 24, 2026</time>
-                    <span> | </span><span itemprop="keywords">gaming</span></p>
+
+                        By <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Josh</span></a>
+                        - <time datetime="2026-04-24T00:00:00Z" itemprop="datePublished">Apr 24, 2026</time>
+
+                        <span> | </span><span itemprop="keywords">gaming</span></p>
                 </div>
-                <figure class="post-hero">
+                
+                <figure class="post-hero" itemprop="image">
                     <picture>
                         <source srcset="/assets/img/posts/2026/osrs-ge-bw.webp" type="image/webp">
                         <img src="/assets/img/large-logo.png" alt="Old Dog, New Tricks: How RuneScape Stays Relevant in a Modern Era">
                     </picture>
                 </figure>
+                
             </header>
             <div itemprop="articleBody">
                 <p><a href="https://oldschool.runescape.com/" target="_blank" rel="nofollow noopener noreferrer">RuneScape</a>. An ancient MMO and a massive part of my childhood, right up there with Halo 3 and Pokémon. I’m not alone in this feeling either, I have found this to be common among nerdy people roughly my age. But why would anyone be playing this game in 2026?</p>
