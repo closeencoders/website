@@ -2,8 +2,8 @@
 .posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
   align-items: start;
+  gap: 1.5rem;
 }
 .post-card-image-container {
   overflow: hidden;

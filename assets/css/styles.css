@@ -42,10 +42,10 @@ h1, h2, h3, h4, h5, h6 {
   word-spacing: -0.02em;
 }
 h1 {
-  font-size: clamp(2.5rem, 8vw, 3.2rem);
+  font-size: clamp(2.4rem, 8vw, 3.2rem);
 }
 h2 {
-  font-size: 2.3rem;
+  font-size: clamp(2.1rem, 8vw, 2.3rem);
 }
 h3 {
   font-size: 1.9rem;
@@ -133,6 +133,10 @@ a {
 }
 
 @media (max-width: 720px) {
+
+  p, ul {
+    font-size: 18px;
+  }
 
   .top-nav-constant {
     width: 100%;

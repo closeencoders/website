@@ -124,9 +124,12 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
     object-fit: cover;
     object-position: center;
 }
+
 @media (max-width: 720px) {
-    .post-hero {
-        height: 300px;
+    .post-subtitle {
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
     }
 }
 
