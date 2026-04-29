@@ -144,7 +144,7 @@ class PostManager {
       .map((post) => {
         const dateOnly = post.date.split('T')[0];
         const title = post.title || post.slug || "Untitled";
-        return `<a draggable="false" href="${post.url}"><h2>${title}</h2>${dateOnly}${post.tags ? " | " + post.tags + " | " : ""}${post.description || ""}</a>`;
+        return `<a draggable="false" rel="noopener" href="${post.url}"><h2>${title}</h2>${dateOnly}${post.tags ? " | " + post.tags + " | " : ""}${post.description || ""}</a>`;
       }).join("");
 
     this.updateUI(items);
