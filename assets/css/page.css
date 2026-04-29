@@ -40,7 +40,11 @@
 
 #posts-space {
   position: relative;
-  padding-top: 30px;
+}
+.post-search h2,
+.post-search p {
+  padding: 0;
+  margin-bottom: 0.2rem;
 }
 .post-search h2 {
   font-size: 1.3rem;
@@ -50,9 +54,10 @@
   display: flex;
   background-color: var(--bg-color);
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 30px;
+  /* padding-bottom: 10px; */
 }
 .posts-search-panel input {
   color: var(--accent-soft) !important;
