@@ -2,7 +2,7 @@
 :root {
   --muted: #828282;
   --line: #eaeaea;
-  --accent: #111111;
+  --accent: #353737;
   --accent-light: #E1E8F0;
   --accent-soft: #F5F5DC;
   --bg-color: #1A1A1B;
@@ -101,10 +101,10 @@ a {
 
 .top-nav {
   font-family: var(--heading-font);
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
   height: 70px;
-  gap: 15px;
 }
 
 .logo img {
@@ -168,10 +168,9 @@ a {
     width: 100%;
     z-index: 100;
     flex-direction: column;
-    gap: 0;
-    padding: 20px 0;
+    padding: 8px 0;
+    gap: 0.7rem;
     background-color: var(--bg-color);
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
   }
   #top-nav-items.is-active {
     display: flex !important;
@@ -180,7 +179,7 @@ a {
   .nav-item {
     width: 100%;
     text-align: center;
-    padding: 15px 0;
+
   }
 }
 
@@ -206,7 +205,7 @@ a {
 }
 
 .site-footer {
-  padding: 28px 0;
+  padding: 4rem 0;
   bottom: 0;
 }
 .footer-inner {
@@ -218,20 +217,37 @@ a {
 .social-container {
   display: flex;
   margin: auto;
+  text-align: center;
+  align-items: center;
+  gap: .9rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .social-icon {
-  width: 2.8rem;
+  width: 1rem;
+  box-shadow: 0 0 0 1px var(--accent);
+  margin: 0;
+  padding: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-icon:hover path {
+  fill: var(--active);
+}
+.social-icon:hover {
+  box-shadow: var(--active-effect);
 }
 
 .rights {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--muted);
   text-align: center;
   width: 100%;
 }
 .rights a {
   text-decoration: underline;
-  text-underline-offset: 0.15em;
 }
 
 .no-select {

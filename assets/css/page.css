@@ -182,3 +182,63 @@
   font-size: clamp(1rem, 2.5vw, 1.25rem);
 }
 /* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
+
+
+/* Container styling */
+.social-tree-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* The Grid Logic */
+.social-list {
+  display: grid;
+  grid-template-columns: 1;
+  grid-auto-rows: 50px;
+  gap: 2px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#link-instagram {
+  background-image: url('https://cdn.simpleicons.org/instagram/444');
+}
+#link-threads {
+  background-image: url('https://cdn.simpleicons.org/threads/444');
+}
+#link-mastodon {
+  background-image: url('https://cdn.simpleicons.org/mastodon/444');
+}
+#link-bluesky {
+  background-image: url('https://cdn.simpleicons.org/bluesky/444');
+}
+#link-pinterest {
+  background-image: url('https://cdn.simpleicons.org/pinterest/444');
+}
+#link-x {
+  background-image: url('https://cdn.simpleicons.org/x/444');
+}
+#link-youtube {
+  background-image: url('https://cdn.simpleicons.org/youtube/444');
+}
+
+/* Your original "Nice" formatting */
+.social-link {
+
+  background-repeat: no-repeat;
+  background-position: left;
+  border-bottom: var(--accent) 1px solid;
+
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: all 0.9s ease;
+  box-sizing: border-box;
+}
+
+.social-link:hover {
+  background-position: right;
+}
