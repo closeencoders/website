@@ -123,7 +123,14 @@
 </code></pre>
 <h3 id="aspect-ratio">Aspect Ratio</h3>
 <p>Another point, I typically use a 16:9 aspect ratio just because its so common and very close to many social media platforms and screens that additional optimization is usually not worth the hassle for a small site. I then scale the image in increments up to a max of 1280x720. Anything larger is usually overkill unless the circumstances are unique.</p>
-<p>Again, it's super easy to open the image you want, change the scaling and image size to what you want with a bit of cropping, and export in the appropriate format. Oftentimes, you don’t need to take it any further.</p>
+<p>If you have the ability to use some <a href="https://developer.mozilla.org/en-US/docs/Glossary/SSR" target="_blank" rel="nofollow noopener noreferrer">server side rendering (SSR)</a> or other various voodoo, you can automate some of this process. But for our simple static site, just create additional image for different situations as needed and tell the html/css/js to use the correct file when loaded.</p>
+<p>You can also tell the container or the image itself in CSS to keep that aspect ratio to make it easier to use. I have found that just making the container the right aspect ratio in a grid makes life easier than trying for force everything to be the correct size in a flex display or similar and letting the image just cover the container. Make sure the image is the right aspect ratio you choose as well. It's super easy to open the image you want, adjust the scale and size to what you want with a bit of cropping, and export it in the appropriate format.</p>
+<pre><code class="language-css">.image-container {
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+</code></pre>
+<p>Oftentimes, you don’t need to take it any further than shrinking the image and using decent CSS.</p>
 <h3 id="testing">Testing</h3>
 <p>So see the results, in your browser of choice &gt; right click or settings &gt; inspect &gt; network tab.</p>
 <p>In here, I want to visually see load times and sizes of files fetched as I load pages and resources. It's not very scientific, but I can confirm I reduced page load times by almost a second in some cases just by making the images smaller, using some lazy loading, and removing unnecessary CSS.</p>
@@ -151,9 +158,15 @@
 &lt;/picture&gt;
 </code></pre>
 <p>Keep in mind that if you try to test the fallback manually, just breaking the path to the WebP file will not always invoke the browser to use the fallback image, it's only going to use the fallback if the type is not supported, not if the image literally does not load in some cases. I found this out the hard way. Your mileage may vary.</p>
-<h2 id="lazy-loading">Lazy Loading</h2>
+<h2 id="delay-the-inevitable-by-being-lazy">Delay The Inevitable by being Lazy</h2>
 <p>If you have a ton of unavoidable images on the screen, try lazy loading a few of them if it won’t break the visual effect you are going for. Modern browsers support the loading=&quot;lazy&quot; attribute. This tells the browser to hold off on the request until the image is near the viewport.</p>
 <pre><code class="language-html">&lt;img src=&quot;large-photo.jpg&quot; loading=&quot;lazy&quot; alt=&quot;Description&quot;&gt;
+</code></pre>
+<p>Another point, you can suggest to the browser to delay painting content entirely until closer to the viewport with CSS.</p>
+<pre><code class="language-css">.post-card {
+   /* Suggests to the browser to only render when near the viewport */
+   content-visibility: auto;
+}
 </code></pre>
 
             </div>
