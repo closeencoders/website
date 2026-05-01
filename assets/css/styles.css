@@ -18,10 +18,10 @@
     0 0 21px var(--active),
     0 0 42px var(--active);
 
-  --max-width: 75rem;
+  --max-width: 73rem;
   --read-width: 45rem;
 
-  --top-nav-height: 70px;
+  --top-nav-height: 60px;
 
   --mobile-font-size: 18px;
   --desktop-font-size: 20px;
