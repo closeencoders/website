@@ -7,13 +7,24 @@
 }
 .post-card-image-container {
   overflow: hidden;
+  /* Ensure the container has the ratio so the page doesn't jump */
+  aspect-ratio: 16/9;
+  background-color: var(--accent);
+  /* A placeholder color while loading */
+}
+.post-card {
+  content-visibility: auto;
 }
 .post-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 100%;
+  /* Fill the aspect-ratio container */
   object-fit: cover;
-  transition: transform .1s ease-in-out;
+  /* will-change tells the GPU to prepare for the zoom */
+  will-change: transform;
+  transition: transform .2s ease-out;
+  /* Slightly longer feel smoother */
 }
 
 .post-card h2,
