@@ -31,11 +31,10 @@
 }
 .post-card:hover h2 {
   color: var(--active);
-  text-shadow: var(--active-effect);
   text-decoration: underline;
 }
 .post-card:hover img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 #posts-space {
@@ -103,17 +102,14 @@
 }
 
 .banner {
+  font-family: var(--heading-font);
   position: relative;
   width: 100vw;
   left: 50%;
   right: 50%;
   margin: 0 -50vw;
-
-  /* MIN: 330px
-     VAL: 30vh (Scales with height)
-     MAX: 40vw (Scales with width, but capped at 32rem for giant screens)
-  */
-  height: clamp(330px, 30vh, min(40vw, 32rem));
+  margin-bottom: -35px;
+  height: clamp(230px, 30vh, min(30vw, 22rem));
 
   display: flex;
   flex-direction: column;
@@ -121,16 +117,20 @@
   justify-content: center;
 
   overflow: hidden;
-  color: var(--active);
   text-align: center;
 }
 
 .banner img {
+
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
   height: 100%;
+  width: 100%;
+  min-width: 1200px;
+
   object-fit: cover;
   z-index: -1;
   -webkit-mask-image: linear-gradient(to bottom,
@@ -163,14 +163,42 @@
 }
 
 .banner h1 {
-  position: relative;
-  z-index: 1;
-  margin: 0;
   color: var(--active);
-  text-shadow: var(--active-effect);
-  line-height: 1.1;
-  padding: 0 1.1rem;
-  font-size: clamp(2rem, 8vw, 4.5rem);
+  text-shadow: var(--hyper-active-effect);
+  margin: 0;
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  animation:
+    flicker 2.17s linear infinite,
+    sputter 7.53s linear infinite;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  51% {
+    opacity: 0.8;
+  }
+  52% {
+    opacity: 1;
+  }
+}
+
+@keyframes sputter {
+  0%, 94%, 100% {
+    transform: skew(0);
+    filter: blur(0);
+  }
+  95% {
+    transform: skew(3deg);
+    filter: blur(3px);
+  }
+  96% {
+    transform: skew(-3deg);
+  }
 }
 
 .banner p {
@@ -178,67 +206,7 @@
   z-index: 1;
   margin: 0;
   line-height: 1.4;
-  padding: 0 1.1rem;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-}
-/* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
-
-
-/* Container styling */
-.social-tree-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* The Grid Logic */
-.social-list {
-  display: grid;
-  grid-template-columns: 1;
-  grid-auto-rows: 50px;
-  gap: 2px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#link-instagram {
-  background-image: url('https://cdn.simpleicons.org/instagram/444');
-}
-#link-threads {
-  background-image: url('https://cdn.simpleicons.org/threads/444');
-}
-#link-mastodon {
-  background-image: url('https://cdn.simpleicons.org/mastodon/444');
-}
-#link-bluesky {
-  background-image: url('https://cdn.simpleicons.org/bluesky/444');
-}
-#link-pinterest {
-  background-image: url('https://cdn.simpleicons.org/pinterest/444');
-}
-#link-x {
-  background-image: url('https://cdn.simpleicons.org/x/444');
-}
-#link-youtube {
-  background-image: url('https://cdn.simpleicons.org/youtube/444');
-}
-
-/* Your original "Nice" formatting */
-.social-link {
-
-  background-repeat: no-repeat;
-  background-position: left;
-  border-bottom: var(--accent) 1px solid;
-
-  display: flex;
-  text-transform: uppercase;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  transition: all 0.9s ease;
-  box-sizing: border-box;
-}
-
-.social-link:hover {
-  background-position: right;
+  padding: 0 1rem;
+  max-width: 600px;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
 }

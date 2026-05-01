@@ -40,6 +40,7 @@ class PostManager {
     return document.getElementById(id);
   }
 
+  // TODO: Extract search logic to only be on search page
   isSearchPage() {
     const path = window.location.pathname;
     return path === this.CONFIG.SEARCH_PAGE_PATH || path === `${this.CONFIG.SEARCH_PAGE_PATH}index.html`;
@@ -113,14 +114,8 @@ class PostManager {
     }
 
     if (!this.state.postsLoaded) return;
-
     if (!this.isSearchPage()) return;
-
-    if (!query) {
-      return;
-      this.updateQueryParam("");
-      return this.renderSearchPosts(this.state.posts);
-    }
+    if (!query) return;
 
     if (query.length < this.CONFIG.MIN_QUERY_LEN) {
       this.updateQueryParam("");
@@ -181,7 +176,7 @@ class PostManager {
     const path = window.location.pathname;
     let targetId = "home";
     if (path !== "/" && path !== "") {
-      const match = path.match(/\/(about|social|projects)/);
+      const match = path.match(/\/(about|projects)/);
       targetId = match ? match[1] : null;
     }
     document.querySelectorAll('.active').forEach(el => el.classList.remove('active'));
