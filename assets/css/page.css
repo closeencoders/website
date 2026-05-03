@@ -1,42 +1,39 @@
 /* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
+.posts-na,
 .posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: start;
-  gap: 1.2rem;
-}
-.post-card-image-container {
-  overflow: hidden;
-  /* Ensure the container has the ratio so the page doesn't jump */
-  aspect-ratio: 16/9;
-  background-color: var(--accent);
-}
-.post-card {
-  /* Suggests to the browser to only render when near the viewport */
-  content-visibility: auto;
-}
-.post-card img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  transition: transform .2s ease-out;
+  row-gap: 0.7rem;
+  column-gap: 0.7rem;
 }
 .posts>*:first-child {
   height: 100%;
+  column-width: 2;
   grid-column: span 2;
   grid-row: span 2;
-}
-.posts>*:first-child h2 {
-  font-size: 44px;
-}
-.posts>*:first-child p {
-  font-size: 20px;
 }
 .posts>*:nth-child(2),
 .posts>*:nth-child(3) {
   display: flex;
 }
-
+.post-card-image-container {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background-color: var(--accent);
+}
+.post-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .2s ease-out;
+}
+.post-card {
+  content-visibility: auto;
+}
 .post-card h2,
 .post-card p {
   margin: .5rem 0 0;
@@ -49,6 +46,12 @@
 .post-card p {
   color: var(--alt-text-color);
   font-size: var(--sub-font-size);
+}
+.posts>*:first-child h2 {
+  font-size: 44px;
+}
+.posts>*:first-child p {
+  font-size: 20px;
 }
 .post-card:hover h2 {
   color: var(--active);
@@ -66,7 +69,6 @@
 .post-search h2 {
   font-size: 1.3rem;
 }
-
 .posts-search-panel {
   display: flex;
   background-color: var(--bg-color);
@@ -74,7 +76,6 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   padding-top: 30px;
-  /* padding-bottom: 10px; */
 }
 .posts-search-panel input {
   color: var(--accent-soft) !important;
@@ -85,7 +86,6 @@
   height: 2.5rem;
   flex-shrink: 0;
 }
-
 #posts-search-input {
   padding: 10px 12px;
   border: 1px solid var(--line);
@@ -130,32 +130,23 @@
 }
 
 .banner {
-  font-family: var(--heading-font);
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin: 0 -50vw;
-  margin-bottom: -35px;
-  height: clamp(230px, 30vh, min(30vw, 22rem));
-
+  height: clamp(300px, 32vh, min(30vw, 30rem));
+  background: radial-gradient(circle,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0) 35%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  overflow: hidden;
   text-align: center;
 }
 
 .banner img {
-
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-
-  height: 100%;
+  height: clamp(500px, 30vh, min(30vw, 32rem));
   width: 100%;
   min-width: 1200px;
 
@@ -194,7 +185,7 @@
   color: var(--active);
   text-shadow: var(--hyper-active-effect);
   margin: 0;
-  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-size: clamp(2.3rem, 8vw, 4rem);
   animation:
     flicker 2.17s linear infinite,
     sputter 7.53s linear infinite;
@@ -229,12 +220,71 @@
   }
 }
 
-.banner p {
+.tab-button p,
+.banner p,
+.banner a {
   position: relative;
   z-index: 1;
   margin: 0;
-  line-height: 1.4;
-  padding: 0 1rem;
-  max-width: 600px;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1.1;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.tab-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 35px;
+  gap: 0.5rem;
+  margin: 0;
+}
+.tab-button {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 0 1px var(--accent);
+  background: rgba(68, 68, 68, 0.1);
+}
+.active-tab,
+.tab-button:hover {
+  box-shadow: var(--active-effect);
+  color: var(--active);
+}
+.item-left,
+.item-right,
+.title-divider {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+}
+.title-divider {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: end;
+  gap: 0.5rem;
+
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.title-divider h2,
+.title-divider h1 {
+  padding: 0;
+  margin: 0;
+}
+.item-left {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  margin-right: auto;
+  gap: 0.5rem;
+}
+.item-right {
+  margin-left: auto;
 }

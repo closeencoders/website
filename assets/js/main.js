@@ -176,7 +176,7 @@ class PostManager {
     const path = window.location.pathname;
     let targetId = "home";
     if (path !== "/" && path !== "") {
-      const match = path.match(/\/(about|projects)/);
+      const match = path.match(/\/(about|projects|blog)/);
       targetId = match ? match[1] : null;
     }
     document.querySelectorAll('.active').forEach(el => el.classList.remove('active'));

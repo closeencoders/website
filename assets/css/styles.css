@@ -147,7 +147,6 @@ a {
   bottom: 3px;
   animation: blink 800ms step-end infinite;
 }
-
 @keyframes blink {
   0%, 100% {
     opacity: 1;

@@ -8,29 +8,37 @@
     
     
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/page.css">
+    <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/content.css">
+    </noscript>
 
-    <title>Projects</title>
-    <meta name="description" content="&lt;section class=&#34;section read-content&#34; data-nosnippet&gt; &lt;h1&gt;{{ .Frontmatter.Title }}&lt;/h1&gt; &lt;p&gt;The random stuff I made, ranging from kinda cool to the e...">
+    <title>Making Cards use Masonry Layout in CSS</title>
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://closeencoders.com/projects">
-
+    <link rel="canonical" href="https://closeencoders.com/masonry-css-layout">
+    
     <meta property="og:site_name" content="Close Encoders">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Projects">
-    <meta property="og:description" content="&lt;section class=&#34;section read-content&#34; data-nosnippet&gt; &lt;h1&gt;{{ .Frontmatter.Title }}&lt;/h1&gt; &lt;p&gt;The random stuff I made, ranging from kinda cool to the e...">
-    <meta property="og:url" content="https://closeencoders.com/projects">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Making Cards use Masonry Layout in CSS">
+    
+    <meta name="description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
+    <meta property="og:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
+    
+    <meta property="og:url" content="https://closeencoders.com/masonry-css-layout">
     <meta property="og:image" content="/assets/img/logo.svg">
-    <meta property="og:image:alt" content="Projects">
+    <meta property="og:image:alt" content="Making Cards use Masonry Layout in CSS">
     <meta property="og:locale" content="en_US">
+
+    <meta property="article:published_time" content="2026-05-03 00:00:00 &#43;0000 UTC">
+    <meta property="article:author" content="@closeencoders">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
-    <meta name="twitter:title" content="Projects">
-    <meta name="twitter:description" content="&lt;section class=&#34;section read-content&#34; data-nosnippet&gt; &lt;h1&gt;{{ .Frontmatter.Title }}&lt;/h1&gt; &lt;p&gt;The random stuff I made, ranging from kinda cool to the e...">
+    <meta name="twitter:title" content="Making Cards use Masonry Layout in CSS">
+    <meta name="twitter:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
     <meta name="twitter:image" content="/assets/img/logo.svg">
-    <meta name="twitter:image:alt" content="Projects">
+    <meta name="twitter:image:alt" content="Making Cards use Masonry Layout in CSS">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
 </head>
@@ -67,16 +75,62 @@
 </header>
 
     <main class="wrap">
-        <section class="section read-content" data-nosnippet>
-    <h1>Projects</h1>
-    <p>The random stuff I made, ranging from kinda cool to the edge of clinically insane and pointless, just for fun.</p>
-    <ul>
-        <li>
-            <a href="https://github.com/closeencoders/website">This Hosted Site</a>
-            - I modify this site constantly. I don't use many off the shelf frameworks, its mostly just HTML, CSS, and basic JavaScript
-        </li>
-    </ul>
-</section>
+        <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
+            <header class="post-header">
+                <h1 itemprop="headline">Making Cards use Masonry Layout in CSS</h1>
+                <div>
+                    <p class="post-subtitle">
+                        
+                        A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.
+                        
+                    </p>
+                    <p class="post-metadata" data-nosnippet>
+
+                        By <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Josh</span></a>
+                        - <time datetime="2026-05-03T00:00:00Z" itemprop="datePublished">May 03, 2026</time>
+
+                        <span> | </span><span itemprop="keywords">notes</span>, <span itemprop="keywords">software</span>, <span itemprop="keywords">web</span></p>
+                </div>
+                
+            </header>
+            <div itemprop="articleBody">
+                <p>Grid and Flex are great until you want to do something odd or specific, like the Masonry layout AND keep everything in date order from left to right.</p>
+<p>Maybe that applies to most things in CSS, but I just wanted a nice masonry look for my post cards on my homepage/blog. This is definitely possible, but not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned for my future self.</p>
+<h2 id="column-count">Column Count</h2>
+<p>First, just don't specify is a grid. The only issue is it does not put them in left to right order. Its meant more for a newspaper look that reads vertically then left to right.</p>
+<pre><code class="language-css">.posts {
+  /* display: grid; (no gird for the grid?) */
+  column-count: 3;
+  column-gap: 1.5rem;
+  width: 100%;
+}
+
+.post-card {
+  /* Prevents a card from splitting across two columns */
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+</code></pre>
+<h2 id="javascript-methods">JavaScript Methods</h2>
+<p>There is apparently a way around this with math and JavaScript.</p>
+<ul>
+<li><a href="https://masonry.desandro.com/" target="_blank" rel="nofollow noopener noreferrer">Pre-packaged way</a></li>
+<li><a href="https://functionalfrontend.medium.com/masonry-layout-using-flexbox-and-vanilla-js-292c18c56533" target="_blank" rel="nofollow noopener noreferrer">Manually</a></li>
+</ul>
+<h2 id="a-grid-but-only-with-limited-support">A Grid, but only with limited support</h2>
+<p>The only works in Firefox in 2026?</p>
+<pre><code class="language-css">.posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* support is low */
+  grid-template-rows: masonry; 
+  gap: 1.5rem;
+}
+</code></pre>
+
+            </div>
+        </article>
     </main>
     <footer class="site-footer" data-nosnippet>
     <nav class="wrap footer-inner" aria-label="Footer Navigation" data-nosnippet>
@@ -124,6 +178,10 @@
     </nav>
 </footer>
 
+    <script src="/assets/js/highlight/highlight.min.js" async></script>
     <script src="/assets/js/main.js" defer></script>
+    <script>
+        window.addEventListener('load', function() {if (typeof hljs !== 'undefined') { hljs.highlightAll(); }});
+    </script>
 </body>
 </html>

@@ -13,6 +13,9 @@ Disallow: /search
 Disallow: /social
 Disallow: /reports
 Disallow: /about
+Disallow: /projects
+Disallow: /blog
+Disallow: /blog/notes
 Disallow: /faq
 Disallow: /archive
 
