@@ -107,6 +107,7 @@
   .posts>*:first-child p {
     font-size: var(--sub-font-size);
   }
+  .posts-na,
   .posts {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -124,6 +125,7 @@
 }
 
 @media (max-width: 660px) {
+  .posts-na,
   .posts {
     grid-template-columns: 1fr;
   }

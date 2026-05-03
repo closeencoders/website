@@ -18,7 +18,8 @@
     0 0 21px var(--active),
     0 0 42px var(--active);
 
-  --max-width: 73rem;
+  /* --max-width: 72rem; */
+  --max-width: clamp(65rem, 55%, 1200px);
   --read-width: 45rem;
 
   --top-nav-height: 60px;
