@@ -170,6 +170,24 @@ class PostManager {
     if (burgerBtn) {
       burgerBtn.addEventListener("click", () => this.toggleMobileNav());
     }
+
+    const backToTopButton = document.getElementById("backToTop");
+    // Show the button when the user scrolls down 200px
+    if (backToTopButton) {
+      window.onscroll = function () {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+          backToTopButton.style.display = "block";
+        } else {
+          backToTopButton.style.display = "none";
+        }
+      };
+      backToTopButton.onclick = function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Smooth scrolling!
+        });
+      };
+    }
   }
 
   handleNavigationState() {

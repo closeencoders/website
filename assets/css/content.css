@@ -96,7 +96,7 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 /* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
 .post-header {
     width: 100%;
-    padding: 2.5rem 0 1rem;
+    padding-bottom: 1rem;
 }
 .post-header p,
 .post-header h1 {
@@ -141,4 +141,62 @@ pre code.hljs {
 code.hljs {
     padding: 3px 5px
 }
+
+.content-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+.side-car-container {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    max-width: 350px;
+    padding-top: 12px;
+}
+
+.side-car-container ul {
+    list-style: none;
+    font-size: 17px;
+    padding: 0;
+    margin: 0;
+}
+
+.side-car-container ul>ul {
+    padding-left: 15px;
+    border-left: 1px solid var(--accent);
+}
+
+.side-car-container li {
+    padding: 5px 0;
+    line-height: 1;
+}
+
+#backToTop {
+    display: none;
+    /* Hidden by default */
+    /* position: fixed; */
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    margin: 5px;
+    font-size: 18px;
+    transition: opacity 0.3s;
+}
+
+#backToTop:hover {
+    background-color: #555;
+    /* Add a hover effect */
+}
+
+
 /* closeencoders.com */

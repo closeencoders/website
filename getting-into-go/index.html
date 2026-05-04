@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/">
 
     
     <link rel="preload" as="image" href="/assets/img/posts/2026/learning-go.webp" fetchpriority="high">
     
-    
+
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
@@ -18,7 +17,7 @@
     <title>Learning GO as a Noob</title>
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://closeencoders.com/getting-into-go">
-    
+
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Learning GO as a Noob">
@@ -27,7 +26,8 @@
     <meta property="og:description" content="Transitioning from Java&#39;s verbosity to Go has been surprisingly smooth, but now I want to move past the syntax and dive into lower-level complexities.">
     
     <meta property="og:url" content="https://closeencoders.com/getting-into-go">
-    <meta property="og:image" content="/assets/img/posts/2026/learning-go.webp">
+    <meta property="og:image"
+          content="/assets/img/posts/2026/learning-go.webp">
     <meta property="og:image:alt" content="Learning GO as a Noob">
     <meta property="og:locale" content="en_US">
 
@@ -39,7 +39,7 @@
     <meta name="twitter:creator" content="@closeencoders">
     <meta name="twitter:title" content="Learning GO as a Noob">
     <meta name="twitter:description" content="Transitioning from Java&#39;s verbosity to Go has been surprisingly smooth, but now I want to move past the syntax and dive into lower-level complexities.">
-    <meta name="twitter:image" content="/assets/img/posts/2026/learning-go.webp">
+    <meta name="twitter:image"content="/assets/img/posts/2026/learning-go.webp">
     <meta name="twitter:image:alt" content="Learning GO as a Noob">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
@@ -77,22 +77,24 @@
 </header>
 
     <main class="wrap">
-        <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="content-container">
+            <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
             <header class="post-header">
-                <h1 itemprop="headline">Learning GO as a Noob</h1>
-                <div>
-                    <p class="post-subtitle">
-                        
-                        Transitioning from Java&#39;s verbosity to Go has been surprisingly smooth, but now I want to move past the syntax and dive into lower-level complexities.
-                        
-                    </p>
-                    <p class="post-metadata" data-nosnippet>
-
-                        By <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Josh</span></a>
-                        - <time datetime="2026-03-17T00:00:00Z" itemprop="datePublished">Mar 17, 2026</time>
-
-                        <span> | </span><span itemprop="keywords">software</span>, <span itemprop="keywords">learning</span></p>
-                </div>
+            <h1 itemprop="headline">Learning GO as a Noob</h1>
+            <div>
+                <p class="post-subtitle">
+                    
+                    Transitioning from Java&#39;s verbosity to Go has been surprisingly smooth, but now I want to move past the syntax and dive into lower-level complexities.
+                    
+                </p>
+                <p class="post-metadata" data-nosnippet>
+                    By
+                    <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <span itemprop="name">Josh</span>
+                    </a>
+                    - <time datetime="2026-03-17T00:00:00Z" itemprop="datePublished">Mar 17, 2026</time>
+                    <span> | </span><span itemprop="keywords">software</span>, <span itemprop="keywords">learning</span></p>
+            </div>
                 
                 <figure class="post-hero" itemprop="image">
                     <picture>
@@ -102,8 +104,7 @@
                 </figure>
                 
             </header>
-            <div itemprop="articleBody">
-                <p>Learning <a href="https://go.dev/" target="_blank" rel="nofollow noopener noreferrer">Go</a> with a heavy <a href="https://www.java.com/en/" target="_blank" rel="nofollow noopener noreferrer">Java</a> background has been relatively easy for me so far, but I really want to get into the nitty-gritty. I’m rather agnostic with what I do in code as long as it's fun, so a year from now I might drop Go entirely if I find it annoying, but currently it feels extremely simple and easy to use.</p>
+            <div itemprop="articleBody"><p>Learning <a href="https://go.dev/" target="_blank" rel="nofollow noopener noreferrer">Go</a> with a heavy <a href="https://www.java.com/en/" target="_blank" rel="nofollow noopener noreferrer">Java</a> background has been relatively easy for me so far, but I really want to get into the nitty-gritty. I’m rather agnostic with what I do in code as long as it's fun, so a year from now I might drop Go entirely if I find it annoying, but currently it feels extremely simple and easy to use.</p>
 <p>I want to document the hurdles and issues I have run into and some of the key differences in what some of the community would refer to as “Effective Go” or “Best Practices”. Some of these practices are an opinion, but to at least know of them can help with readability for other developers and help alleviate some frustration as you make your own judgments about the language.</p>
 <p>Lastly, I am collecting tutorials and resources, so I am assuming others will too. The internet has a plethora of resources, but which ones are relevant?</p>
 <h2 id="starting-out">Starting Out</h2>
@@ -161,9 +162,15 @@
 <p>I am not affiliated with this guy in any way, and it’s not free, but I am personally biased towards <a href="https://interpreterbook.com/" target="_blank" rel="nofollow noopener noreferrer">Writing an Interpreter in GO</a>.</p>
 <p>Another great resource I see so many people reference is <a href="https://roadmap.sh/" target="_blank" rel="nofollow noopener noreferrer">roadmap.sh</a>, it is a great place to start if you really need a structured approach to learning just about anything in tech. It can be found in the “Go Roadmap” section.</p>
 <p>Best of luck!</p>
-
-            </div>
+</div>
         </article>
+        <div class="side-car-container"  data-nosnippet>
+            <nav class="" id="toc" aria-label="Table of Contents">
+                <ul class="toc-list"><li><a href="#starting-out">Starting Out</a></li><li><a href="#nitty-gritty">Nitty-Gritty</a></li><ul><li><a href="#interfaces">Interfaces</a></li><li><a href="#packages">Packages</a></li><li><a href="#structs">Structs</a></li><li><a href="#other-complaints">Other Complaints</a></li></ul><li><a href="#resources">Resources</a></li><ul><li><a href="#starting-with-the-source">Starting With the Source</a></li><li><a href="#influencers">Influencers</a></li><li><a href="#tools-and-books">Tools and Books</a></li></ul></ul></ul>
+            </nav>
+            <button id="backToTop" title="Go to top" data-nosnippet>Back To Top ↑</button>
+        </div>
+        </div>
     </main>
     <footer class="site-footer" data-nosnippet>
     <nav class="wrap footer-inner" aria-label="Footer Navigation" data-nosnippet>
@@ -199,7 +206,7 @@
     <script src="/assets/js/highlight/highlight.min.js" async></script>
     <script src="/assets/js/main.js" defer></script>
     <script>
-        window.addEventListener('load', function() {if (typeof hljs !== 'undefined') { hljs.highlightAll(); }});
+    window.addEventListener('load', function() {if (typeof hljs !== 'undefined') { hljs.highlightAll(); }});
     </script>
 </body>
 </html>

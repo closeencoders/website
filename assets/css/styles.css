@@ -19,7 +19,7 @@
     0 0 42px var(--active);
 
   /* --max-width: 72rem; */
-  --max-width: clamp(65rem, 55%, 1200px);
+  --max-width: 72rem;
   --read-width: 45rem;
 
   --top-nav-height: 60px;
@@ -36,6 +36,7 @@
 html {
   scrollbar-gutter: stable;
   background-color: var(--bg-color);
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
@@ -211,9 +212,6 @@ a {
   width: 100%;
 }
 
-.section {
-  margin: auto;
-}
 .section a {
   color: var(--accent-light);
   text-decoration: underline;
