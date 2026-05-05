@@ -97,7 +97,7 @@
                     
                 </header>
                 <div itemprop="articleBody"><p>I found the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a" target="_blank" rel="nofollow noopener noreferrer">mozilla.org</a> site to provide good documentation on the common properties of anchor tags. Then <a href="https://www.w3schools.com/tags/att_a_rel.asp" target="_blank" rel="nofollow noopener noreferrer">w3</a> less so. I’m not sure why this is not more commonly emphasized, mainly due to <a href="https://owasp.org/www-community/attacks/Reverse_Tabnabbing" target="_blank" rel="nofollow noopener noreferrer">reverse tabnabbing</a>. While this was technically patched in modern browsers, I’m not sure I would just assume it would never be a problem.</p>
-<p>First, if you want an anchor tag to open in a new tab without JavaScript of other various voodoo, just add the <code>target=&quot;_blank&quot;</code> property to the tag.</p>
+<p>If you want an anchor tag to open in a new tab without JavaScript of other various voodoo, just add the <code>target=&quot;_blank&quot;</code> property to the tag.</p>
 <pre><code class="language-html">&lt;a href=&quot;/someloc.blah&quot; target=&quot;_blank&quot; &gt;Go Here?&lt;/a&gt;
 </code></pre>
 <p>To make the anchor tag a bit more secure, this really only applies to links externally facing, add the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener" target="_blank" rel="nofollow noopener noreferrer">rel = noopener</a>.</p>

@@ -97,9 +97,10 @@
                     
                 </header>
                 <div itemprop="articleBody"><p>Grid and Flex are great until you want to do something odd or specific, like the Masonry layout AND keep everything in date order from left to right.</p>
-<p>Maybe that applies to most things in CSS, but I just wanted a nice masonry look for my post cards on my homepage/blog. This is definitely possible, but not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned for my future self.</p>
+<p>I just wanted a nice masonry look for my post cards on my homepage/blog (like Pinterest). While this is definitely possible, its not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned for my future self.</p>
 <h2 id="column-count">Column Count</h2>
-<p>First, just don't specify is a grid. The only issue is it does not put them in left to right order. Its meant more for a newspaper look that reads vertically then left to right.</p>
+<p>In the first case, just don't specify is a grid. The only issue is it does not put them in left to right order.</p>
+<p>This style is meant more for a newspaper, which looks that reads vertically instead of left to right. Annoying.</p>
 <pre><code class="language-css">.posts {
   /* display: grid; (no gird for the grid?) */
   column-count: 3;
@@ -114,14 +115,14 @@
   display: block;
 }
 </code></pre>
-<h2 id="javascript-methods">JavaScript Methods</h2>
-<p>There is apparently a way around this with math and JavaScript.</p>
+<h2 id="force-masonry-with-javascript">Force Masonry With JavaScript</h2>
+<p>A few ways around this with math and JavaScript:</p>
 <ul>
 <li><a href="https://masonry.desandro.com/" target="_blank" rel="nofollow noopener noreferrer">Pre-packaged way</a></li>
 <li><a href="https://functionalfrontend.medium.com/masonry-layout-using-flexbox-and-vanilla-js-292c18c56533" target="_blank" rel="nofollow noopener noreferrer">Manually</a></li>
 </ul>
-<h2 id="a-grid-but-only-with-limited-support">A Grid, but only with limited support</h2>
-<p>The only works in Firefox in 2026?</p>
+<h2 id="a-grid-with-limited-support">A Grid, With Limited Support</h2>
+<p>The only works in a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Masonry_layout" target="_blank" rel="nofollow noopener noreferrer">handful of browsers</a> on the latest version in 2026. Very annoying.</p>
 <pre><code class="language-css">.posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -135,7 +136,7 @@
             
             <div class="side-car-container"  data-nosnippet>
                 <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
-                    <ul class="toc-list"><li><a href="#column-count">Column Count</a></li><li><a href="#javascript-methods">JavaScript Methods</a></li><li><a href="#a-grid-but-only-with-limited-support">A Grid, but only with limited support</a></li></ul>
+                    <ul class="toc-list"><li><a href="#column-count">Column Count</a></li><li><a href="#force-masonry-with-javascript">Force Masonry With JavaScript</a></li><li><a href="#a-grid-with-limited-support">A Grid, With Limited Support</a></li></ul>
                 </nav>
                 <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
             </div>
