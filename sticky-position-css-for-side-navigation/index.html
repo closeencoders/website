@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
+    <link rel="preload" as="image" href="/assets/img/posts/2026/sticky-scroll-css-s.gif" fetchpriority="high">
+    
 
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -12,21 +14,21 @@
         <link rel="stylesheet" href="/assets/css/content.css">
     </noscript>
 
-    <title>Make Anchor Tag Links Open In New Tabs Securly</title>
+    <title>Sticky Position CSS For Side Navigation</title>
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://closeencoders.com/anchor-tags-in-new-tabs">
+    <link rel="canonical" href="https://closeencoders.com/sticky-position-css-for-side-navigation">
 
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Make Anchor Tag Links Open In New Tabs Securly">
+    <meta property="og:title" content="Sticky Position CSS For Side Navigation">
     
-    <meta name="description" content="Make anchor tags a bit more secure and load in a new tab.">
-    <meta property="og:description" content="Make anchor tags a bit more secure and load in a new tab.">
+    <meta name="description" content="How to make an element stay/stick with your viewport as you scroll in HTML and CSS">
+    <meta property="og:description" content="How to make an element stay/stick with your viewport as you scroll in HTML and CSS">
     
-    <meta property="og:url" content="https://closeencoders.com/anchor-tags-in-new-tabs">
+    <meta property="og:url" content="https://closeencoders.com/sticky-position-css-for-side-navigation">
     <meta property="og:image"
-          content="/assets/img/logo.svg">
-    <meta property="og:image:alt" content="Make Anchor Tag Links Open In New Tabs Securly">
+          content="/assets/img/posts/2026/sticky-scroll-css-s.gif">
+    <meta property="og:image:alt" content="Sticky Position CSS For Side Navigation">
     <meta property="og:locale" content="en_US">
 
     <meta property="article:published_time" content="2026-05-03 00:00:00 &#43;0000 UTC">
@@ -35,10 +37,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
-    <meta name="twitter:title" content="Make Anchor Tag Links Open In New Tabs Securly">
-    <meta name="twitter:description" content="Make anchor tags a bit more secure and load in a new tab.">
-    <meta name="twitter:image" content="/assets/img/logo.svg">
-    <meta name="twitter:image:alt" content="Make Anchor Tag Links Open In New Tabs Securly">
+    <meta name="twitter:title" content="Sticky Position CSS For Side Navigation">
+    <meta name="twitter:description" content="How to make an element stay/stick with your viewport as you scroll in HTML and CSS">
+    <meta name="twitter:image" content="/assets/img/posts/2026/sticky-scroll-css-s.gif">
+    <meta name="twitter:image:alt" content="Sticky Position CSS For Side Navigation">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
 </head>
@@ -78,11 +80,11 @@
         <div class="content-container">
             <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
                 <header class="post-header">
-                    <h1 itemprop="headline">Make Anchor Tag Links Open In New Tabs Securly</h1>
+                    <h1 itemprop="headline">Sticky Position CSS For Side Navigation</h1>
                     <div>
                         <p class="post-subtitle">
                             
-                            Make anchor tags a bit more secure and load in a new tab.
+                            How to make an element stay/stick with your viewport as you scroll in HTML and CSS
                             
                         </p>
                         <p class="post-metadata" data-nosnippet>
@@ -95,16 +97,68 @@
                             <span> | </span><span itemprop="keywords">notes</span>, <span itemprop="keywords">software</span>, <span itemprop="keywords">web</span></p>
                     </div>
                     
+                    <figure class="post-hero" itemprop="image">
+                        <picture>
+                            <source srcset="/assets/img/posts/2026/sticky-scroll-css-s.gif" type="image/webp">
+                            <img src="/assets/img/large-logo.png" alt="Sticky Position CSS For Side Navigation">
+                        </picture>
+                    </figure>
+                    
                 </header>
-                <div itemprop="articleBody"><p>I found the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a" target="_blank" rel="nofollow noopener noreferrer">mozilla.org</a> site to provide good documentation on the common properties of anchor tags. Then <a href="https://www.w3schools.com/tags/att_a_rel.asp" target="_blank" rel="nofollow noopener noreferrer">w3</a> less so. I’m not sure why this is not more commonly emphasized, mainly due to <a href="https://owasp.org/www-community/attacks/Reverse_Tabnabbing" target="_blank" rel="nofollow noopener noreferrer">reverse tabnabbing</a>. While this was technically patched in modern browsers, I’m not sure I would just assume it would never be a problem.</p>
-<p>First, if you want an anchor tag to open in a new tab without JavaScript of other various voodoo, just add the <code>target=&quot;_blank&quot;</code> property to the tag.</p>
-<pre><code class="language-html">&lt;a href=&quot;/someloc.blah&quot; target=&quot;_blank&quot; &gt;Go Here?&lt;/a&gt;
+                <div itemprop="articleBody"><p>The sticky <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position" target="_blank" rel="nofollow noopener noreferrer">position</a> in CSS can be a bit tricky, but once understood it's not difficult and has some advantages over the static position, and is great for making a side navigation.</p>
+<p>All you have to do is put to elements in a container and use a display like flex or similar, then set the other to sticky and ensure it had a top set near the beginning of the page.</p>
+<p>Then if the content container's overall height/clearance all the way down the page (your content being large enough to allow scrolling) the side container will move with you as you scroll.</p>
+<p>Here is a simple HTML and CSS example, the CSS has additional fluff properties to emulate fake content height, taking up all available space in the body so you can scroll and see what is happening.</p>
+<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 3rem 0;
+            gap: 1rem;
+        }
+        .content-container {
+            width: 100%;
+            max-width: 800px;
+
+            background-color: gray;
+            padding: 12px;
+            height: calc(100vh + 1000px);
+        }
+        .side-car-container {
+            position: sticky;
+            top: 0;
+            
+            align-self: flex-start;
+            background-color: darkcyan;
+            max-width: 350px;
+            padding: 12px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;content-container&quot;&gt;
+            &lt;p&gt;Junk Content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;side-car-container&quot;&gt;
+            &lt;p&gt;Sticky Nav&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<p>To make the anchor tag a bit more secure, this really only applies to links externally facing, add the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener" target="_blank" rel="nofollow noopener noreferrer">rel = noopener</a>.</p>
-<p>It denies the browser access to the context about the document that opened the link. So the &quot;opener&quot; does not provide any info on where it's going. This is useful for links that may or may not be sketchy.</p>
-<pre><code class="language-html">&lt;a href=&quot;/someloc.blah&quot; rel=&quot;noopener&quot; &gt;Go Here?&lt;/a&gt;
-</code></pre>
-<p>The <code>target=&quot;_blank&quot;</code> may already provide the &quot;noopener&quot; functionality, and I can just use one or the other. I find it's better to be redundant in case I make the mistake of older browsers or not having one or the other when I need it.</p>
 </div>
             </article>
             
