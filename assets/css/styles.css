@@ -208,6 +208,7 @@ a {
 .read-content {
   min-width: 0;
   max-width: var(--read-width);
+  margin-inline: auto;
 }
 .read-content img {
   width: 100%;

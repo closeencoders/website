@@ -158,6 +158,8 @@ code.hljs {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    /* This centers the children as a unit */
+    align-items: flex-start;
     padding: 1rem 0;
     gap: 1rem;
 }
