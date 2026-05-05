@@ -47,7 +47,7 @@
   font-size: var(--sub-font-size);
 }
 .posts>*:first-child :is(h2, h3) {
-  font-size: 42px;
+  font-size: 40px;
 }
 .posts>*:first-child p {
   font-size: 20px;
@@ -94,17 +94,7 @@
   font-size: 14pt;
 }
 
-@media (max-width: 1001px) {
-  .posts>*:first-child {
-    grid-column: auto;
-    grid-row: auto;
-  }
-  .posts>*:first-child :is(h2, h3) {
-    font-size: 1.4rem;
-  }
-  .posts>*:first-child p {
-    font-size: var(--sub-font-size);
-  }
+@media (max-width: 950px) {
   .posts-na,
   .posts {
     grid-template-columns: repeat(2, 1fr);
@@ -121,6 +111,16 @@
 }
 
 @media (max-width: 660px) {
+  .posts>*:first-child :is(h2, h3) {
+    font-size: 1.4rem;
+  }
+  .posts>*:first-child p {
+    font-size: var(--sub-font-size);
+  }
+  .posts>*:first-child {
+    grid-column: auto;
+    grid-row: auto;
+  }
   .posts-na,
   .posts {
     grid-template-columns: 1fr;
