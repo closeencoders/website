@@ -18,7 +18,6 @@
     0 0 21px var(--active),
     0 0 42px var(--active);
 
-  /* --max-width: 72rem; */
   --max-width: 72rem;
   --read-width: 45rem;
 
@@ -44,7 +43,6 @@ body {
   font-family: var(--default-font);
   color: var(--text-color);
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 code {
   font-size: var(--code-font-size);
@@ -87,7 +85,9 @@ a {
 }
 
 .wrap {
-  width: min(calc(100% - 1.8rem), var(--max-width));
+  max-width: var(--max-width);
+  padding-left: 10px;
+  padding-right: 10px;
   margin: 0 auto;
 }
 
@@ -206,6 +206,7 @@ a {
 
 /* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
 .read-content {
+  min-width: 0;
   max-width: var(--read-width);
 }
 .read-content img {

@@ -133,13 +133,25 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
     }
 }
 
+pre {
+    max-width: 100%;
+    /* Prevents the code block from being wider than the article */
+    overflow-x: auto;
+    /* Adds the scrollbar when code is too long */
+    display: block;
+    /* Ensures it behaves as a block */
+}
+
 pre code.hljs {
     display: block;
     overflow-x: auto;
-    padding: 1em
+    padding: 1em;
+    /* This ensures the inner code doesn't force the 'pre' to expand */
+    min-width: 0;
 }
 code.hljs {
-    padding: 3px 5px
+    padding: 3px 5px;
+    width: 100%;
 }
 
 .content-container {
@@ -149,7 +161,6 @@ code.hljs {
     padding: 1rem 0;
     gap: 1rem;
 }
-
 .side-car-container {
     position: sticky;
     top: 0;
@@ -157,28 +168,23 @@ code.hljs {
     max-width: 350px;
     padding-top: 12px;
 }
-
-.side-car-container ul {
+.table-of-contents-container ul {
     list-style: none;
     font-size: 17px;
     padding: 0;
     margin: 0;
 }
-
-.side-car-container ul>ul {
+.table-of-contents-container ul>ul {
     padding-left: 15px;
     border-left: 1px solid var(--accent);
 }
-
-.side-car-container li {
+.table-of-contents-container li {
     padding: 5px 0;
     line-height: 1;
 }
 
 #backToTop {
     display: none;
-    /* Hidden by default */
-    /* position: fixed; */
     bottom: 20px;
     right: 30px;
     z-index: 99;
@@ -190,13 +196,6 @@ code.hljs {
     padding: 10px;
     margin: 5px;
     font-size: 18px;
-    transition: opacity 0.3s;
 }
-
-#backToTop:hover {
-    background-color: #555;
-    /* Add a hover effect */
-}
-
 
 /* closeencoders.com */

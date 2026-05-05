@@ -37,7 +37,7 @@
     <meta name="twitter:creator" content="@closeencoders">
     <meta name="twitter:title" content="Making Cards use Masonry Layout in CSS">
     <meta name="twitter:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
-    <meta name="twitter:image"content="/assets/img/logo.svg">
+    <meta name="twitter:image" content="/assets/img/logo.svg">
     <meta name="twitter:image:alt" content="Making Cards use Masonry Layout in CSS">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
@@ -77,25 +77,26 @@
     <main class="wrap">
         <div class="content-container">
             <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
-            <header class="post-header">
-            <h1 itemprop="headline">Making Cards use Masonry Layout in CSS</h1>
-            <div>
-                <p class="post-subtitle">
+                <header class="post-header">
+                    <h1 itemprop="headline">Making Cards use Masonry Layout in CSS</h1>
+                    <div>
+                        <p class="post-subtitle">
+                            
+                            A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.
+                            
+                        </p>
+                        <p class="post-metadata" data-nosnippet>
+                            By
+                            <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                <span itemprop="name">Josh</span>
+                            </a>
+                            <span> - </span>
+                            <time datetime="2026-05-03T00:00:00Z" itemprop="datePublished">May 03, 2026</time>
+                            <span> | </span><span itemprop="keywords">notes</span>, <span itemprop="keywords">software</span>, <span itemprop="keywords">web</span></p>
+                    </div>
                     
-                    A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.
-                    
-                </p>
-                <p class="post-metadata" data-nosnippet>
-                    By
-                    <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <span itemprop="name">Josh</span>
-                    </a>
-                    - <time datetime="2026-05-03T00:00:00Z" itemprop="datePublished">May 03, 2026</time>
-                    <span> | </span><span itemprop="keywords">notes</span>, <span itemprop="keywords">software</span>, <span itemprop="keywords">web</span></p>
-            </div>
-                
-            </header>
-            <div itemprop="articleBody"><p>Grid and Flex are great until you want to do something odd or specific, like the Masonry layout AND keep everything in date order from left to right.</p>
+                </header>
+                <div itemprop="articleBody"><p>Grid and Flex are great until you want to do something odd or specific, like the Masonry layout AND keep everything in date order from left to right.</p>
 <p>Maybe that applies to most things in CSS, but I just wanted a nice masonry look for my post cards on my homepage/blog. This is definitely possible, but not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned for my future self.</p>
 <h2 id="column-count">Column Count</h2>
 <p>First, just don't specify is a grid. The only issue is it does not put them in left to right order. Its meant more for a newspaper look that reads vertically then left to right.</p>
@@ -130,13 +131,13 @@
 }
 </code></pre>
 </div>
-        </article>
-        <div class="side-car-container"  data-nosnippet>
-            <nav class="" id="toc" aria-label="Table of Contents">
-                <ul class="toc-list"><li><a href="#column-count">Column Count</a></li><li><a href="#javascript-methods">JavaScript Methods</a></li><li><a href="#a-grid-but-only-with-limited-support">A Grid, but only with limited support</a></li></ul></ul>
-            </nav>
-            <button id="backToTop" title="Go to top" data-nosnippet>Back To Top ↑</button>
-        </div>
+            </article>
+            <div class="side-car-container"  data-nosnippet>
+                <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
+                    <ul class="toc-list"><li><a href="#column-count">Column Count</a></li><li><a href="#javascript-methods">JavaScript Methods</a></li><li><a href="#a-grid-but-only-with-limited-support">A Grid, but only with limited support</a></li></ul>
+                </nav>
+                <button id="backToTop" title="Go to top" data-nosnippet>Back To Top ↑</button>
+            </div>
         </div>
     </main>
     <footer class="site-footer" data-nosnippet>

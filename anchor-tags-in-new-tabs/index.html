@@ -37,7 +37,7 @@
     <meta name="twitter:creator" content="@closeencoders">
     <meta name="twitter:title" content="Make Anchor Tag Links Open In New Tabs Securly">
     <meta name="twitter:description" content="Make anchor tags a bit more secure and load in a new tab.">
-    <meta name="twitter:image"content="/assets/img/logo.svg">
+    <meta name="twitter:image" content="/assets/img/logo.svg">
     <meta name="twitter:image:alt" content="Make Anchor Tag Links Open In New Tabs Securly">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
@@ -77,25 +77,26 @@
     <main class="wrap">
         <div class="content-container">
             <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
-            <header class="post-header">
-            <h1 itemprop="headline">Make Anchor Tag Links Open In New Tabs Securly</h1>
-            <div>
-                <p class="post-subtitle">
+                <header class="post-header">
+                    <h1 itemprop="headline">Make Anchor Tag Links Open In New Tabs Securly</h1>
+                    <div>
+                        <p class="post-subtitle">
+                            
+                            Make anchor tags a bit more secure and load in a new tab.
+                            
+                        </p>
+                        <p class="post-metadata" data-nosnippet>
+                            By
+                            <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                <span itemprop="name">Josh</span>
+                            </a>
+                            <span> - </span>
+                            <time datetime="2026-05-03T00:00:00Z" itemprop="datePublished">May 03, 2026</time>
+                            <span> | </span><span itemprop="keywords">notes</span>, <span itemprop="keywords">software</span>, <span itemprop="keywords">web</span></p>
+                    </div>
                     
-                    Make anchor tags a bit more secure and load in a new tab.
-                    
-                </p>
-                <p class="post-metadata" data-nosnippet>
-                    By
-                    <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <span itemprop="name">Josh</span>
-                    </a>
-                    - <time datetime="2026-05-03T00:00:00Z" itemprop="datePublished">May 03, 2026</time>
-                    <span> | </span><span itemprop="keywords">notes</span>, <span itemprop="keywords">software</span>, <span itemprop="keywords">web</span></p>
-            </div>
-                
-            </header>
-            <div itemprop="articleBody"><p>I found the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a" target="_blank" rel="nofollow noopener noreferrer">mozilla.org</a> site to provide good documentation on the common properties of anchor tags. Then <a href="https://www.w3schools.com/tags/att_a_rel.asp" target="_blank" rel="nofollow noopener noreferrer">w3</a> less so. I’m not sure why this is not more commonly emphasized, mainly due to <a href="https://owasp.org/www-community/attacks/Reverse_Tabnabbing" target="_blank" rel="nofollow noopener noreferrer">reverse tabnabbing</a>. While this was technically patched in modern browsers, I’m not sure I would just assume it would never be a problem.</p>
+                </header>
+                <div itemprop="articleBody"><p>I found the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a" target="_blank" rel="nofollow noopener noreferrer">mozilla.org</a> site to provide good documentation on the common properties of anchor tags. Then <a href="https://www.w3schools.com/tags/att_a_rel.asp" target="_blank" rel="nofollow noopener noreferrer">w3</a> less so. I’m not sure why this is not more commonly emphasized, mainly due to <a href="https://owasp.org/www-community/attacks/Reverse_Tabnabbing" target="_blank" rel="nofollow noopener noreferrer">reverse tabnabbing</a>. While this was technically patched in modern browsers, I’m not sure I would just assume it would never be a problem.</p>
 <p>First, if you want an anchor tag to open in a new tab without JavaScript of other various voodoo, just add the <code>target=&quot;_blank&quot;</code> property to the tag.</p>
 <pre><code class="language-html">&lt;a href=&quot;/someloc.blah&quot; target=&quot;_blank&quot; &gt;Go Here?&lt;/a&gt;
 </code></pre>
@@ -105,13 +106,13 @@
 </code></pre>
 <p>The <code>target=&quot;_blank&quot;</code> may already provide the &quot;noopener&quot; functionality, and I can just use one or the other. I find it's better to be redundant in case I make the mistake of older browsers or not having one or the other when I need it.</p>
 </div>
-        </article>
-        <div class="side-car-container"  data-nosnippet>
-            <nav class="" id="toc" aria-label="Table of Contents">
-                <ul class="toc-list">
-            </nav>
-            <button id="backToTop" title="Go to top" data-nosnippet>Back To Top ↑</button>
-        </div>
+            </article>
+            <div class="side-car-container"  data-nosnippet>
+                <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
+                    <ul class="toc-list">
+                </nav>
+                <button id="backToTop" title="Go to top" data-nosnippet>Back To Top ↑</button>
+            </div>
         </div>
     </main>
     <footer class="site-footer" data-nosnippet>
