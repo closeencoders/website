@@ -97,10 +97,11 @@
                     
                 </header>
                 <div itemprop="articleBody"><p>Grid and Flex are great until you want to do something odd or specific, like the Masonry layout AND keep everything in date order from left to right.</p>
-<p>I just wanted a nice masonry look for my post cards on my homepage/blog (like Pinterest). While this is definitely possible, its not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned for my future self.</p>
+<p>I just wanted a nice masonry look for my post cards on my homepage/blog (like Pinterest). While this is definitely possible, its not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned so far.</p>
 <h2 id="column-count">Column Count</h2>
-<p>In the first case, just don't specify is a grid. The only issue is it does not put them in left to right order.</p>
-<p>This style is meant more for a newspaper, which looks that reads vertically instead of left to right. Annoying.</p>
+<p>In the first case, don't specify a grid, only <code>column-count</code>.</p>
+<p>This style is meant to look more like a newspaper, which reads vertically instead of left to right.</p>
+<p>This means you don't have true control over the order they are shown on the screen. Annoying.</p>
 <pre><code class="language-css">.posts {
   /* display: grid; (no gird for the grid?) */
   column-count: 3;
@@ -122,7 +123,7 @@
 <li><a href="https://functionalfrontend.medium.com/masonry-layout-using-flexbox-and-vanilla-js-292c18c56533" target="_blank" rel="nofollow noopener noreferrer">Manually</a></li>
 </ul>
 <h2 id="a-grid-with-limited-support">A Grid, With Limited Support</h2>
-<p>The only works in a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Masonry_layout" target="_blank" rel="nofollow noopener noreferrer">handful of browsers</a> on the latest version in 2026. Very annoying.</p>
+<p>This only works in a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Masonry_layout" target="_blank" rel="nofollow noopener noreferrer">handful of browsers</a> on the latest version in 2026. Very annoying.</p>
 <pre><code class="language-css">.posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
