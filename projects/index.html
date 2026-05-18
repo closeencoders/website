@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="/assets/css/page.css">
 
     <title>Projects</title>
-    <meta name="description" content="&lt;section class=&#34;section read-content&#34; data-nosnippet&gt; &lt;h1&gt;{{ .Frontmatter.Title }}&lt;/h1&gt; &lt;p&gt;The random stuff I made, ranging from kinda cool to the e...">
+    <meta name="description" content="&lt;section class=&#34;section read-content&#34; data-nosnippet&gt; &lt;h1&gt;{{ .Metadata.Title }}&lt;/h1&gt; &lt;ul&gt; &lt;li&gt; &lt;a href=&#34;https://github.com/close...">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://closeencoders.com/projects">
 
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Projects">
-    <meta property="og:description" content="&lt;section class=&#34;section read-content&#34; data-nosnippet&gt; &lt;h1&gt;{{ .Frontmatter.Title }}&lt;/h1&gt; &lt;p&gt;The random stuff I made, ranging from kinda cool to the e...">
+    <meta property="og:description" content="&lt;section class=&#34;section read-content&#34; data-nosnippet&gt; &lt;h1&gt;{{ .Metadata.Title }}&lt;/h1&gt; &lt;ul&gt; &lt;li&gt; &lt;a href=&#34;https://github.com/close...">
     <meta property="og:url" content="https://closeencoders.com/projects">
     <meta property="og:image" content="/assets/img/logo.svg">
     <meta property="og:image:alt" content="Projects">
@@ -27,7 +27,7 @@
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
     <meta name="twitter:title" content="Projects">
-    <meta name="twitter:description" content="&lt;section class=&#34;section read-content&#34; data-nosnippet&gt; &lt;h1&gt;{{ .Frontmatter.Title }}&lt;/h1&gt; &lt;p&gt;The random stuff I made, ranging from kinda cool to the e...">
+    <meta name="twitter:description" content="&lt;section class=&#34;section read-content&#34; data-nosnippet&gt; &lt;h1&gt;{{ .Metadata.Title }}&lt;/h1&gt; &lt;ul&gt; &lt;li&gt; &lt;a href=&#34;https://github.com/close...">
     <meta name="twitter:image" content="/assets/img/logo.svg">
     <meta name="twitter:image:alt" content="Projects">
 
@@ -68,11 +68,14 @@
     <main class="wrap">
         <section class="section read-content" data-nosnippet>
     <h1>Projects</h1>
-    <p>The random stuff I made, ranging from kinda cool to the edge of clinically insane and pointless, just for fun.</p>
     <ul>
         <li>
-            <a href="https://github.com/closeencoders/website" target="_blank" rel="noopener">This Hosted Site</a>
-            - I modify this site constantly. I don't use many off the shelf frameworks, its mostly just HTML, CSS, and basic JavaScript
+            <a href="https://github.com/closeencoders/arcstatic" target="_blank" rel="noopener">Arcstatic</a>
+            - Arcstatic is a simple static site generator practice/learning project. It forces me to use GO when I want a new feature for my site to be generated.
+        </li>
+        <li>
+            <a href="https://github.com/closeencoders/website" target="_blank" rel="noopener">This Site</a>
+            - The current website you are on right now, while its not really a "project" I modify it constantly. I don't use many off-the-shelf frameworks, it's mostly just HTML, CSS, and JavaScript fed through my static site generator practice project Arcstatic.
         </li>
     </ul>
 </section>
@@ -93,9 +96,10 @@
             <svg fill="#444" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
         </div>
-        <small class="rights" aria-label="Rights Reserved" data-nosnippet>© All Rights Reserved. <a href="/" data-nosnippet>
-            closeencoders.com
-        </a> | <a href="/privacy" rel="noopener" data-nosnippet>privacy</a>
+        <small class="rights" aria-label="Rights Reserved" data-nosnippet>
+            <span> © All Rights Reserved. | </span><a href="/" data-nosnippet>closeencoders.com</a>
+            <span> | </span><a href="/privacy" rel="noopener" data-nosnippet>privacy</a>
+            <br>Site Rendered With <a href="https://github.com/closeencoders/arcstatic" target="_blank" rel="noopener">Arcstatic</a>
         </small>
     </nav>
 </footer>
