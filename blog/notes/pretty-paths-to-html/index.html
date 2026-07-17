@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-    <link rel="preload" as="image" href="/assets/img/posts/2026/closeencoders-masonry-ffs.webp" fetchpriority="high">
-    
 
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -14,33 +12,33 @@
         <link rel="stylesheet" href="/assets/css/content.css">
     </noscript>
 
-    <title>Making Cards use Masonry Layout in CSS or JavaScript</title>
+    <title>Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration</title>
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://closeencoders.com/masonry-css-layout">
+    <link rel="canonical" href="https://closeencoders.com/blog/notes/pretty-paths-to-html">
 
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Making Cards use Masonry Layout in CSS or JavaScript">
+    <meta property="og:title" content="Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration">
     
-    <meta name="description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
-    <meta property="og:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
+    <meta name="description" content="Some simple ways to have pretty urls for a static website, but it has drawbacks without server configuration.">
+    <meta property="og:description" content="Some simple ways to have pretty urls for a static website, but it has drawbacks without server configuration.">
     
-    <meta property="og:url" content="https://closeencoders.com/masonry-css-layout">
+    <meta property="og:url" content="https://closeencoders.com/blog/notes/pretty-paths-to-html">
     <meta property="og:image"
-          content="/assets/img/posts/2026/closeencoders-masonry-ffs.webp">
-    <meta property="og:image:alt" content="Making Cards use Masonry Layout in CSS or JavaScript">
+          content="/assets/img/logo.svg">
+    <meta property="og:image:alt" content="Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration">
     <meta property="og:locale" content="en_US">
 
-    <meta property="article:published_time" content="2026-05-03 00:00:00 &#43;0000 UTC">
+    <meta property="article:published_time" content="2026-05-18 00:00:00 &#43;0000 UTC">
     <meta property="article:author" content="@closeencoders">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
-    <meta name="twitter:title" content="Making Cards use Masonry Layout in CSS or JavaScript">
-    <meta name="twitter:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
-    <meta name="twitter:image" content="/assets/img/posts/2026/closeencoders-masonry-ffs.webp">
-    <meta name="twitter:image:alt" content="Making Cards use Masonry Layout in CSS or JavaScript">
+    <meta name="twitter:title" content="Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration">
+    <meta name="twitter:description" content="Some simple ways to have pretty urls for a static website, but it has drawbacks without server configuration.">
+    <meta name="twitter:image" content="/assets/img/logo.svg">
+    <meta name="twitter:image:alt" content="Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
 </head>
@@ -80,11 +78,11 @@
         <div class="content-container">
             <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
                 <header class="post-header">
-                    <h1 itemprop="headline">Making Cards use Masonry Layout in CSS or JavaScript</h1>
+                    <h1 itemprop="headline">Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration</h1>
                     <div>
                         <p class="post-subtitle">
                             
-                            A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.
+                            Some simple ways to have pretty urls for a static website, but it has drawbacks without server configuration.
                             
                         </p>
                         <p class="post-metadata" data-nosnippet>
@@ -92,65 +90,50 @@
                             <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
                                 <span itemprop="name">Josh</span>
                             </a> <span> - </span>
-                            <time datetime="2026-05-03T00:00:00Z" itemprop="datePublished">May 03, 2026</time>
+                            <time datetime="2026-05-18T00:00:00Z" itemprop="datePublished">May 18, 2026</time>
                              | notes
                             
                         </p>
                     </div>
                     
-                    <figure class="post-hero" itemprop="image">
-                        <picture>
-                            <source srcset="/assets/img/posts/2026/closeencoders-masonry-ffs.webp" type="image/webp">
-                            <img src="/assets/img/large-logo.png" alt="Making Cards use Masonry Layout in CSS or JavaScript">
-                        </picture>
-                    </figure>
-                    
                 </header>
-                <div itemprop="articleBody"><p>Grid and Flex are great until you want to do something odd or specific, like the Masonry layout AND keep everything in date order from left to right.</p>
-<p>I just wanted a nice masonry look for my post cards on my homepage/blog (like Pinterest). While this is definitely possible, its not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned so far.</p>
-<h2 id="column-count">Column Count</h2>
-<p>In the first case, don't specify a grid, only <code>column-count</code>.</p>
-<p>This style is meant to look more like a newspaper, which reads vertically instead of left to right.</p>
-<p>This means you don't have true control over the order they are shown on the screen. Annoying.</p>
-<pre><code class="language-css">.posts {
-  /* display: grid; (no gird for the grid?) */
-  column-count: 3;
-  column-gap: 1.5rem;
-  width: 100%;
-}
-
-.post-card {
-  /* Prevents a card from splitting across two columns */
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
-  display: block;
-}
+                <div itemprop="articleBody"><p>Links to HTML files can be modified either by organizing them into folders or by removing the <code>.html</code> extension from the filename itself.</p>
+<p>In this example, I am hosting some test files locally using Go to demonstrate how these URL paths work.</p>
+<p>To create a clean path that ends with a trailing slash, like this:</p>
+<pre><code>https://localhost:8000/mycontent/
 </code></pre>
-<h2 id="force-masonry-with-javascript">Force Masonry With JavaScript</h2>
-<p>A few ways around this with math and JavaScript:</p>
-<ul>
-<li><a href="https://masonry.desandro.com/" target="_blank" rel="nofollow noopener noreferrer">Pre-packaged way</a></li>
-<li><a href="https://functionalfrontend.medium.com/masonry-layout-using-flexbox-and-vanilla-js-292c18c56533" target="_blank" rel="nofollow noopener noreferrer">Manually</a></li>
-</ul>
-<h2 id="a-grid-with-limited-support">A Grid, With Limited Support</h2>
-<p>This only works in a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Masonry_layout" target="_blank" rel="nofollow noopener noreferrer">handful of browsers</a> on the latest version in 2026. Very annoying.</p>
-<pre><code class="language-css">.posts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* support is low */
-  grid-template-rows: masonry; 
-  gap: 1.5rem;
-}
+<p>Your project's folder structure would look like this:</p>
+<pre><code class="language-text">root
+└── mycontent
+    └── index.html
+</code></pre>
+<p>When a user visits <code>/mycontent/</code>, the server will look for the <code>index.html</code> file inside that directory and flatten the path.</p>
+<p>If you want the URL path to end <em>without</em> a trailing slash, you have two main options (I think there are others, but this seems to be the standard):</p>
+<ol>
+<li>Configure a web server like Nginx or Apache to rewrite the URL and strip the extension or redirect behind the scenes.</li>
+<li>Remove the <code>.html</code> extension directly from the file itself.</li>
+</ol>
+<p>In this scenario, <code>mycontent</code> becomes the actual file containing your HTML code, completely devoid of any extension:</p>
+<pre><code class="language-text">root
+└── mycontent
+
+</code></pre>
+<p>The output would now be:</p>
+<pre><code>https://localhost:8000/mycontent
+</code></pre>
+<p>Lastly, if you already have SEO going to one or the other (slashes or no slashes), you can add redirects so when the user or web crawler lands on the page it will take them to the new official page.</p>
+<p>As you can see, this is where some of the main drawbacks lie and it's annoying to maintain. This is exactly why having a solid system and plan in place before building a website is crucial to ensuring that future migrations aren't painful.</p>
+<pre><code class="language-html">// https://localhost:8000/mycontent/  --&gt; Redirect --&gt;  https://localhost:8000/mycontent
+&lt;script&gt;
+    let path = window.location.pathname;
+    if (path.endsWith('/') &amp;&amp; path !== '/') {
+        let cleanPath = path.slice(0, -1);
+        window.location.replace(window.location.origin + cleanPath + window.location.search);
+    }
+&lt;/script&gt;
 </code></pre>
 </div>
             </article>
-            
-            <div class="side-car-container"  data-nosnippet>
-                <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
-                    <ul class="toc-list"><li><a href="#column-count">Column Count</a></li><li><a href="#force-masonry-with-javascript">Force Masonry With JavaScript</a></li><li><a href="#a-grid-with-limited-support">A Grid, With Limited Support</a></li></ul>
-                </nav>
-                <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
-            </div>
             
         </div>
     </main>

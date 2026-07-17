@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-    <link rel="preload" as="image" href="/assets/img/posts/2026/closeencoders-masonry-ffs.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/img/posts/2026/sticky-scroll-css-s.gif" fetchpriority="high">
     
 
     <link rel="stylesheet" href="/assets/css/styles.css">
@@ -14,33 +14,33 @@
         <link rel="stylesheet" href="/assets/css/content.css">
     </noscript>
 
-    <title>Making Cards use Masonry Layout in CSS or JavaScript</title>
+    <title>Sticky Position CSS For Side Navigation</title>
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://closeencoders.com/masonry-css-layout">
+    <link rel="canonical" href="https://closeencoders.com/blog/notes/sticky-position-css-for-side-navigation">
 
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Making Cards use Masonry Layout in CSS or JavaScript">
+    <meta property="og:title" content="Sticky Position CSS For Side Navigation">
     
-    <meta name="description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
-    <meta property="og:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
+    <meta name="description" content="How to make an element stay/stick with your viewport as you scroll in HTML and CSS">
+    <meta property="og:description" content="How to make an element stay/stick with your viewport as you scroll in HTML and CSS">
     
-    <meta property="og:url" content="https://closeencoders.com/masonry-css-layout">
+    <meta property="og:url" content="https://closeencoders.com/blog/notes/sticky-position-css-for-side-navigation">
     <meta property="og:image"
-          content="/assets/img/posts/2026/closeencoders-masonry-ffs.webp">
-    <meta property="og:image:alt" content="Making Cards use Masonry Layout in CSS or JavaScript">
+          content="/assets/img/posts/2026/sticky-scroll-css-s.gif">
+    <meta property="og:image:alt" content="Sticky Position CSS For Side Navigation">
     <meta property="og:locale" content="en_US">
 
-    <meta property="article:published_time" content="2026-05-03 00:00:00 &#43;0000 UTC">
+    <meta property="article:published_time" content="2026-05-05 00:00:00 &#43;0000 UTC">
     <meta property="article:author" content="@closeencoders">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
-    <meta name="twitter:title" content="Making Cards use Masonry Layout in CSS or JavaScript">
-    <meta name="twitter:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
-    <meta name="twitter:image" content="/assets/img/posts/2026/closeencoders-masonry-ffs.webp">
-    <meta name="twitter:image:alt" content="Making Cards use Masonry Layout in CSS or JavaScript">
+    <meta name="twitter:title" content="Sticky Position CSS For Side Navigation">
+    <meta name="twitter:description" content="How to make an element stay/stick with your viewport as you scroll in HTML and CSS">
+    <meta name="twitter:image" content="/assets/img/posts/2026/sticky-scroll-css-s.gif">
+    <meta name="twitter:image:alt" content="Sticky Position CSS For Side Navigation">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
 </head>
@@ -80,11 +80,11 @@
         <div class="content-container">
             <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
                 <header class="post-header">
-                    <h1 itemprop="headline">Making Cards use Masonry Layout in CSS or JavaScript</h1>
+                    <h1 itemprop="headline">Sticky Position CSS For Side Navigation</h1>
                     <div>
                         <p class="post-subtitle">
                             
-                            A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.
+                            How to make an element stay/stick with your viewport as you scroll in HTML and CSS
                             
                         </p>
                         <p class="post-metadata" data-nosnippet>
@@ -92,7 +92,7 @@
                             <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
                                 <span itemprop="name">Josh</span>
                             </a> <span> - </span>
-                            <time datetime="2026-05-03T00:00:00Z" itemprop="datePublished">May 03, 2026</time>
+                            <time datetime="2026-05-05T00:00:00Z" itemprop="datePublished">May 05, 2026</time>
                              | notes
                             
                         </p>
@@ -100,57 +100,68 @@
                     
                     <figure class="post-hero" itemprop="image">
                         <picture>
-                            <source srcset="/assets/img/posts/2026/closeencoders-masonry-ffs.webp" type="image/webp">
-                            <img src="/assets/img/large-logo.png" alt="Making Cards use Masonry Layout in CSS or JavaScript">
+                            <source srcset="/assets/img/posts/2026/sticky-scroll-css-s.gif" type="image/webp">
+                            <img src="/assets/img/large-logo.png" alt="Sticky Position CSS For Side Navigation">
                         </picture>
                     </figure>
                     
                 </header>
-                <div itemprop="articleBody"><p>Grid and Flex are great until you want to do something odd or specific, like the Masonry layout AND keep everything in date order from left to right.</p>
-<p>I just wanted a nice masonry look for my post cards on my homepage/blog (like Pinterest). While this is definitely possible, its not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned so far.</p>
-<h2 id="column-count">Column Count</h2>
-<p>In the first case, don't specify a grid, only <code>column-count</code>.</p>
-<p>This style is meant to look more like a newspaper, which reads vertically instead of left to right.</p>
-<p>This means you don't have true control over the order they are shown on the screen. Annoying.</p>
-<pre><code class="language-css">.posts {
-  /* display: grid; (no gird for the grid?) */
-  column-count: 3;
-  column-gap: 1.5rem;
-  width: 100%;
-}
+                <div itemprop="articleBody"><p>The sticky <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position" target="_blank" rel="nofollow noopener noreferrer">position</a> in CSS can be tricky, but once understood it's not difficult. Sticky position has some distinct advantages over the static position which makes it ideal for making a side navigation.</p>
+<p>Just put two elements in a container and use a display like flex or similar. Then set one of the two elements in the container to 'sticky' and ensure it had a top set near the beginning of the page.</p>
+<p>If the content container's overall height/clearance all the way down the page (your content being large enough to allow scrolling) the side container will move with you as you scroll. Done.</p>
+<p>Here is a simple HTML and CSS example, the CSS has additional fluff properties to emulate fake content height, taking up all available space in the body so you can scroll and see what is happening.</p>
+<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 3rem 0;
+            gap: 1rem;
+        }
+        .content-container {
+            width: 100%;
+            max-width: 800px;
 
-.post-card {
-  /* Prevents a card from splitting across two columns */
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-</code></pre>
-<h2 id="force-masonry-with-javascript">Force Masonry With JavaScript</h2>
-<p>A few ways around this with math and JavaScript:</p>
-<ul>
-<li><a href="https://masonry.desandro.com/" target="_blank" rel="nofollow noopener noreferrer">Pre-packaged way</a></li>
-<li><a href="https://functionalfrontend.medium.com/masonry-layout-using-flexbox-and-vanilla-js-292c18c56533" target="_blank" rel="nofollow noopener noreferrer">Manually</a></li>
-</ul>
-<h2 id="a-grid-with-limited-support">A Grid, With Limited Support</h2>
-<p>This only works in a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Masonry_layout" target="_blank" rel="nofollow noopener noreferrer">handful of browsers</a> on the latest version in 2026. Very annoying.</p>
-<pre><code class="language-css">.posts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* support is low */
-  grid-template-rows: masonry; 
-  gap: 1.5rem;
-}
+            background-color: gray;
+            padding: 12px;
+            height: calc(100vh + 1000px);
+        }
+        .side-car-container {
+            position: sticky;
+            top: 0;
+            
+            align-self: flex-start;
+            background-color: darkcyan;
+            max-width: 350px;
+            padding: 12px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;content-container&quot;&gt;
+            &lt;p&gt;Junk Content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;side-car-container&quot;&gt;
+            &lt;p&gt;Sticky Nav&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 </div>
             </article>
-            
-            <div class="side-car-container"  data-nosnippet>
-                <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
-                    <ul class="toc-list"><li><a href="#column-count">Column Count</a></li><li><a href="#force-masonry-with-javascript">Force Masonry With JavaScript</a></li><li><a href="#a-grid-with-limited-support">A Grid, With Limited Support</a></li></ul>
-                </nav>
-                <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
-            </div>
             
         </div>
     </main>

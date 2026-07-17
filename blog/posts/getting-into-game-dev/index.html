@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-    <link rel="preload" as="image" href="/assets/img/posts/2026/closeencoders-masonry-ffs.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/img/posts/2026/first-game-with-raylib-and-go.webp" fetchpriority="high">
     
 
     <link rel="stylesheet" href="/assets/css/styles.css">
@@ -14,33 +14,33 @@
         <link rel="stylesheet" href="/assets/css/content.css">
     </noscript>
 
-    <title>Making Cards use Masonry Layout in CSS or JavaScript</title>
+    <title>Learning Game Development as a Noob</title>
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://closeencoders.com/masonry-css-layout">
+    <link rel="canonical" href="https://closeencoders.com/blog/posts/getting-into-game-dev">
 
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Making Cards use Masonry Layout in CSS or JavaScript">
+    <meta property="og:title" content="Learning Game Development as a Noob">
     
-    <meta name="description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
-    <meta property="og:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
+    <meta name="description" content="Exploring the itch to truly understand how games work but not knowing where to go yet. A look at my experiences, mistakes, and plan going forward.">
+    <meta property="og:description" content="Exploring the itch to truly understand how games work but not knowing where to go yet. A look at my experiences, mistakes, and plan going forward.">
     
-    <meta property="og:url" content="https://closeencoders.com/masonry-css-layout">
+    <meta property="og:url" content="https://closeencoders.com/blog/posts/getting-into-game-dev">
     <meta property="og:image"
-          content="/assets/img/posts/2026/closeencoders-masonry-ffs.webp">
-    <meta property="og:image:alt" content="Making Cards use Masonry Layout in CSS or JavaScript">
+          content="/assets/img/posts/2026/first-game-with-raylib-and-go.webp">
+    <meta property="og:image:alt" content="Learning Game Development as a Noob">
     <meta property="og:locale" content="en_US">
 
-    <meta property="article:published_time" content="2026-05-03 00:00:00 &#43;0000 UTC">
+    <meta property="article:published_time" content="2026-03-11 00:00:00 &#43;0000 UTC">
     <meta property="article:author" content="@closeencoders">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
-    <meta name="twitter:title" content="Making Cards use Masonry Layout in CSS or JavaScript">
-    <meta name="twitter:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
-    <meta name="twitter:image" content="/assets/img/posts/2026/closeencoders-masonry-ffs.webp">
-    <meta name="twitter:image:alt" content="Making Cards use Masonry Layout in CSS or JavaScript">
+    <meta name="twitter:title" content="Learning Game Development as a Noob">
+    <meta name="twitter:description" content="Exploring the itch to truly understand how games work but not knowing where to go yet. A look at my experiences, mistakes, and plan going forward.">
+    <meta name="twitter:image" content="/assets/img/posts/2026/first-game-with-raylib-and-go.webp">
+    <meta name="twitter:image:alt" content="Learning Game Development as a Noob">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
 </head>
@@ -80,11 +80,11 @@
         <div class="content-container">
             <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
                 <header class="post-header">
-                    <h1 itemprop="headline">Making Cards use Masonry Layout in CSS or JavaScript</h1>
+                    <h1 itemprop="headline">Learning Game Development as a Noob</h1>
                     <div>
                         <p class="post-subtitle">
                             
-                            A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.
+                            Exploring the itch to truly understand how games work but not knowing where to go yet. A look at my experiences, mistakes, and plan going forward.
                             
                         </p>
                         <p class="post-metadata" data-nosnippet>
@@ -92,62 +92,60 @@
                             <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
                                 <span itemprop="name">Josh</span>
                             </a> <span> - </span>
-                            <time datetime="2026-05-03T00:00:00Z" itemprop="datePublished">May 03, 2026</time>
-                             | notes
-                            
+                            <time datetime="2026-03-11T00:00:00Z" itemprop="datePublished">Mar 11, 2026</time>
+                             | posts
+                             | software, learning
                         </p>
                     </div>
                     
                     <figure class="post-hero" itemprop="image">
                         <picture>
-                            <source srcset="/assets/img/posts/2026/closeencoders-masonry-ffs.webp" type="image/webp">
-                            <img src="/assets/img/large-logo.png" alt="Making Cards use Masonry Layout in CSS or JavaScript">
+                            <source srcset="/assets/img/posts/2026/first-game-with-raylib-and-go.webp" type="image/webp">
+                            <img src="/assets/img/large-logo.png" alt="Learning Game Development as a Noob">
                         </picture>
                     </figure>
                     
                 </header>
-                <div itemprop="articleBody"><p>Grid and Flex are great until you want to do something odd or specific, like the Masonry layout AND keep everything in date order from left to right.</p>
-<p>I just wanted a nice masonry look for my post cards on my homepage/blog (like Pinterest). While this is definitely possible, its not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned so far.</p>
-<h2 id="column-count">Column Count</h2>
-<p>In the first case, don't specify a grid, only <code>column-count</code>.</p>
-<p>This style is meant to look more like a newspaper, which reads vertically instead of left to right.</p>
-<p>This means you don't have true control over the order they are shown on the screen. Annoying.</p>
-<pre><code class="language-css">.posts {
-  /* display: grid; (no gird for the grid?) */
-  column-count: 3;
-  column-gap: 1.5rem;
-  width: 100%;
-}
-
-.post-card {
-  /* Prevents a card from splitting across two columns */
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
-  display: block;
+                <div itemprop="articleBody"><p>I want to make video games and know how they work at a deeper level.</p>
+<p>I don't want to generate code and assets with an AI, or let a modern <a href="https://en.wikipedia.org/wiki/Game_engine" target="_blank" rel="nofollow noopener noreferrer">game engine</a> do all the work, I want to understand what’s happening under the hood to feel like I’m getting my hands dirty before using more advanced tools. My hope is that other people do too, and if someone reads this, maybe they can learn from my mistakes.</p>
+<p>In a previous life, I tried to make a few games in Java, but it always felt clunky, like the language was fighting me. Java would scream, “Where is my Jira ticket number and business requirements!?” as I forced it to loop through entities in some static factory thing. I’m sure that for some, Java is a great tool for making games, but it’s just not for me.</p>
+<p>I wondered if making games was just not my cup of tea for a while, but the itch never really went away. It just looks so cool and rewarding.</p>
+<h2 id="trying-new-things">Trying New Things</h2>
+<p>So I am trying to make the switch to another language that will let me mess around with <a href="https://www.raylib.com/" target="_blank" rel="nofollow noopener noreferrer">Raylib</a> and get the hang of the basics before I jump off the deep end.</p>
+<p>The only real criteria was to loop through some assets and run update() and render() at 60fps in a simple 2D world for a bit without wasting a bunch of time. That’s all I want and could ever ask for. A bonus point if the language is general-purpose.</p>
+<p>So, I took it into my own hands to waste my time instead and looked at C, C++, C#, Zig, Python, Odin, (took a peek at Jai), and even, despite the fact that I want to wait to use power tools <a href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html" target="_blank" rel="nofollow noopener noreferrer">GDScript</a> in something like <a href="https://godotengine.org/" target="_blank" rel="nofollow noopener noreferrer">Godot</a>.</p>
+<p>I feel like I looked at everything and sucked at it. You name it. I never looked at the <a href="https://unity.com/" target="_blank" rel="nofollow noopener noreferrer">Unity</a> engine, though, I hope I don’t regret that.</p>
+<h3 id="landing-on-go">Landing on GO</h3>
+<p>While Jai looks epic and writing C made me feel cool, I felt too incompetent to use them effectively (yet). So, after enough time passed, I landed on <a href="https://go.dev/" target="_blank" rel="nofollow noopener noreferrer">GO</a> of all things. I really want to give Jai a real try after it’s out of beta. I do enjoy a good <a href="https://www.youtube.com/@jblow888" target="_blank" rel="nofollow noopener noreferrer">Jonathan Blow</a> video or rant every once in a while too.</p>
+<p>I originally disliked Go coming from Java. Using pointers and method receivers felt like jumping into a pool of ice water at first. However, as time went on, I kept gravitating back to the bizarrely simple, easy to read syntax, even with its quirks and repetitive not nil error checking.</p>
+<pre><code class="language-go">if err != nil {
+    aaaahhhhh!
 }
 </code></pre>
-<h2 id="force-masonry-with-javascript">Force Masonry With JavaScript</h2>
-<p>A few ways around this with math and JavaScript:</p>
+<p>It just does what I need it to do without some weird pattern, straight to an .exe. I don’t need a Gradle build, a Maven repository, or to package a jar thingy in another thingy just because the thingy said so with an annotation that can’t load it into memory because your POJO is sad!</p>
+<p>(Sorry, repressed feelings. Java is its own thing with pros and cons like any other language.)</p>
+<p>I have more on my journey learning Go <a href="/getting-into-go">here</a></p>
+<h3 id="tools-and-sites-to-help-research">Tools and Sites To Help Research</h3>
+<p>Other tools I have found that let you research tools and preferences as you learn.</p>
 <ul>
-<li><a href="https://masonry.desandro.com/" target="_blank" rel="nofollow noopener noreferrer">Pre-packaged way</a></li>
-<li><a href="https://functionalfrontend.medium.com/masonry-layout-using-flexbox-and-vanilla-js-292c18c56533" target="_blank" rel="nofollow noopener noreferrer">Manually</a></li>
+<li><a href="https://enginesdatabase.com/" target="_blank" rel="nofollow noopener noreferrer">Engines Database</a></li>
+<li><a href="https://develop.games/#nav-tools" target="_blank" rel="nofollow noopener noreferrer">Develop Games</a></li>
 </ul>
-<h2 id="a-grid-with-limited-support">A Grid, With Limited Support</h2>
-<p>This only works in a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Masonry_layout" target="_blank" rel="nofollow noopener noreferrer">handful of browsers</a> on the latest version in 2026. Very annoying.</p>
-<pre><code class="language-css">.posts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* support is low */
-  grid-template-rows: masonry; 
-  gap: 1.5rem;
-}
-</code></pre>
+<h2 id="first-raylib--go-game-tutorial">First Raylib + GO Game Tutorial</h2>
+<p>I wanted a tutorial so simple it was painful. I landed on <a href="https://www.youtube.com/@jarreed0/videos" target="_blank" rel="nofollow noopener noreferrer">@jarreed</a>. In seven episodes, I had all the basics set up, Go with Raylib installed, a basic game loop, and some practice sprites to make your character walk around. I really wish he had continued the series. Sadly, there are not too many video Go + Raylib tutorials out there.</p>
+<p>Using Raylib and Go has worked really well so far, but I can already see how difficult just a simple 2D game would be without a framework like Raylib or trying to build something even more complex without an out of the box engine like Godot.</p>
+<p>I have more respect for the process now. The mistake I made here is going head first into tutorial h311. I broke out of it and started making my own projects on the side to build more real world skill, but that is only because I have been here before.</p>
+<h2 id="my-biggest-mistake">My Biggest Mistake</h2>
+<p>If you are in the same position as I am, trying to figure out what to do or how to build a game, my advice is not to worry about the tech stack or programming languages, within reason, of course.</p>
+<p>My biggest mistake was bouncing around trying to use lots of different languages to try to make a game,  it was like tutorial hell, but worse. Take your primary language and dive deep into it to grasp the basics of what you’re trying to learn first, to see if you even want to do it.</p>
+<p>I now understand and respect how insanely difficult it is to make a larger game, and I wish I had attempted to build more projects and gained that respect and built some additional skill sooner.</p>
+<p>Even if you don’t know how to code yet, choose a general-purpose language and/or game engine that seems interesting to you. It matters far less than it seems in the beginning because you have no idea what you are doing anyways.</p>
 </div>
             </article>
             
             <div class="side-car-container"  data-nosnippet>
                 <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
-                    <ul class="toc-list"><li><a href="#column-count">Column Count</a></li><li><a href="#force-masonry-with-javascript">Force Masonry With JavaScript</a></li><li><a href="#a-grid-with-limited-support">A Grid, With Limited Support</a></li></ul>
+                    <ul class="toc-list"><li><a href="#trying-new-things">Trying New Things</a></li><ul><li><a href="#landing-on-go">Landing on GO</a></li><li><a href="#tools-and-sites-to-help-research">Tools and Sites To Help Research</a></li></ul><li><a href="#first-raylib--go-game-tutorial">First Raylib + GO Game Tutorial</a></li><li><a href="#my-biggest-mistake">My Biggest Mistake</a></li></ul>
                 </nav>
                 <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
             </div>
