@@ -44,10 +44,6 @@ body {
   color: var(--text-color);
   text-rendering: optimizeLegibility;
 }
-code {
-  font-size: var(--code-font-size);
-  padding: 7px;
-}
 p, ul {
   font-size: var(--desktop-font-size);
   line-height: 32px;

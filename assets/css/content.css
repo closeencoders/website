@@ -134,19 +134,14 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 }
 
 pre {
-    max-width: 100%;
-    overflow-x: auto;
-    display: block;
+    overflow: hidden;
 }
 pre code.hljs {
+    font-size: var(--code-font-size);
     display: block;
-    overflow-x: auto;
-    padding: 1em;
-    min-width: 0;
-}
-code.hljs {
-    padding: 3px 5px;
-    width: 100%;
+    overflow: auto;
+    height: 100%;
+    padding: 15px;
 }
 
 .content-container {
