@@ -128,66 +128,20 @@
 }
 
 .banner {
-  height: clamp(300px, 32vh, min(30vw, 30rem));
-  background: radial-gradient(circle,
-      rgba(0, 0, 0, 0.4) 0%,
-      rgba(0, 0, 0, 0) 35%);
+  height: clamp(250px, 32vh, min(30vw, 30rem));
   display: flex;
   width: 100%;
-  overflow: hidden;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.banner img {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: clamp(500px, 30vh, min(30vw, 32rem));
-  width: 100vw;
-  overflow: hidden;
-
-  /* min-width: 1200px; */
-
-  object-fit: cover;
-  z-index: -1;
-  -webkit-mask-image: linear-gradient(to bottom,
-      black 0%,
-      rgba(0, 0, 0, 0.981) 8.6%,
-      rgba(0, 0, 0, 0.925) 16.3%,
-      rgba(0, 0, 0, 0.837) 23.5%,
-      rgba(0, 0, 0, 0.724) 30.5%,
-      rgba(0, 0, 0, 0.594) 37.7%,
-      rgba(0, 0, 0, 0.457) 45.5%,
-      rgba(0, 0, 0, 0.323) 54.3%,
-      rgba(0, 0, 0, 0.203) 64.7%,
-      rgba(0, 0, 0, 0.106) 77.4%,
-      rgba(0, 0, 0, 0.038) 92.4%,
-      transparent 100%);
-
-  mask-image: linear-gradient(to bottom,
-      black 0%,
-      rgba(0, 0, 0, 0.981) 8.6%,
-      rgba(0, 0, 0, 0.925) 16.3%,
-      rgba(0, 0, 0, 0.837) 23.5%,
-      rgba(0, 0, 0, 0.724) 30.5%,
-      rgba(0, 0, 0, 0.594) 37.7%,
-      rgba(0, 0, 0, 0.457) 45.5%,
-      rgba(0, 0, 0, 0.323) 54.3%,
-      rgba(0, 0, 0, 0.203) 64.7%,
-      rgba(0, 0, 0, 0.106) 77.4%,
-      rgba(0, 0, 0, 0.038) 92.4%,
-      transparent 100%);
-}
-
 .banner h1 {
   color: var(--active);
   text-shadow: var(--hyper-active-effect);
   margin: 0;
-  font-size: clamp(2.3rem, 8vw, 4rem);
+  font-size: clamp(2.5rem, 8vw, 4rem);
   animation:
     flicker 2.17s linear infinite,
     sputter 7.53s linear infinite;
@@ -233,23 +187,17 @@
 
 .tab-button-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
+  flex-direction: row;
   gap: 0.5rem;
-  margin: 0;
 }
 .tab-button {
   display: flex !important;
   padding: 8px !important;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  align-items: center;
   justify-content: center;
+  background: var(--bg-color);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
 
-  backdrop-filter: blur(4px);
-  background: rgba(68, 68, 68, 0.1);
-  box-shadow: 0 0 0 1px var(--accent);
 }
 .active-tab,
 .tab-button:hover {
@@ -273,10 +221,6 @@
   border-bottom: solid var(--accent) 1px;
   margin-bottom: 10px;
   margin-top: 20px;
-
-  /* backdrop-filter: blur(4px); */
-  /* background: rgba(68, 68, 68, 0.1); */
-  /* box-shadow: 0 0 0 1px var(--accent); */
 }
 .title-divider :is(h1, h2, p, span, a) {
   padding-bottom: 0;

@@ -18,7 +18,7 @@
     0 0 21px var(--active),
     0 0 42px var(--active);
 
-  --max-width: 72rem;
+  --max-width: 70rem;
   --read-width: 45rem;
 
   --top-nav-height: 60px;
@@ -112,7 +112,6 @@ a {
   font-family: var(--heading-font);
   font-size: 0.9rem;
   display: flex;
-  /* align-items: center; */
   height: var(--top-nav-height);
 }
 .top-nav-constant {
