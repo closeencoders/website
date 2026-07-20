@@ -8,9 +8,9 @@
   --bg-color: #1A1A1B;
 
   --alt-text-color: #cacaca;
-  --text-color: #D1D1D1;
+  --text-color: #e3e3e3;
 
-  --active: #ffffff;
+  --active: #f9f9f9;
   --active-effect: 0 0 6px var(--active);
   --hyper-active-effect:
     0 0 7px var(--active),
@@ -63,13 +63,13 @@ h1 {
   font-size: clamp(2.4rem, 8vw, 3.2rem);
 }
 h2 {
-  font-size: clamp(2.1rem, 8vw, 2.3rem);
+  font-size: clamp(2rem, 8vw, 2.3rem);
 }
 h3 {
-  font-size: 1.9rem;
+  font-size: 1.75rem;
 }
 h4 {
-  font-size: 1.60rem;
+  font-size: 1.50rem;
 }
 h5 {
   font-size: 1.40rem;
@@ -86,8 +86,8 @@ a {
 
 .wrap {
   max-width: var(--max-width);
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   margin: 0 auto;
 }
 
