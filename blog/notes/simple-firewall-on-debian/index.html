@@ -5,31 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
-    
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/page.css">
 
-    <title>Blog</title>
-    <meta name="description" content="Close Encoders Blog">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/content.css">
+    </noscript>
+
+    <title>Simple Firewall On Debian</title>
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://closeencoders.com/blog/posts">
+    <link rel="canonical" href="https://closeencoders.com/blog/notes/simple-firewall-on-debian">
 
     <meta property="og:site_name" content="Close Encoders">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Blog">
-    <meta property="og:description" content="Close Encoders Blog">
-    <meta property="og:url" content="https://closeencoders.com/blog/posts">
-    <meta property="og:image" content="/assets/img/logo.svg">
-    <meta property="og:image:alt" content="Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Simple Firewall On Debian">
+    
+    <meta name="description" content="How to install and setup a simple firewall on Debain as fast as possible.">
+    <meta property="og:description" content="How to install and setup a simple firewall on Debain as fast as possible.">
+    
+    <meta property="og:url" content="https://closeencoders.com/blog/notes/simple-firewall-on-debian">
+    <meta property="og:image"
+          content="/assets/img/logo.svg">
+    <meta property="og:image:alt" content="Simple Firewall On Debian">
     <meta property="og:locale" content="en_US">
+
+    <meta property="article:published_time" content="2026-07-22 00:00:00 &#43;0000 UTC">
+    <meta property="article:author" content="@closeencoders">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
-    <meta name="twitter:title" content="Blog">
-    <meta name="twitter:description" content="Close Encoders Blog">
+    <meta name="twitter:title" content="Simple Firewall On Debian">
+    <meta name="twitter:description" content="How to install and setup a simple firewall on Debain as fast as possible.">
     <meta name="twitter:image" content="/assets/img/logo.svg">
-    <meta name="twitter:image:alt" content="Blog">
+    <meta name="twitter:image:alt" content="Simple Firewall On Debian">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
 </head>
@@ -66,126 +75,58 @@
 </header>
 
     <main class="wrap">
-        <div class="title-divider">
-    <div class="item-left">
-        <div class="tab-button-container">
-            <a href="/blog" class="tab-button">ALL</a>
-            <a href="/blog/posts" class="tab-button active-tab">POSTS</a>
-            <a href="/blog/notes" class="tab-button">NOTES</a>
-        </div>
-    </div>
+        <div class="content-container">
+            <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
+                <header class="post-header">
+                    <h1 itemprop="headline">Simple Firewall On Debian</h1>
+                    <div>
+                        <p class="post-subtitle">
+                            
+                            How to install and setup a simple firewall on Debain as fast as possible.
+                            
+                        </p>
+                        <p class="post-metadata" data-nosnippet>
+                            By
+                            <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                <span itemprop="name">Josh</span>
+                            </a> <span> - </span>
+                            <time datetime="2026-07-22T00:00:00Z" itemprop="datePublished">Jul 22, 2026</time>
+                             | notes
+                            
+                        </p>
+                    </div>
+                    
+                </header>
+                <div itemprop="articleBody"><p>Warning: If you block specific ports of apps you need/use, they WILL stop working.</p>
+<p>Just an example, your setup may differ based on what you are doing.</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install -y ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+</code></pre>
+<p>This is about as basic as it gets, but its better than nothing.</p>
+<h2 id="opening-specific-ports">Opening Specific Ports</h2>
+<p>Allow Example</p>
+<pre><code class="language-bash">sudo ufw deny 23/tcp
+</code></pre>
+<p>Deny Example</p>
+<pre><code class="language-bash">sudo ufw deny 53/udp
+</code></pre>
+<h2 id="why">Why?</h2>
+<p>Just because it’s Linux doesn’t mean you’re invincible.</p>
+<p>Using a firewall makes inbound traffic more explicit and helps limit exposure on whatever network you’re connected to, especially on older devices or systems that may have known vulnerabilities due to its architecture or OS version etc.</p>
+<p>The goal should always be to lower the surface area for attack vectors as much as possible, every little bit can help if done properly.</p>
 </div>
-<div id="posts-list" class="posts" role="feed" aria-label="Blog posts">
-
-<article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/restoring-a-2012-macbook-pro">
-        <div class="post-card-image-container">
+            </article>
             
-            <img src="/assets/img/posts/2026/macbook-cartoon.webp" draggable="false" loading="lazy" alt="Restored A 2012 MacBook Pro, Then Installed Linux" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">Restored A 2012 MacBook Pro, Then Installed Linux</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Jul 22, 2026
-                 | software, hardware
-            </p>
-        </div>
-        <p itemprop="description">I wanted a retro laptop, so I made it happen with an old 2012 Macbook Pro, then installed Linux on it because I can. This posts shows how I did it.</p>
-    </a>
-</article>
-
-<article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/reworking-the-website">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/white-logo-250.webp" draggable="false" loading="lazy" alt="Reworking This Website" itemprop="image">
+            <div class="side-car-container"  data-nosnippet>
+                <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
+                    <ul class="toc-list"><li><a href="#opening-specific-ports">Opening Specific Ports</a></li><li><a href="#why">Why?</a></li></ul>
+                </nav>
+                <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
+            </div>
             
         </div>
-        <h2 itemprop="headline">Reworking This Website</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Jul 17, 2026
-                 | software, learning, web
-            </p>
-        </div>
-        <p itemprop="description">I am restructuring this website a bit as I learn more about building my own SSG.</p>
-    </a>
-</article>
-
-<article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/getting-back-into-runescape">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/osrs-ge-bw.webp" draggable="false" loading="lazy" alt="Old Dog, New Tricks: How RuneScape Stays Relevant in a Modern Era" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">Old Dog, New Tricks: How RuneScape Stays Relevant in a Modern Era</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Apr 24, 2026
-                 | gaming, mmo
-            </p>
-        </div>
-        <p itemprop="description">Whether RuneScape is truly charming or just nostalgia is hard to say, but its recent updates, RuneLite plugins, and popularity speak for themselves.</p>
-    </a>
-</article>
-
-<article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/my-ai-is-bigger">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/alpaca-giraffe-iguana.webp" draggable="false" loading="lazy" alt="My AI is Bigger Than Yours" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">My AI is Bigger Than Yours</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Apr 18, 2026
-                 | ai, rant, sarcasm
-            </p>
-        </div>
-        <p itemprop="description">Will we lose a generation of would-be experts to the belief that robots are &#39;good enough&#39; at most tasks?</p>
-    </a>
-</article>
-
-<article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/image-optimization">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/compression.webp" draggable="false" loading="lazy" alt="Simple Image Optimization Tips for Faster Websites" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">Simple Image Optimization Tips for Faster Websites</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Apr 13, 2026
-                 | software, web
-            </p>
-        </div>
-        <p itemprop="description">Caching is great, but unoptimized images can still hurt load times. Use free tools to compress images and html tricks for speed and accessibility.</p>
-    </a>
-</article>
-
-<article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/getting-into-go">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/learning-go.webp" draggable="false" loading="lazy" alt="Learning GO as a Noob" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">Learning GO as a Noob</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Mar 17, 2026
-                 | software, learning
-            </p>
-        </div>
-        <p itemprop="description">Transitioning from Java&#39;s verbosity to Go has been surprisingly smooth, but now I want to move past the syntax and dive into lower-level complexities.</p>
-    </a>
-</article>
-
-</div>
     </main>
     <footer class="site-footer" data-nosnippet>
     <nav class="wrap footer-inner" aria-label="Footer Navigation" data-nosnippet>
@@ -211,6 +152,10 @@
     </nav>
 </footer>
 
+    <script src="/assets/js/highlight/highlight.min.js" async></script>
     <script src="/assets/js/main.js" defer></script>
+    <script>
+    window.addEventListener('load', function() {if (typeof hljs !== 'undefined') { hljs.highlightAll(); }});
+    </script>
 </body>
 </html>
