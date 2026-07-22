@@ -114,12 +114,13 @@
 <p>Lastly, it was more difficult than it should have been, but I was able to get it all the way up to Catalina and install a RuneScape Client to play <a href="/blog/posts/getting-back-into-runescape/">OSRS</a> on it.</p>
 <p>It was a serious nostalgia trip, I was playing a 20-year-old+ game on a decade old laptop from my childhood.</p>
 <img src="/assets/img/posts/2026/macbook-info.webp" loading="lazy" alt="Catalina OS Info">
+<h2 id="linux">Linux?</h2>
 <p>I tried to use <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/" target="_blank" rel="nofollow noopener noreferrer">OpenCore Patcher</a> and some hacks to get a more modern apple OS on it, but that didn’t seem to work, and I read in a few places it gets really slow on older hardware anyway, so I ditched the idea.</p>
 <p>I considered stopping here, but I had the itch to see if I could install Linux on it and make it “modern,” if you will.</p>
 <p>I had several low-resource-usage distros to choose from, but I just went with base Debian 13 and decided to install only what I needed like basic drivers, etc.</p>
 <p>For the Linux install, I followed the <a href="https://linuxvox.com/blog/install-linux-flash-drive/" target="_blank" rel="nofollow noopener noreferrer">typical Linux install steps</a> from a flash drive, but with an extra “Apple-specific” step to reach the flash drive. Just a warning, I have been told it can be a pain in the arse to get older versions of OSX back on older hardware after you wipe it, so be careful.</p>
 <ol>
-<li>Ensure you are plugged into Ethernet. There are not drivers that will use WIFI on this machine yet.</li>
+<li>Ensure you are plugged into Ethernet. No drivers that understand WiFi are installed on this machine yet.</li>
 <li>Make an installer flash drive</li>
 <li>Reboot while holding the &quot;option&quot; button</li>
 <li>Select the UEFI drive</li>
@@ -158,11 +159,13 @@ sudo modprobe wl
 sudo modprobe -r b43 bcma wl
 sudo modprobe wl
 </code></pre>
-<h3 id="install-fan-drivers">Install fan drivers</h3>
+<h3 id="fan-drivers">Fan drivers</h3>
+<p>Without this, the laptop will most likely overheat under any real load.</p>
 <pre><code class="language-bash">sudo apt install mbpfan
 sudo systemctil restart mbpfan
 </code></pre>
-<h3 id="install-battery-drivers">Install battery drivers</h3>
+<h3 id="battery-drivers">Battery Drivers</h3>
+<p>Required if you want to monitor your battery life and reliably charge the machine.</p>
 <pre><code class="language-bash">sudo apt install tlp tlp-rdw
 sudo tlp start
 </code></pre>
@@ -182,7 +185,7 @@ sudo tlp start
             
             <div class="side-car-container"  data-nosnippet>
                 <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
-                    <ul class="toc-list"><li><a href="#install-necessary-drivers">Install Necessary Drivers</a></li><ul><li><a href="#wi-fi-drivers">Wi-Fi Drivers</a></li><li><a href="#install-fan-drivers">Install fan drivers</a></li><li><a href="#install-battery-drivers">Install battery drivers</a></li><li><a href="#install-a-firewall-like-ufw-or-similar">Install a Firewall like UFW or Similar</a></li><li><a href="#camera">Camera?</a></li></ul><li><a href="#results">Results</a></li></ul>
+                    <ul class="toc-list"><li><a href="#linux">Linux?</a></li><li><a href="#install-necessary-drivers">Install Necessary Drivers</a></li><ul><li><a href="#wi-fi-drivers">Wi-Fi Drivers</a></li><li><a href="#fan-drivers">Fan drivers</a></li><li><a href="#battery-drivers">Battery Drivers</a></li><li><a href="#install-a-firewall-like-ufw-or-similar">Install a Firewall like UFW or Similar</a></li><li><a href="#camera">Camera?</a></li></ul><li><a href="#results">Results</a></li></ul>
                 </nav>
                 <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
             </div>
