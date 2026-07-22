@@ -117,7 +117,7 @@
 <p>I tried to use <a href="https://dortania.github.io/OpenCore-Legacy-Patcher/" target="_blank" rel="nofollow noopener noreferrer">OpenCore Patcher</a> and some hacks to get a more modern apple OS on it, but that didn’t seem to work, and I read in a few places it gets really slow on older hardware anyway, so I ditched the idea.</p>
 <p>I considered stopping here, but I had the itch to see if I could install Linux on it and make it “modern,” if you will.</p>
 <p>I had several low-resource-usage distros to choose from, but I just went with base Debian 13 and decided to install only what I needed like basic drivers, etc.</p>
-<p>For the Linux install, I just follow the typical Linux install steps from a flash drive, but with an extra “Apple-specific” step to reach the flash drive. Just a warning, I have been told it can be a pain in the <code>@$$</code> to get older versions of OSX on older hardware after you wipe it, so be careful.</p>
+<p>For the Linux install, I followed the <a href="https://linuxvox.com/blog/install-linux-flash-drive/" target="_blank" rel="nofollow noopener noreferrer">typical Linux install steps</a> from a flash drive, but with an extra “Apple-specific” step to reach the flash drive. Just a warning, I have been told it can be a pain in the arse to get older versions of OSX back on older hardware after you wipe it, so be careful.</p>
 <ol>
 <li>Ensure you are plugged into Ethernet. There are not drivers that will use WIFI on this machine yet.</li>
 <li>Make an installer flash drive</li>
@@ -151,7 +151,7 @@ sudo apt upgrade
 # OR
 sudo apt install linux-image-amd64 linux-headers-amd64 broadcom-sta-dkms
 </code></pre>
-<p>The Wi-Fi Drivers for (Broadcom BCM4331) Can be a bit annoying. So ensure to reload the wireless kernel module to trigger the hardware.</p>
+<p>The Wi-Fi Drivers for (Broadcom BCM4331) Can be a bit annoying. So ensure to reload the wireless kernel module to trigger the hardware. Double check you are installing the correct drivers for your model!</p>
 <pre><code class="language-bash">sudo modprobe -r b43 b44 b43legacy ssb brcmsmac bcma
 sudo modprobe wl
 # OR
