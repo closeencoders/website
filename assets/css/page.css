@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: start;
-  row-gap: 0.7rem;
+  row-gap: 1rem;
   column-gap: 0.7rem;
 }
 .posts>*:first-child {
@@ -106,6 +106,9 @@
 @media (max-width: 950px) {
   .posts>*:first-child :is(h2, h3) {
     font-size: 1.4rem;
+  }
+  .posts a {
+    width: 100%;
   }
   .posts>*:first-child p {
     font-size: var(--sub-font-size);
