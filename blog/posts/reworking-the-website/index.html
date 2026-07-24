@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
+    <link rel="preload" as="image" href="/assets/img/posts/2026/thinking-update.gif" fetchpriority="high">
+    
 
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -25,7 +27,7 @@
     
     <meta property="og:url" content="https://closeencoders.com/blog/posts/reworking-the-website">
     <meta property="og:image"
-          content="/assets/img/logo.svg">
+          content="/assets/img/posts/2026/thinking-update.gif">
     <meta property="og:image:alt" content="Reworking This Website">
     <meta property="og:locale" content="en_US">
 
@@ -37,7 +39,7 @@
     <meta name="twitter:creator" content="@closeencoders">
     <meta name="twitter:title" content="Reworking This Website">
     <meta name="twitter:description" content="I am restructuring this website a bit as I learn more about building my own SSG.">
-    <meta name="twitter:image" content="/assets/img/logo.svg">
+    <meta name="twitter:image" content="/assets/img/posts/2026/thinking-update.gif">
     <meta name="twitter:image:alt" content="Reworking This Website">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
@@ -63,9 +65,10 @@
             <a draggable="false" id="blog" class="nav-item no-select" rel="noopener" href="/blog" data-nosnippet>BLOG<i class="cursor"></i></a>
             <a draggable="false" id="projects" class="nav-item no-select" rel="noopener" href="/projects" data-nosnippet>PROJECTS<i class="cursor"></i></a>
             <a draggable="false" id="about" class="nav-item no-select" rel="noopener" href="/about" data-nosnippet>ABOUT<i class="cursor"></i></a>
-            <a draggable="false" class="nav-item" rel="noopener" href="/search" data-nosnippet>
+            <a draggable="false" class="nav-item" rel="noopener" href="/search" aria-label="search content" data-nosnippet>
                 <svg width="30" height="30" role="img" aria-labelledby="Search Icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
                      stroke-linejoin="round">
+                    <title>Search Icon For Navigation To Search Page</title>
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
@@ -95,6 +98,13 @@
                              | software, learning, web
                         </p>
                     </div>
+                    
+                    <figure class="post-hero" itemprop="image">
+                        <picture>
+                            <source srcset="/assets/img/posts/2026/thinking-update.gif" type="image/webp">
+                            <img src="/assets/img/large-logo.png" alt="Reworking This Website">
+                        </picture>
+                    </figure>
                     
                 </header>
                 <div itemprop="articleBody"><p>I generate this site using an custom <a href="https://github.com/closeencoders/arcstatic" target="_blank" rel="nofollow noopener noreferrer">static site generator (SSG) learning project</a>, but I don't know what I am doing yet.</p>
