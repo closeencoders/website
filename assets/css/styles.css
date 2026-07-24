@@ -18,7 +18,7 @@
     0 0 21px var(--active),
     0 0 42px var(--active);
 
-  --max-width: 70rem;
+  --max-width: 90rem;
   --read-width: 45rem;
 
   --top-nav-height: 60px;
@@ -201,9 +201,8 @@ a {
 
 /* Copyright 2026 Close Encoders - closeencoders.com - All Rights Reserved */
 .read-content {
-  min-width: 0;
+  min-width: 10px;
   max-width: var(--read-width);
-  margin-inline: auto;
 }
 .read-content img {
   width: 100%;
