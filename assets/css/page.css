@@ -238,17 +238,19 @@
   box-shadow: var(--active-effect);
   color: var(--active);
 }
-.item-left {
-  margin-right: auto;
-}
-.item-right {
-  margin-left: auto;
-}
+
+
 .item-left,
 .item-right,
 .title-divider {
   margin: 0;
   padding: 0;
+}
+.item-left {
+  margin-right: auto;
+}
+.item-right {
+  margin-left: auto;
 }
 .title-divider {
   width: 100%;
@@ -261,4 +263,5 @@
 .title-divider :is(h1, h2, p, span, a) {
   padding-bottom: 0;
   margin-bottom: 0;
+  display: flex;
 }
