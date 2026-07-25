@@ -239,12 +239,15 @@
   color: var(--active);
 }
 
-
 .item-left,
 .item-right,
 .title-divider {
   margin: 0;
   padding: 0;
+}
+.item-left,
+.item-right {
+  margin-bottom: 5px;
 }
 .item-left {
   margin-right: auto;
@@ -253,15 +256,15 @@
   margin-left: auto;
 }
 .title-divider {
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  border-bottom: solid var(--accent) 1px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
   margin-bottom: 10px;
   margin-top: 20px;
+  border-bottom: 1px solid var(--accent);
 }
 .title-divider :is(h1, h2, p, span, a) {
-  padding-bottom: 0;
   margin-bottom: 0;
-  display: flex;
+  padding-bottom: 0;
 }
