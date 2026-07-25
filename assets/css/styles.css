@@ -18,7 +18,7 @@
     0 0 21px var(--active),
     0 0 42px var(--active);
 
-  --max-width: 87rem;
+  --max-width: 86rem;
   --read-width: 45rem;
 
   --top-nav-height: 60px;
@@ -100,7 +100,7 @@ a {
   background-color: var(--bg-color);
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
   position: relative;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .logo img {

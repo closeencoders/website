@@ -21,7 +21,6 @@
   display: block;
   overflow: hidden;
   aspect-ratio: 16/9;
-  background-color: var(--accent);
 }
 .post-card img {
   display: block;
