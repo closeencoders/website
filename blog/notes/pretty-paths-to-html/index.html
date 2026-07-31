@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
+    <link rel="preload" as="image" href="/assets/img/posts/2026/pretty-url-s.webp" fetchpriority="high">
+    
 
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -25,7 +27,7 @@
     
     <meta property="og:url" content="https://closeencoders.com/blog/notes/pretty-paths-to-html">
     <meta property="og:image"
-          content="/assets/img/logo.svg">
+          content="/assets/img/posts/2026/pretty-url-s.webp">
     <meta property="og:image:alt" content="Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration">
     <meta property="og:locale" content="en_US">
 
@@ -37,7 +39,7 @@
     <meta name="twitter:creator" content="@closeencoders">
     <meta name="twitter:title" content="Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration">
     <meta name="twitter:description" content="Some simple ways to have pretty urls for a static website, but it has drawbacks without server configuration.">
-    <meta name="twitter:image" content="/assets/img/logo.svg">
+    <meta name="twitter:image" content="/assets/img/posts/2026/pretty-url-s.webp">
     <meta name="twitter:image:alt" content="Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
@@ -98,6 +100,13 @@
                         </p>
                     </div>
                     
+                    <figure class="post-hero" itemprop="image">
+                        <picture>
+                            <source srcset="/assets/img/posts/2026/pretty-url-s.webp" type="image/webp">
+                            <img src="/assets/img/large-logo.png" alt="Simple &#34;Pretty&#34; URLs for Static Pages Without Configuration">
+                        </picture>
+                    </figure>
+                    
                 </header>
                 <div itemprop="articleBody"><p>Links to HTML files can be modified either by organizing them into folders or by removing the <code>.html</code> extension from the filename itself.</p>
 <p>In this example, I am hosting some test files locally using Go to demonstrate how these URL paths work.</p>
@@ -110,20 +119,22 @@
     └── index.html
 </code></pre>
 <p>When a user visits <code>/mycontent/</code>, the server will look for the <code>index.html</code> file inside that directory and flatten the path.</p>
+<h2 id="trailing-slashes">Trailing Slashes</h2>
 <p>If you want the URL path to end <em>without</em> a trailing slash, you have two main options (I think there are others, but this seems to be the standard):</p>
 <ol>
-<li>Configure a web server like Nginx or Apache to rewrite the URL and strip the extension or redirect behind the scenes.</li>
 <li>Remove the <code>.html</code> extension directly from the file itself.</li>
+<li>We are trying to avoid this, but I don't know any other ways, so you would have to configure a web server like Nginx or Apache to rewrite the URL and strip the extension or redirect behind the scenes.</li>
 </ol>
 <p>In this scenario, <code>mycontent</code> becomes the actual file containing your HTML code, completely devoid of any extension:</p>
 <pre><code class="language-text">root
 └── mycontent
-
 </code></pre>
-<p>The output would now be:</p>
+<p>The output should now be:</p>
 <pre><code>https://localhost:8000/mycontent
 </code></pre>
-<p>Lastly, if you already have SEO going to one or the other (slashes or no slashes), you can add redirects so when the user or web crawler lands on the page it will take them to the new official page.</p>
+<p>Keep in mind that whatever is hosting the content cannot be &quot;dumb&quot;, it has to load the file even without the .html. So your experience may differ.</p>
+<h2 id="redirects-and-seo">Redirects and SEO</h2>
+<p>Lastly, if you already have <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="nofollow noopener noreferrer">SEO</a> going to one or the other (slashes or no slashes), you can add redirects so when the user or web crawler lands on the page it will take them to the new official page.</p>
 <p>As you can see, this is where some of the main drawbacks lie and it's annoying to maintain. This is exactly why having a solid system and plan in place before building a website is crucial to ensuring that future migrations aren't painful.</p>
 <pre><code class="language-html">// https://localhost:8000/mycontent/  --&gt; Redirect --&gt;  https://localhost:8000/mycontent
 &lt;script&gt;
@@ -134,8 +145,16 @@
     }
 &lt;/script&gt;
 </code></pre>
+<p>As you can see, you don’t <em>need</em> to configure a server to get pretty URLs, but as your site becomes more complex, it can be challenging. I recommend just biting the bullet and learning how to configure DNS with your provider (e.g. Squarespace or whatever) and using the right server setup to handle this at scale.</p>
 </div>
             </article>
+            
+            <div class="side-car-container"  data-nosnippet>
+                <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
+                    <ul class="toc-list"><li><a href="#trailing-slashes">Trailing Slashes</a></li><li><a href="#redirects-and-seo">Redirects and SEO</a></li></ul>
+                </nav>
+                <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
+            </div>
             
         </div>
     </main>
