@@ -110,6 +110,7 @@
                 </header>
                 <div itemprop="articleBody"><p>Learning <a href="https://go.dev/" target="_blank" rel="nofollow noopener noreferrer">Go</a> with a heavy <a href="https://www.java.com/en/" target="_blank" rel="nofollow noopener noreferrer">Java</a> background has been relatively easy for me so far, but I really want to get into the nitty-gritty. I’m rather agnostic with what I do in code as long as it's fun, so a year from now I might drop Go entirely if I find it annoying, but currently it feels extremely simple and easy to use.</p>
 <p>I want to document the hurdles and issues I have run into and some of the key differences in what some of the community would refer to as “Effective Go” or “Best Practices”. Some of these practices are an opinion, but to at least know of them can help with readability for other developers and help alleviate some frustration as you make your own judgments about the language.</p>
+<p>I also want to build 2D games. Go may not sound like the best choice at first, but it has strong Raylib support. While I regret It took me a long time to settle on a new language, what hooked me in the end was Go’s simplicity.</p>
 <p>Lastly, I am collecting tutorials and resources, so I am assuming others will too. The internet has a plethora of resources, but which ones are relevant?</p>
 <h2 id="starting-out">Starting Out</h2>
 <p>Unsurprisingly coming from a 'Java bro', the most difficult thing has been not having classes or inheritance and interfaces being less verbose than Java. Method receivers and pointers were a bit of a dance at first, but not to difficult.</p>
@@ -130,10 +131,11 @@
 <p>There are so many more things to learn, but if you already know how to program, I think the key is to really get comfortable with a few core ideas.</p>
 <h3 id="simplicity">Simplicity</h3>
 <p>Lean towards the most simplistic solution when possible.</p>
+<p>Every time I try to be “fancy” in Go, it haunts me with the urge to refactor later. In this case, simplicity doesn’t mean it’s easier, it means I can understand what the code is doing just by looking at it briefly when I come back to it way later.</p>
 <h3 id="interfaces">Interfaces</h3>
 <p>Using interfaces only when you really need them.</p>
 <p>In GO, you only need to make the code look like an interface to use the interface.</p>
-<p>There is no <code>implement xyz</code> to make it obvious. I hated this when I first started, and still find it confusing if I don’t name my files and packages well right out the gate.</p>
+<p>There is no enforced <code>implement xyz</code> to make it obvious. I hated this when I first started, and still find it confusing if I don’t name my files and packages well right out the gate.</p>
 <p>While it has some possible cons, one pro is that you are super decoupled from one part of the code base to another, and getting used to it can be very powerful. I have seen some great examples like <a href="https://www.youtube.com/watch?v=fVD0wFLEAFA" target="_blank" rel="nofollow noopener noreferrer">This Video Explains</a>, but I have not personally run into anything at scale yet or outside of practice projects.</p>
 <h3 id="packages">Packages</h3>
 <p>The directory/package structure in Go is more important than it seems.</p>
@@ -141,11 +143,11 @@
 <p>Personally, I still have not mastered interfaces or come up with a package structure I completely agree with. I’m still winging it, but I kinda like that, it's nice that you can do whatever you want if you want.</p>
 <h3 id="structs">Structs</h3>
 <p>Using structs can feel a lot like using classes, but they are NOT classes.</p>
-<p>I used structs as a class replacement, and it was not fun, and I was very confused. Don't do that, they have similarities and thats it.</p>
+<p>I used structs as a class replacement, and it was not fun, and I was very confused. Don't do that, they merely have similarities.</p>
 <h3 id="other-complaints">Other Complaints</h3>
 <p>There are some low hanging fruit complaints that get thrown around a lot, such as error handling, walrus operators, and using capital or lower case characters to declare private vs public access to your code.</p>
 <p>While valid, others have covered them in great detail.</p>
-<h2 id="game-dev">Game Dev?</h2>
+<h2 id="game-dev-in-go">Game Dev in Go?</h2>
 <p>On another topic, I want to make video games and know how they work at a deeper level too.</p>
 <p>I don't want to generate code and assets with an AI, or let a modern game engine do all the work, I want to understand what’s happening under the hood to feel like I’m getting my hands dirty before using more advanced tools. My hope is that other people do too, and if someone reads this, maybe they can learn from my mistakes.</p>
 <p>In a previous life, I tried to make a few games in Java, but it always felt clunky, like the language was fighting me. Java would scream, “Where is my Jira ticket number and business requirements!?” as I forced it to loop through entities in some static factory thing. I’m sure that for some, Java is a great tool for making games, but it’s just not for me.</p>
@@ -168,6 +170,7 @@
 </ul>
 <h3 id="first-raylib--go-game-tutorial">First Raylib + GO Game Tutorial</h3>
 <p>I wanted a tutorial so simple it was painful. I landed on <a href="https://www.youtube.com/@jarreed0/videos" target="_blank" rel="nofollow noopener noreferrer">@jarreed</a>. In seven episodes, I had all the basics set up, Go with Raylib installed, a basic game loop, and some practice sprites to make your character walk around. I really wish he had continued the series. Sadly, there are not too many video Go + Raylib tutorials out there.</p>
+<img src="/assets/img/posts/2026/first-game-with-raylib-and-go.webp" loading="lazy" alt="first game with Raylib">
 <p>Using Raylib and Go has worked really well so far, but I can already see how difficult just a simple 2D game would be without a framework like Raylib or trying to build something even more complex without an out of the box engine like Godot.</p>
 <p>I have more respect for the process now. The mistake I made here is going head first into tutorial h311. I broke out of it and started making my own projects on the side to build more real world skill, but that is only because I have been here before.</p>
 <h3 id="my-biggest-mistake">My Biggest Mistake</h3>
@@ -204,7 +207,7 @@
             
             <div class="side-car-container"  data-nosnippet>
                 <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
-                    <ul class="toc-list"><li><a href="#starting-out">Starting Out</a></li><li><a href="#nitty-gritty">Nitty-Gritty</a></li><ul><li><a href="#simplicity">Simplicity</a></li><li><a href="#interfaces">Interfaces</a></li><li><a href="#packages">Packages</a></li><li><a href="#structs">Structs</a></li><li><a href="#other-complaints">Other Complaints</a></li></ul><li><a href="#game-dev">Game Dev?</a></li><ul><li><a href="#trying-new-things">Trying New Things</a></li><li><a href="#landing-on-go">Landing on GO</a></li><li><a href="#tools-and-sites-to-help-research">Tools and Sites To Help Research</a></li><li><a href="#first-raylib--go-game-tutorial">First Raylib + GO Game Tutorial</a></li><li><a href="#my-biggest-mistake">My Biggest Mistake</a></li></ul><li><a href="#resources">Resources</a></li><ul><li><a href="#starting-with-the-source">Starting With the Source</a></li><li><a href="#influencers">Influencers</a></li><li><a href="#tools-and-books">Tools and Books</a></li></ul></ul>
+                    <ul class="toc-list"><li><a href="#starting-out">Starting Out</a></li><li><a href="#nitty-gritty">Nitty-Gritty</a></li><ul><li><a href="#simplicity">Simplicity</a></li><li><a href="#interfaces">Interfaces</a></li><li><a href="#packages">Packages</a></li><li><a href="#structs">Structs</a></li><li><a href="#other-complaints">Other Complaints</a></li></ul><li><a href="#game-dev-in-go">Game Dev in Go?</a></li><ul><li><a href="#trying-new-things">Trying New Things</a></li><li><a href="#landing-on-go">Landing on GO</a></li><li><a href="#tools-and-sites-to-help-research">Tools and Sites To Help Research</a></li><li><a href="#first-raylib--go-game-tutorial">First Raylib + GO Game Tutorial</a></li><li><a href="#my-biggest-mistake">My Biggest Mistake</a></li></ul><li><a href="#resources">Resources</a></li><ul><li><a href="#starting-with-the-source">Starting With the Source</a></li><li><a href="#influencers">Influencers</a></li><li><a href="#tools-and-books">Tools and Books</a></li></ul></ul>
                 </nav>
                 <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
             </div>
