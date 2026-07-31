@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
+    <link rel="preload" as="image" href="/assets/img/posts/2026/debian-firewall.webp" fetchpriority="high">
+    
 
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -12,21 +14,21 @@
         <link rel="stylesheet" href="/assets/css/content.css">
     </noscript>
 
-    <title>Simple Firewall On Debian</title>
+    <title>Simple Firewall on Debian</title>
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://closeencoders.com/blog/notes/simple-firewall-on-debian">
 
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Simple Firewall On Debian">
+    <meta property="og:title" content="Simple Firewall on Debian">
     
-    <meta name="description" content="How to install and setup a simple firewall on Debain as fast as possible.">
-    <meta property="og:description" content="How to install and setup a simple firewall on Debain as fast as possible.">
+    <meta name="description" content="How to install and configure a simple firewall on Debain as fast as possible.">
+    <meta property="og:description" content="How to install and configure a simple firewall on Debain as fast as possible.">
     
     <meta property="og:url" content="https://closeencoders.com/blog/notes/simple-firewall-on-debian">
     <meta property="og:image"
-          content="/assets/img/logo.svg">
-    <meta property="og:image:alt" content="Simple Firewall On Debian">
+          content="/assets/img/posts/2026/debian-firewall.webp">
+    <meta property="og:image:alt" content="Simple Firewall on Debian">
     <meta property="og:locale" content="en_US">
 
     <meta property="article:published_time" content="2026-07-22 00:00:00 &#43;0000 UTC">
@@ -35,10 +37,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
-    <meta name="twitter:title" content="Simple Firewall On Debian">
-    <meta name="twitter:description" content="How to install and setup a simple firewall on Debain as fast as possible.">
-    <meta name="twitter:image" content="/assets/img/logo.svg">
-    <meta name="twitter:image:alt" content="Simple Firewall On Debian">
+    <meta name="twitter:title" content="Simple Firewall on Debian">
+    <meta name="twitter:description" content="How to install and configure a simple firewall on Debain as fast as possible.">
+    <meta name="twitter:image" content="/assets/img/posts/2026/debian-firewall.webp">
+    <meta name="twitter:image:alt" content="Simple Firewall on Debian">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
 </head>
@@ -80,11 +82,11 @@
         <div class="content-container">
             <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
                 <header class="post-header">
-                    <h1 itemprop="headline">Simple Firewall On Debian</h1>
+                    <h1 itemprop="headline">Simple Firewall on Debian</h1>
                     <div>
                         <p class="post-subtitle">
                             
-                            How to install and setup a simple firewall on Debain as fast as possible.
+                            How to install and configure a simple firewall on Debain as fast as possible.
                             
                         </p>
                         <p class="post-metadata" data-nosnippet>
@@ -98,21 +100,54 @@
                         </p>
                     </div>
                     
+                    <figure class="post-hero" itemprop="image">
+                        <picture>
+                            <source srcset="/assets/img/posts/2026/debian-firewall.webp" type="image/webp">
+                            <img src="/assets/img/large-logo.png" alt="Simple Firewall on Debian">
+                        </picture>
+                    </figure>
+                    
                 </header>
                 <div itemprop="articleBody"><p>Warning: If you block specific ports of apps you need/use, they WILL stop working.</p>
 <p>Just an example, your setup may differ based on what you are doing.</p>
-<pre><code class="language-bash">sudo apt update
+<pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade -y
 sudo apt install -y ufw
+
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
+
+sudo ufw enable
 </code></pre>
-<p>This is about as basic as it gets, but its better than nothing.</p>
-<h2 id="opening-specific-ports">Opening Specific Ports</h2>
-<p>Allow Example</p>
+<p>This is about as basic as it gets, but its better than nothing. You can check the status with:</p>
+<pre><code class="language-bash">sudo ufw status verbose
+</code></pre>
+<h2 id="allow-or-deny-specific-ports">Allow or Deny Specific Ports</h2>
+<p>Allow OpenSSH example.</p>
+<pre><code class="language-bash">sudo ufw allow 22/tcp
+# or
+sudo ufw allow OpenSSH
+</code></pre>
+<p>Allow HTTP and HTTPS over TCP example.</p>
+<pre><code class="language-bash">sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+</code></pre>
+<p>Deny Port 23 Telnet over TCP example.</p>
 <pre><code class="language-bash">sudo ufw deny 23/tcp
 </code></pre>
-<p>Deny Example</p>
-<pre><code class="language-bash">sudo ufw deny 53/udp
+<p>Check the status again.</p>
+<pre><code class="language-bash">sudo ufw status verbose
+</code></pre>
+<pre><code class="language-bash">Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), deny (routed)
+...
+
+To                         Action      From
+--                         ------      ----                
+443/tcp                    ALLOW OUT   Anywhere    
+
+...              
+
 </code></pre>
 <h2 id="why">Why?</h2>
 <p>Just because it’s Linux doesn’t mean you’re invincible.</p>
@@ -123,7 +158,7 @@ sudo ufw default allow outgoing
             
             <div class="side-car-container"  data-nosnippet>
                 <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
-                    <ul class="toc-list"><li><a href="#opening-specific-ports">Opening Specific Ports</a></li><li><a href="#why">Why?</a></li></ul>
+                    <ul class="toc-list"><li><a href="#allow-or-deny-specific-ports">Allow or Deny Specific Ports</a></li><li><a href="#why">Why?</a></li></ul>
                 </nav>
                 <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
             </div>
