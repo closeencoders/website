@@ -158,4 +158,4 @@ server*
 /.idea
 website.iml
 
-config.*
+arcconfig.*
