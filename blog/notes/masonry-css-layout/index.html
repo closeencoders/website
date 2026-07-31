@@ -22,8 +22,8 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="Making Cards use Masonry Layout in CSS or JavaScript">
     
-    <meta name="description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
-    <meta property="og:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
+    <meta name="description" content="A few ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
+    <meta property="og:description" content="A few ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
     
     <meta property="og:url" content="https://closeencoders.com/blog/notes/masonry-css-layout">
     <meta property="og:image"
@@ -38,7 +38,7 @@
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
     <meta name="twitter:title" content="Making Cards use Masonry Layout in CSS or JavaScript">
-    <meta name="twitter:description" content="A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
+    <meta name="twitter:description" content="A few ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.">
     <meta name="twitter:image" content="/assets/img/posts/2026/closeencoders-masonry-ffs.webp">
     <meta name="twitter:image:alt" content="Making Cards use Masonry Layout in CSS or JavaScript">
 
@@ -86,7 +86,7 @@
                     <div>
                         <p class="post-subtitle">
                             
-                            A few of ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.
+                            A few ways to force the Masonry layout, but without newer browser support or some additional JavaScript, it&#39;s annoying.
                             
                         </p>
                         <p class="post-metadata" data-nosnippet>
@@ -109,9 +109,9 @@
                     
                 </header>
                 <div itemprop="articleBody"><p>Grid and Flex are great until you want to do something odd or specific, like the Masonry layout AND keep everything in date order from left to right.</p>
-<p>I just wanted a nice masonry look for my post cards on my homepage/blog (like Pinterest). While this is definitely possible, its not as easy as I was hoping for. So I mostly gave up for now, but here is what I learned so far.</p>
+<p>I just wanted a nice masonry look for my post cards on my homepage/blog (like Pinterest). While this is definitely possible, its not as easy as I was hoping for. So I gave up for now because I don't want to maintain it, but here is what I learned so far that works.</p>
 <h2 id="column-count">Column Count</h2>
-<p>In the first case, don't specify a grid, only <code>column-count</code>.</p>
+<p>In the first case, if you don't care about maintaining order, just don't specify a grid, only <code>column-count</code>.</p>
 <p>This style is meant to look more like a newspaper, which reads vertically instead of left to right.</p>
 <p>This means you don't have true control over the order they are shown on the screen. Annoying.</p>
 <pre><code class="language-css">.posts {
