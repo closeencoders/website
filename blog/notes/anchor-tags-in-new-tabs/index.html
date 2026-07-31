@@ -20,8 +20,8 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="Make Anchor Tag Links Open in New Tabs Securely">
     
-    <meta name="description" content="Make anchor tag links a bit more secure by opening them in a new tab with rel.">
-    <meta property="og:description" content="Make anchor tag links a bit more secure by opening them in a new tab with rel.">
+    <meta name="description" content="Make anchor tag links a bit more secure by opening them in a new tab with rel and target properties.">
+    <meta property="og:description" content="Make anchor tag links a bit more secure by opening them in a new tab with rel and target properties.">
     
     <meta property="og:url" content="https://closeencoders.com/blog/notes/anchor-tags-in-new-tabs">
     <meta property="og:image"
@@ -36,7 +36,7 @@
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
     <meta name="twitter:title" content="Make Anchor Tag Links Open in New Tabs Securely">
-    <meta name="twitter:description" content="Make anchor tag links a bit more secure by opening them in a new tab with rel.">
+    <meta name="twitter:description" content="Make anchor tag links a bit more secure by opening them in a new tab with rel and target properties.">
     <meta name="twitter:image" content="/assets/img/logo.svg">
     <meta name="twitter:image:alt" content="Make Anchor Tag Links Open in New Tabs Securely">
 
@@ -84,7 +84,7 @@
                     <div>
                         <p class="post-subtitle">
                             
-                            Make anchor tag links a bit more secure by opening them in a new tab with rel.
+                            Make anchor tag links a bit more secure by opening them in a new tab with rel and target properties.
                             
                         </p>
                         <p class="post-metadata" data-nosnippet>
@@ -99,15 +99,15 @@
                     </div>
                     
                 </header>
-                <div itemprop="articleBody"><p>oI found the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a" target="_blank" rel="nofollow noopener noreferrer">mozilla.org</a> site to provide good documentation on the common properties of anchor tags. Then <a href="https://www.w3schools.com/tags/att_a_rel.asp" target="_blank" rel="nofollow noopener noreferrer">w3</a> less so. I’m not sure why this is not more commonly emphasized, mainly due to <a href="https://owasp.org/www-community/attacks/Reverse_Tabnabbing" target="_blank" rel="nofollow noopener noreferrer">reverse tabnabbing</a>. While this was technically patched in modern browsers, I’m not sure I would just assume it would never be a problem.</p>
-<p>If you want an anchor tag to open in a new tab without JavaScript of other various voodoo, just add the <code>target=&quot;_blank&quot;</code> property to the tag.</p>
+                <div itemprop="articleBody"><p>To have an anchor tag open links in a new tab without JavaScript or other voodoo, just add the <code>target=&quot;_blank&quot;</code> property to the tag.</p>
 <pre><code class="language-html">&lt;a href=&quot;/someloc.blah&quot; target=&quot;_blank&quot; &gt;Go Here?&lt;/a&gt;
 </code></pre>
-<p>To make the anchor tag a bit more secure, this really only applies to links externally facing, add the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener" target="_blank" rel="nofollow noopener noreferrer">rel = noopener</a>.</p>
-<p>It denies the browser access to the context about the document that opened the link. So the &quot;opener&quot; does not provide any info on where it's going. This is useful for links that may or may not be sketchy.</p>
+<p>For more info, I found the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a" target="_blank" rel="nofollow noopener noreferrer">mozilla.org</a> site to provide decent documentation on the common properties of anchor tags, then <a href="https://www.w3schools.com/tags/att_a_rel.asp" target="_blank" rel="nofollow noopener noreferrer">w3</a> less so.</p>
+<p>I’m not sure why secure anchor tag usage is not emphasized more often, primarily due to <a href="https://owasp.org/www-community/attacks/Reverse_Tabnabbing" target="_blank" rel="nofollow noopener noreferrer">reverse tabnabbing</a> and other various issues with external links. While most issues have &quot;technically&quot; been patched in modern browsers, I wouldn't risk the assumption.</p>
+<p>In short, a simple way to to make anchor tags a more secure for externally facing links is to add the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noopener" target="_blank" rel="nofollow noopener noreferrer">rel = noopener</a> property. It denies the browser access to the context about the document that opened the link. So the &quot;opener&quot; does not provide any info on where it's going.</p>
 <pre><code class="language-html">&lt;a href=&quot;/someloc.blah&quot; rel=&quot;noopener&quot; &gt;Go Here?&lt;/a&gt;
 </code></pre>
-<p>The <code>target=&quot;_blank&quot;</code> may already provide the “noopener” functionality, and one or the other may be sufficient, but I find it’s better to be redundant in case users have older browsers or find some new vulnerability.</p>
+<p>According to the documentation on Mozilla, the <code>target=&quot;_blank&quot;</code> already provides the “noopener” functionality, so one or the other should be sufficient. In this case, I still wouldn't risk the assumption, and I believe it’s better to be redundant in case users run older browsers, find a new vulnerability, or you simply make changes and forget to add/remove <code>rel</code>,  <code>_blank</code>, or <em>any</em> other properties in the future.</p>
 </div>
             </article>
             
