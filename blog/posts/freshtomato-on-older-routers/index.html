@@ -149,9 +149,8 @@
 <p><em>Hint: If using Firefox or similar with &quot;HTTPS Only Mode&quot;, it might fight you to reach the admin panel. Turn this mode off in settings, clear your cache, restart the browser, then ensure you are going to HTTP. Don't forget to turn &quot;HTTPS Only Mode&quot; back on after you are done.</em></p>
 <img src="/assets/img/posts/2026/r7000-ethernet.webp" loading="lazy" alt="reset button r7000">
 <img src="/assets/img/posts/2026/r7000-ethernet-2.webp" loading="lazy" alt="reset button r7000">
-<p>Banish the mobile app recommendation page by clicking the option that says you don't have a valid mobile phone. Then follow the wizard/genie steps.</p>
-<p><em>And yes, that is a <a href="/blog/posts/restoring-a-2012-macbook-pro/">2012 MacBook Pro running Linux</a>.</em></p>
-<p>As you go through the wizard, tell it to not to auto-update and you want to configure the connection yourself because there is no internet connection, other than that, the settings don't really matter because we are going to flash new firmware anyways.</p>
+<p>Banish the mobile app recommendation page by clicking the option that says you don't have a valid mobile phone. Then follow the wizard/genie steps. <em>And yes, that is a <a href="/blog/posts/restoring-a-2012-macbook-pro/">2012 MacBook Pro running Linux</a>.</em></p>
+<p>As you go through the wizard, tell it not to auto-update and you want to configure the connection yourself because there is no internet connection. Other than that, the settings don't really matter because we are going to flash new firmware anyways.</p>
 <p>(I think there is a way to bypass the wizard/genie, but it wouldn't let me)</p>
 <img src="/assets/img/posts/2026/r7000-after-reset-1.webp" loading="lazy" alt="reset button r7000">
 <p>The password and username will be erased and irrelevant after the flash/install, so unless you are paranoid, you don't have to worry about it.</p>
@@ -163,20 +162,42 @@
 <p>Navigate to the update page is on your router.</p>
 <p>Home Dashboard --&gt; ADVANCED --&gt; Administration --&gt; Router Update</p>
 <img src="/assets/img/posts/2026/r7000-netgear-update.webp" loading="lazy" alt="r7000 Netgear update page">
-<p>Then click &quot;Browse&quot; and upload the extracted <strong>initial files</strong>. In my case, all I had to do is click &quot;Upload&quot;, I did not click apply, but you might because the UI for the default Netgear firmware is <em>very</em> quirky.</p>
+<p>Then click &quot;Browse&quot; and upload the extracted <strong>initial files</strong>. In my case, all I had to do is click &quot;Upload&quot;, I did not click apply, but you might need to. It something pops up claiming you are revering to an older version or some nonsense, just click confirm/continue.</p>
 <p>The system should start doing some voodoo. DO NOT unplug anything, don't even <em>think</em> about the power button or the Ethernet cable while its doing the voodoo. The initial flash is the &quot;make it or break it&quot; moment.</p>
-<p>Once done, I rebooted it and was greeted with the FreshTomato UI. But wait theirs more!</p>
-<p>Then do the same same thing as before but use he the AIO file and through the new FreshTomato UI this time.</p>
-<p>After another reboot, the router should officially be on FreshTomato, it will look virtually the same.</p>
+<p>It may look like the browser has stalled and had a stroke while waiting for the router to come back online. After a few minutes, if nothing changes and the router lights have flickered from the reboot, wait until it appears stable, you should be able to move to the next step.</p>
+<p>(I personally had to do an additional manual reboot again)</p>
+<p>Now try to navigate to 192.168.1.1, and the default login is:</p>
+<ul>
+<li>user: root</li>
+<li>pass: admin</li>
+</ul>
+<img src="/assets/img/posts/2026/freshtomato-first-login.webp" loading="lazy" alt="r7000 freshtomato first login dashboard page">
+<p>Once done, I was greeted with the FreshTomato UI. If you don't, there is most likely some left over stock firmware still cached somewhere.</p>
+<ol>
+<li>Try to reboot it again, wait 30sec with the power off and fully unplugged. Then one minute with the power on. Then plug the Ethernet back in.</li>
+<li>Double check you don't have strict settings, aggressive script/adblock, or &quot;HTTPS Only Mode&quot; on your browser again, then clear the cache.</li>
+<li>Do another hard reset by holding the button in the back. Its virtually the same process as before in the &quot;Factory Reset&quot; section. However, this time it should not go back to the original Netgear firmware. <em>If it was flashed properly</em>, it will rest to the initial file we just flashed.</li>
+</ol>
+<h4 id="final-form-flash">Final Form Flash</h4>
+<p>But wait theirs more! That was the initial flash. Next, do the nearly same same thing as before but use he the AIO file and through the new FreshTomato UI under Administration this time.</p>
+<p>I recommend checking the clear NVRAM options if you have it. This will avoid the possible left over cache issue from before.</p>
+<img src="/assets/img/posts/2026/freshtomato-update-page.webp" loading="lazy" alt="freshtomato update page">
+<p>After another reboot, then router should officially be on FreshTomato, it will look virtually the same after flashing the initial files but be ready to use.</p>
 <p>One last step, just because you are on a fresh copy of shiny open source software to revamp an old router does NOT mean you are invisible. Take all the normal precautions and steps, like a solid admin password and desired security settings, then reboot and ensure it persisted.</p>
 <h3 id="r7000-results">R7000 Results</h3>
-<p>Compared to the stock firmware, this was much easier to use and navigate, and while not perfect, its was overall significantly better.</p>
-<p>I also noticed there was access directly to the network interfaces. So I messed around with some VLAN settings because there is not really a default “guest” network, which was time consuming because i'm not super knowledgeable on networking, but was not &quot;difficult.&quot;</p>
-<p>With the new <a href="https://wiki.freshtomato.org/doku.php/advanced-vlan" target="_blank" rel="nofollow noopener noreferrer">VLAN and Wireless VLAN settings</a>, I noticed I was no longer getting gigabit speeds. After some research, it turns out the additional internal routing settings prevented full gigabit throughput.</p>
+<p>Compared to the stock firmware, this was much easier to use and navigate, and while not perfect, its was overall significantly better. Something I was really excited about was the UI themes, some of them looked kinda cool, but the setting is not in a super obvious spot in my opinion.</p>
+<p><em>Administration --&gt; Admin Access --&gt; theme UI</em></p>
+<p>Then I recommend scrolling down the options and using Advanced Dark. It looks super clean considering we are on an old router.</p>
+<img src="/assets/img/posts/2026/freshtomato-theme.webp" loading="lazy" alt="freshtomato theme change">
+<p>I also noticed there was a lot more access to network interfaces and configuration, which may have been available on the default Netgear as well, but I never noticed anything this advanced. I eventually drifted into the VLAN section, since I was told there really isn't a “guest network” setting in FreshTomato. I was informed default guest networks are a <em>lame</em> retail consumer feature, so I did some digging through <a href="https://www.reddit.com/r/TomatoFTW/" target="_blank" rel="nofollow noopener noreferrer">reddit</a> and FreshTomato’s documentation.</p>
+<img src="/assets/img/posts/2026/freshtomato-vlan-ui.webp" loading="lazy" alt="freshtomato VLAN settings">
+<p>It was time consuming because I am not super knowledgeable about networking, but it was never difficult to setup a wireless VLAN. Sadly with the new <a href="https://wiki.freshtomato.org/doku.php/advanced-vlan" target="_blank" rel="nofollow noopener noreferrer">VLAN settings</a> in FreshTomato, I noticed I was no longer getting gigabit speeds. After some research, it turns out that the additional internal routing settings prevented full gigabit throughput?</p>
 <p>The general advice I gathered was to use device isolation instead of VLANs for older routers if you want the full bandwidth potential per connection instead of trying to create a hodgpoge guest network.</p>
-<p>Lastly, I have to be honest, I have several old routers because I do funky experiments with computers, and I attempted to flash the R7000P (AC2300) version first, <em>then</em> checked the specs/support page. AKA i'm a dumb arse and tried to flash the <em><strong>stronger</strong></em> version of the R7000, <em><strong>which is not supported.</strong></em></p>
+<p>Maybe there is a better way or this is just confusion on my part, but I was hoping for the speed and the VLAN. To be fair, i'm asking for <em>way</em> more than I thought I would get out of this project.</p>
+<p>Anyways, the fact that I could just flash some new software to my old router at all, and it was clean and easy to use was refreshing.</p>
+<p>Lastly, I have to be honest, I attempted to flash the R7000P (AC2300) version first, <em>then</em> checked the specs/support page. AKA i'm a dumb arse and tried to flash the <em><strong>stronger</strong></em> version of the R7000, <em><strong>which is not supported.</strong></em></p>
 <img src="/assets/img/posts/2026/r7000-sadness.webp" loading="lazy" alt="AC2300 not supported">
-<p>It ended up being fine, but don't do that. If you see R7000 &quot;P&quot;, its no bueno as of the time I am writing this post. I hope someone changes that.</p>
+<p>It ended up being fine, but don't do that. If you see R7000 &quot;P&quot;, its no bueno as of the time I am writing this post. Maybe its not possible, but I hope someone changes that.</p>
 <h2 id="forward">Forward</h2>
 <p>(I have other routers I am updating and will update this post as I go or have new information after playing with FreshTomato, this post is not just supposed to be a how-to in the near future)</p>
 </div>
@@ -184,7 +205,7 @@
             
             <div class="side-car-container"  data-nosnippet>
                 <nav class="table-of-contents-container" id="toc" aria-label="Table of Contents">
-                    <ul class="toc-list"><li><a href="#research">Research</a></li><li><a href="#r7000-ac1900-nighthawk">R7000 (AC1900 Nighthawk)</a></li><ul><li><a href="#find-the-r7000-firmware">Find The R7000 Firmware</a></li><li><a href="#factory-reset">Factory Reset</a></li><li><a href="#reach-the-update-page">Reach The Update Page</a></li><li><a href="#install-freshtomato">Install FreshTomato</a></li><li><a href="#r7000-results">R7000 Results</a></li></ul><li><a href="#forward">Forward</a></li></ul>
+                    <ul class="toc-list"><li><a href="#research">Research</a></li><li><a href="#r7000-ac1900-nighthawk">R7000 (AC1900 Nighthawk)</a></li><ul><li><a href="#find-the-r7000-firmware">Find The R7000 Firmware</a></li><li><a href="#factory-reset">Factory Reset</a></li><li><a href="#reach-the-update-page">Reach The Update Page</a></li><li><a href="#install-freshtomato">Install FreshTomato</a></li><ul><li><a href="#final-form-flash">Final Form Flash</a></li></ul><li><a href="#r7000-results">R7000 Results</a></li></ul><li><a href="#forward">Forward</a></li></ul>
                 </nav>
                 <button id="backToTop" title="Go to top" data-nosnippet>Back To Top↑</button>
             </div>
