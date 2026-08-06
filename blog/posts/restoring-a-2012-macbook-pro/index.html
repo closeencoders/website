@@ -125,11 +125,11 @@
 <p>I had several low-resource-usage distros to choose from, but I just went with base <a href="https://www.debian.org/" target="_blank" rel="nofollow noopener noreferrer">Debian</a> 13, and decided to install only what I needed like basic drivers, etc.</p>
 <p>For the Linux install, I followed the <a href="https://linuxvox.com/blog/install-linux-flash-drive/" target="_blank" rel="nofollow noopener noreferrer">typical Linux install steps</a> from a flash drive, but with an extra “Apple-specific” step to reach the flash drive. Just a warning, I have been told it can be a pain in the arse to get older versions of OSX back on older hardware after you wipe it, so be careful.</p>
 <ol>
-<li>Ensure you are plugged into Ethernet. No drivers that understand WiFi are installed on this machine yet</li>
-<li>Make an installer flash drive</li>
-<li>Reboot while holding the &quot;option&quot; button</li>
-<li>Select the UEFI drive</li>
-<li>You should be greeted by the normal Linux installer flow</li>
+<li>Ensure you are plugged into Ethernet, no drivers that understand WiFi are installed on this machine yet.</li>
+<li>Make an installer flash drive for your desired Linux distribution.</li>
+<li>Plug the flash drive in, then reboot while holding the &quot;option&quot; button.</li>
+<li>Select the new UEFI drive that shows up, this should be the flash drive you plugged in.</li>
+<li>You should be greeted by the normal Linux installer flow, I recommend the guided graphical install.</li>
 </ol>
 <img src="/assets/img/posts/2026/macbook-debian-13.webp" loading="lazy" alt="Start of Debian Install">
 <p>During the Install steps, there are a few minor exceptions:</p>
@@ -141,10 +141,15 @@
 <h2 id="install-necessary-drivers">Install Necessary Drivers</h2>
 <p>So if you go the Debian route as I did, lots of stuff, including the fan control, Wi-Fi, and battery control drivers, won’t be working simply because they are not installed.</p>
 <p>At the very least, nothing that will talk to the Apple hardware or drivers. This is dangerous for an older laptop, and it will overheat if you don’t do this right.</p>
-<p>Luckily, there are awesome people on awesome open source projects that pave the way for insane people like me to install Linux on a laptop from 2012 for whatever reason.</p>
+<p>Luckily, there are awesome people on awesome open source projects that pave the way for insane people like me to install Linux on an Apple laptop from 2012 for whatever reason.</p>
 <h3 id="wi-fi-drivers">Wi-Fi Drivers</h3>
 <p>You will need to be plugged into an Ethernet cable, or you will need to manually move the drivers over with a flash drive. I highly recommend just plugging the laptop into a router via a cable.</p>
 <p>open <code>/etc/apt/sources.list</code></p>
+<pre><code class="language-shell">sudo your-editor /etc/apt/sources.list
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-shell">sudo nano /etc/apt/sources.list
+</code></pre>
 <p>Ensure this line looks something like this</p>
 <pre><code class="language-bash">deb http://deb.debian.org/debian/bookworm main contrib non-free-firmware non-free
 </code></pre>
@@ -193,7 +198,7 @@ sudo tlp start
 </ul>
 <img src="/assets/img/posts/2026/macbook-result-3.webp" loading="lazy" alt="Fastfetch Command After Debian Install">
 <img src="/assets/img/posts/2026/macbook-result-1.webp" loading="lazy" alt="Result After Debian Install">
-<p>One thing to note, the <a href="https://github.com/fastfetch-cli/fastfetch" target="_blank" rel="nofollow noopener noreferrer">fastfetch</a> output in the results show the CPU at &quot;(4) @ 3.10&quot;, which I thought was wrong until I checked the <a href="https://support.apple.com/en-us/111958" target="_blank" rel="nofollow noopener noreferrer">spec page for the i5</a> on Apple's website, then <a href="https://www.intel.com/content/www/us/en/products/sku/65708/intel-core-i53210m-processor-3m-cache-up-to-3-10-ghz-bga/specifications.html" target="_blank" rel="nofollow noopener noreferrer">cross checked on intel's website</a>.</p>
+<p>One thing to note, I am using <a href="https://github.com/fastfetch-cli/fastfetch" target="_blank" rel="nofollow noopener noreferrer">fastfetch</a> output in the results to show the CPU at &quot;(4) @ 3.10&quot;, which I thought was wrong until I checked the <a href="https://support.apple.com/en-us/111958" target="_blank" rel="nofollow noopener noreferrer">spec page for the i5</a> on Apple's website, then <a href="https://www.intel.com/content/www/us/en/products/sku/65708/intel-core-i53210m-processor-3m-cache-up-to-3-10-ghz-bga/specifications.html" target="_blank" rel="nofollow noopener noreferrer">cross checked on intel's website</a>.</p>
 <p>I guess fastfetch displays the “up to” value and the number of threads, not the core count.</p>
 <img src="/assets/img/posts/2026/macbook-result-2.webp" loading="lazy" alt="Fastfetch Command After Debian Install"></div>
             </article>
