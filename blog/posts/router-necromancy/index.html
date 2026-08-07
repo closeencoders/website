@@ -16,7 +16,7 @@
 
     <title>Bring Your Older Routers Back From The Dead!</title>
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://closeencoders.com/blog/posts/freshtomato-on-older-routers">
+    <link rel="canonical" href="https://closeencoders.com/blog/posts/router-necromancy">
 
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="article">
@@ -25,7 +25,7 @@
     <meta name="description" content="Want to get more life out of your old network routers with fancy new firmware? This post shows you the basics to get started as a router necromancer.">
     <meta property="og:description" content="Want to get more life out of your old network routers with fancy new firmware? This post shows you the basics to get started as a router necromancer.">
     
-    <meta property="og:url" content="https://closeencoders.com/blog/posts/freshtomato-on-older-routers">
+    <meta property="og:url" content="https://closeencoders.com/blog/posts/router-necromancy">
     <meta property="og:image"
           content="/assets/img/posts/2026/netgear-router-cover.webp">
     <meta property="og:image:alt" content="Bring Your Older Routers Back From The Dead!">
@@ -110,13 +110,14 @@
                 </header>
                 <div itemprop="articleBody"><p>Maybe you can relate, a lightning storm barreled through my area the other day. It took out one of my routers and my home lab server. I had everything behind surge protectors, but I guess that didn’t matter.</p>
 <p>After some recovery, I wanted a cheap fix. I took apart the router in an attempt to repair it, but one of the surface-mounted components had exploded, leaving bits of what looked like shrapnel and melted plastic around it.</p>
-<p>There is no warranty, and I could not make an insurance claim. Yup, super fun.</p>
-<p>So I switched back to an older router I had, a <a href="http://www.netgear.com/support/product/r7000" target="_blank" rel="nofollow noopener noreferrer">Netgear R7000 (AC1900)</a>. It handles just about anything I need for the time being, but it's also exceptionally outdated. The best move I could think of was to flash better firmware to it, so I considered <a href="https://dd-wrt.com/" target="_blank" rel="nofollow noopener noreferrer">DD-WRT</a> as I have used it a bit in the past, but stumbled upon <a href="https://freshtomato.org/index.html" target="_blank" rel="nofollow noopener noreferrer">FreshTomato</a>, which is not to be mistaken for <a href="https://advancedtomato.com/" target="_blank" rel="nofollow noopener noreferrer">AdvancedTomato</a>, a similar product, but older.</p>
+<p>So I switched back to an older router instead, a <a href="http://www.netgear.com/support/product/r7000" target="_blank" rel="nofollow noopener noreferrer">Netgear R7000 (AC1900)</a>. It handles just about anything I need for the time being, but it's also exceptionally outdated. The best move I could think of was to flash better firmware to it, so I considered <a href="https://dd-wrt.com/" target="_blank" rel="nofollow noopener noreferrer">DD-WRT</a> as I have used it a bit in the past, but stumbled upon <a href="https://freshtomato.org/index.html" target="_blank" rel="nofollow noopener noreferrer">FreshTomato</a>, which is not to be mistaken for <a href="https://advancedtomato.com/" target="_blank" rel="nofollow noopener noreferrer">AdvancedTomato</a>, a similar product, but older.</p>
 <p>Installing FreshTomato was easy, and the R7000 works great as a replacement for my last router, for now. It's also sparked the itch to try several more older routers because it's so much easier to install than I was expecting, coming from DD-WRT a really long time ago. Not that DD-WRT is bad, I just didn’t know what I was doing.</p>
 <p>It also just feels weird to say that something from 2017 is “older”. <em>Sigh</em>.</p>
 <p><strong>WARNING: Flashing 3rd-party firmware can permanently break or damage any router.</strong></p>
 <h2 id="research-before-starting">Research Before Starting</h2>
 <p>Before starting, make sure the appropriate packages are even available to install. The main factor to focus on is the CPU and architecture, and other various versioning characters after the router model name on the sticker, usually on the back or bottom of virtually every router.</p>
+<p>Example: <code>R7000</code> VS <code>R7000P</code>.</p>
+<p>In this case, they look like the same router, but the &quot;P&quot; is not supported.</p>
 <p>This means <em>YOUR</em> router may not be supported or needs different files, <em>EVEN</em> if you have what looks like the <em>SAME</em> router, but with different specs, research thoroughly and double check the <a href="https://wiki.freshtomato.org/doku.php/hardware_compatibility#hardware_compatibility_table" target="_blank" rel="nofollow noopener noreferrer">compatibility page</a>.</p>
 <h2 id="r7000-ac1900-nighthawk">R7000 (AC1900 Nighthawk)</h2>
 <h3 id="find-the-r7000-firmware">Find The R7000 Firmware</h3>
@@ -172,11 +173,12 @@
 </ul>
 <img src="/assets/img/posts/2026/freshtomato-first-login.webp" loading="lazy" alt="r7000 freshtomato first login dashboard page">
 <p>Once done, I was greeted with the FreshTomato UI. If you don't, there is most likely some left over stock firmware still cached somewhere.</p>
-<ol>
-<li>Try to reboot it again, wait 30sec with the power off and fully unplugged. Then wait 2-3 minutes with the power on. Then plug the Ethernet back in.</li>
+<p>Here are some trouble shooting steps to clear it out:</p>
+<ul>
+<li>Turn off the router an wait 30sec with the power cable fully unplugged. Then wait 2-3 minutes with the power back on. Then plug the Ethernet back in.</li>
 <li>Double check you don't have strict security settings, aggressive script or ad blockers, or &quot;HTTPS Only Mode&quot; on your browser again, then clear the cache. (don't forget to turn them back on when you are done)</li>
-<li>Do another hard reset by holding the button in the back. Its virtually the same process as before in the &quot;Factory Reset&quot; section. However, this time it should not go back to the original Netgear firmware. <em>If it was flashed properly</em>, it will rest to the initial file we just flashed.</li>
-</ol>
+<li>Do another reset by holding the button in the back using the same process as before in the &quot;Factory Reset&quot; section. However, this time it should not go back to the original Netgear firmware. <em>If it was flashed properly</em>, it will rest to the initial file we just flashed.</li>
+</ul>
 <h4 id="final-form-flash">Final Form Flash</h4>
 <p>But wait theirs more! That was the initial flash. Next, do the nearly same same thing as before but use he the AIO file and go through the new FreshTomato UI under Administration this time.</p>
 <p>I recommend checking the clear NVRAM options if you have it. This will avoid the possible leftover cache issue from before.</p>
