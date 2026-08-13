@@ -6,6 +6,7 @@
   align-items: start;
   row-gap: 1rem;
   column-gap: 0.7rem;
+  color: var(--alt-text-color);
 }
 .posts>*:first-child {
   height: 100%;
