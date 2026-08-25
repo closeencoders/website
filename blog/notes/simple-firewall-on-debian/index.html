@@ -14,21 +14,21 @@
         <link rel="stylesheet" href="/assets/css/content.css">
     </noscript>
 
-    <title>Simple Firewall on Debian</title>
+    <title>Simple Firewall Setup on Debian</title>
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://closeencoders.com/blog/notes/simple-firewall-on-debian">
 
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Simple Firewall on Debian">
+    <meta property="og:title" content="Simple Firewall Setup on Debian">
     
-    <meta name="description" content="How to install and configure a simple firewall on Debain as fast as possible.">
-    <meta property="og:description" content="How to install and configure a simple firewall on Debain as fast as possible.">
+    <meta name="description" content="How to install and configure a simple firewall on Debian as fast as possible.">
+    <meta property="og:description" content="How to install and configure a simple firewall on Debian as fast as possible.">
     
     <meta property="og:url" content="https://closeencoders.com/blog/notes/simple-firewall-on-debian">
     <meta property="og:image"
           content="/assets/img/posts/2026/debian-firewall.webp">
-    <meta property="og:image:alt" content="Simple Firewall on Debian">
+    <meta property="og:image:alt" content="Simple Firewall Setup on Debian">
     <meta property="og:locale" content="en_US">
 
     <meta property="article:published_time" content="2026-07-22 00:00:00 &#43;0000 UTC">
@@ -37,10 +37,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
-    <meta name="twitter:title" content="Simple Firewall on Debian">
-    <meta name="twitter:description" content="How to install and configure a simple firewall on Debain as fast as possible.">
+    <meta name="twitter:title" content="Simple Firewall Setup on Debian">
+    <meta name="twitter:description" content="How to install and configure a simple firewall on Debian as fast as possible.">
     <meta name="twitter:image" content="/assets/img/posts/2026/debian-firewall.webp">
-    <meta name="twitter:image:alt" content="Simple Firewall on Debian">
+    <meta name="twitter:image:alt" content="Simple Firewall Setup on Debian">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
 </head>
@@ -82,11 +82,11 @@
         <div class="content-container">
             <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
                 <header class="post-header">
-                    <h1 itemprop="headline">Simple Firewall on Debian</h1>
+                    <h1 itemprop="headline">Simple Firewall Setup on Debian</h1>
                     <div>
                         <p class="post-subtitle">
                             
-                            How to install and configure a simple firewall on Debain as fast as possible.
+                            How to install and configure a simple firewall on Debian as fast as possible.
                             
                         </p>
                         <p class="post-metadata" data-nosnippet>
@@ -103,13 +103,13 @@
                     <figure class="post-hero" itemprop="image">
                         <picture>
                             <source srcset="/assets/img/posts/2026/debian-firewall.webp" type="image/webp">
-                            <img src="/assets/img/large-logo.png" alt="Simple Firewall on Debian">
+                            <img src="/assets/img/large-logo.png" alt="Simple Firewall Setup on Debian">
                         </picture>
                     </figure>
                     
                 </header>
-                <div itemprop="articleBody"><p>Warning: If you block specific ports of apps you need/use, they WILL stop working.</p>
-<p>Just an example, your setup may differ based on what you are doing.</p>
+                <div itemprop="articleBody"><p>Warning: If you block specific ports of apps you need/use, they WILL stop working. I also recommenced ensuring you don't already have a firewall installed and running before running any command.</p>
+<p>Update your system, install <a href="https://help.ubuntu.com/community/UFW" target="_blank" rel="nofollow noopener noreferrer">Uncomplicated Firewall (UFW)</a>, then configure deny and allow rules. I am using <a href="https://www.debian.org/" target="_blank" rel="nofollow noopener noreferrer">Debian</a> 13 for this example, so any reasonably modern Debian <a href="https://distrowatch.com/dwres.php?resource=family-tree" target="_blank" rel="nofollow noopener noreferrer">based distributions</a> like <a href="https://ubuntu.com/download" target="_blank" rel="nofollow noopener noreferrer">Ubuntu</a> or <a href="https://www.linuxmint.com/" target="_blank" rel="nofollow noopener noreferrer">Mint</a> should work in virtually the same way.</p>
 <pre><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade -y
 sudo apt install -y ufw
 
@@ -118,8 +118,12 @@ sudo ufw default allow outgoing
 
 sudo ufw enable
 </code></pre>
-<p>This is about as basic as it gets, but its better than nothing. You can check the status with:</p>
+<p>This is about as basic as it gets, but its better than nothing, your setup will differ based on what you are doing.</p>
+<p>You can check the status with:</p>
 <pre><code class="language-bash">sudo ufw status verbose
+</code></pre>
+<p>For additional configuration, like turning IPv6 on or off, open this file.</p>
+<pre><code class="language-shell">sudo &lt;your-editor&gt; /etc/default/ufw
 </code></pre>
 <h2 id="allow-or-deny-specific-ports">Allow or Deny Specific Ports</h2>
 <p>Allow OpenSSH example.</p>

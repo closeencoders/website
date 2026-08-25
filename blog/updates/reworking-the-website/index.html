@@ -5,33 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     
+    <link rel="preload" as="image" href="/assets/img/posts/2026/thinking-update.gif" fetchpriority="high">
+    
 
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/page.css">
+    <link rel="preload" href="/assets/css/content.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/content.css">
+    </noscript>
 
-    <title>Blog</title>
-    <meta name="description" content="Close Encoders Blog">
+    <title>Reworking This Website</title>
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://closeencoders.com/blog/posts">
+    <link rel="canonical" href="https://closeencoders.com/blog/updates/reworking-the-website">
 
     <meta property="og:site_name" content="Close Encoders">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Blog">
-    <meta property="og:description" content="Close Encoders Blog">
-    <meta property="og:url" content="https://closeencoders.com/blog/posts">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Reworking This Website">
+    
+    <meta name="description" content="I am restructuring this website a bit as I learn more about building my own SSG.">
+    <meta property="og:description" content="I am restructuring this website a bit as I learn more about building my own SSG.">
+    
+    <meta property="og:url" content="https://closeencoders.com/blog/updates/reworking-the-website">
     <meta property="og:image"
-          content="/assets/img/white-logo-bg.jpg">
-    <meta property="og:image:alt" content="Blog">
+          content="/assets/img/posts/2026/thinking-update.gif">
+    <meta property="og:image:alt" content="Reworking This Website">
     <meta property="og:locale" content="en_US">
+
+    <meta property="article:published_time" content="2026-07-17 00:00:00 &#43;0000 UTC">
+    <meta property="article:author" content="@closeencoders">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
-    <meta name="twitter:title" content="Blog">
-    <meta name="twitter:description" content="Close Encoders Blog">
-    <meta name="twitter:image"
-          content="/assets/img/white-logo-bg.jpg">
-    <meta name="twitter:image:alt" content="Blog">
+    <meta name="twitter:title" content="Reworking This Website">
+    <meta name="twitter:description" content="I am restructuring this website a bit as I learn more about building my own SSG.">
+    <meta name="twitter:image" content="/assets/img/posts/2026/thinking-update.gif">
+    <meta name="twitter:image:alt" content="Reworking This Website">
 
     <link rel="icon" href="/favicon.webp" type="image/webp">
 </head>
@@ -70,117 +79,44 @@
 </header>
 
     <main class="wrap">
-        <div class="title-divider">
-    <div class="item-left">
-        <div class="tab-button-container">
-            <a href="/blog" class="tab-button">ALL</a>
-            <a href="/blog/posts" class="tab-button active-tab">POSTS</a>
-            <a href="/blog/notes" class="tab-button">NOTES</a>
-            <a href="/blog/stories" class="tab-button">STORIES</a>
-            <a href="/blog/gaming" class="tab-button">GAMING</a>
-            <a href="/blog/updates" class="tab-button">UPDATES</a>
-        </div>
-    </div>
+        <div class="content-container">
+            <article class="section read-content" itemscope itemtype="https://schema.org/BlogPosting">
+                <header class="post-header">
+                    <h1 itemprop="headline">Reworking This Website</h1>
+                    <div>
+                        <p class="post-subtitle">
+                            
+                            I am restructuring this website a bit as I learn more about building my own SSG.
+                            
+                        </p>
+                        <p class="post-metadata" data-nosnippet>
+                            By
+                            <a href="/about" rel="noopener" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                <span itemprop="name">Josh</span>
+                            </a> <span> - </span>
+                            <time datetime="2026-07-17T00:00:00Z" itemprop="datePublished">Jul 17, 2026</time>
+                             | updates
+                             | software, learning, web
+                        </p>
+                    </div>
+                    
+                    <figure class="post-hero" itemprop="image">
+                        <picture>
+                            <source srcset="/assets/img/posts/2026/thinking-update.gif" type="image/webp">
+                            <img src="/assets/img/large-logo.png" alt="Reworking This Website">
+                        </picture>
+                    </figure>
+                    
+                </header>
+                <div itemprop="articleBody"><p>I generate this site using a custom <a href="https://github.com/closeencoders/arcstatic" target="_blank" rel="nofollow noopener noreferrer">static site generator (SSG) learning project</a>, but I don't know what I am doing yet.</p>
+<p>I ran into a few issues with the taxonomy system and page generation by type, and after going through that mess, I also did not like how this site layout was working out.</p>
+<p>So now the type system has a setting that automatically builds a directory based on the assigned content type, or it defaults. This way all my posts of type &quot;notes&quot; or whatever I make in the future end up in that collection, and I can build index pages with that specific content. This also makes maintaining the content much, much easier.</p>
+<p>Also, a lightning storm blew up my home server lab and router despite a surge protector. So I have been in recovery mode for a few weeks, but I am now back on track with my plans.</p>
+<p>Sometimes it feels like the universe conspires against you, but the reality is that’s when you should put the pressure on and take advantage of the situation. So instead of being angry, I'll just make content about it.</p>
 </div>
-<div id="posts-list" class="posts" role="feed" aria-label="Blog posts">
-<article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/router-necromancy">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/netgear-router-cover.webp" draggable="false" loading="lazy" alt="Bring Your Older Routers Back From The Dead!" itemprop="image">
+            </article>
             
         </div>
-        <h2 itemprop="headline">Bring Your Older Routers Back From The Dead!</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Aug 05, 2026 | <i>posts</i> 
-                 | software, networking, hardware
-            </p>
-        </div>
-        <p itemprop="description">Want to get more life out of your old network routers with fancy new firmware? This post shows you the basics to get started as a router necromancer.</p>
-    </a>
-</article><article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/restoring-a-2012-macbook-pro">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/macbook-cartoon.webp" draggable="false" loading="lazy" alt="Restored A 2012 MacBook Pro, Then Installed Linux" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">Restored A 2012 MacBook Pro, Then Installed Linux</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Jul 22, 2026 | <i>posts</i> 
-                 | software, hardware
-            </p>
-        </div>
-        <p itemprop="description">I wanted a retro laptop, so I made it happen with an old 2012 MacBook Pro, then installed Linux on it because I can. This post shows how I did it.</p>
-    </a>
-</article><article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/getting-back-into-runescape">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/osrs-ge-bw.webp" draggable="false" loading="lazy" alt="Old Dog, New Tricks: How RuneScape Stays Relevant in a Modern Era" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">Old Dog, New Tricks: How RuneScape Stays Relevant in a Modern Era</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Apr 24, 2026 | <i>posts</i> 
-                 | gaming, mmo
-            </p>
-        </div>
-        <p itemprop="description">Whether RuneScape is truly charming or just nostalgia is hard to say, but its recent updates, RuneLite plugins, and popularity speak for themselves.</p>
-    </a>
-</article><article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/my-ai-is-bigger">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/alpaca-giraffe-iguana.webp" draggable="false" loading="lazy" alt="My AI is Bigger Than Yours" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">My AI is Bigger Than Yours</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Apr 18, 2026 | <i>posts</i> 
-                 | ai, rant, sarcasm
-            </p>
-        </div>
-        <p itemprop="description">Will we lose a generation of would-be experts to nihilism because they believe robots are good enough for most tasks?</p>
-    </a>
-</article><article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/image-optimization">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/compression.webp" draggable="false" loading="lazy" alt="Simple Image Optimization Tips for Faster Websites" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">Simple Image Optimization Tips for Faster Websites</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Apr 13, 2026 | <i>posts</i> 
-                 | software, web
-            </p>
-        </div>
-        <p itemprop="description">Caching is great, but unoptimized images can still hurt load times. Use free tools to compress images and html tricks for speed and accessibility.</p>
-    </a>
-</article><article itemscope itemtype="https://schema.org/BlogPosting">
-    <a draggable="false" class="post-card" rel="noopener follow" href="/blog/posts/getting-into-go">
-        <div class="post-card-image-container">
-            
-            <img src="/assets/img/posts/2026/learning-go.webp" draggable="false" loading="lazy" alt="Learning Go as a Newbie" itemprop="image">
-            
-        </div>
-        <h2 itemprop="headline">Learning Go as a Newbie</h2>
-        <div class="post-card-text">
-            <p data-nosnippet>
-                Mar 17, 2026 | <i>posts</i> 
-                 | software, learning
-            </p>
-        </div>
-        <p itemprop="description">Transitioning from Java to Go has been surprisingly smooth, but I want to move past the syntax and dive into lower-level complexities.</p>
-    </a>
-</article>
-</div>
     </main>
     <footer class="site-footer" data-nosnippet>
     <nav class="wrap footer-inner" aria-label="Footer Navigation" data-nosnippet>
@@ -210,6 +146,10 @@
     </nav>
 </footer>
 
+    <script src="/assets/js/highlight/highlight.min.js" async></script>
     <script src="/assets/js/main.js" defer></script>
+    <script>
+    window.addEventListener('load', function() {if (typeof hljs !== 'undefined') { hljs.highlightAll(); }});
+    </script>
 </body>
 </html>
