@@ -17,6 +17,7 @@
 .posts>*:nth-child(2),
 .posts>*:nth-child(3) {
   display: flex;
+
 }
 .post-card-image-container {
   display: block;
