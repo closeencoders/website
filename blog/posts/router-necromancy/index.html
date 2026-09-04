@@ -108,14 +108,14 @@
                     </figure>
                     
                 </header>
-                <div itemprop="articleBody"><p>Maybe you can relate, a lightning storm barreled through my area the other day. It took out one of my routers and my home lab server. I had everything behind surge protectors, but I guess that didn’t matter.</p>
+                <div itemprop="articleBody"><p>Maybe you can relate, a lightning storm barreled through my area the other day. It took out one of my routers and my homelab server. I had everything behind surge protectors, but I guess that didn’t matter.</p>
 <p>After some recovery, I wanted a cheap fix. I took apart the router in an attempt to repair it, but one of the surface-mounted components had exploded, leaving bits of what looked like shrapnel and melted plastic around it.</p>
-<p>So I switched back to an older router instead, a <a href="http://www.netgear.com/support/product/r7000" target="_blank" rel="nofollow noopener noreferrer">Netgear R7000 (AC1900)</a>. It handles just about anything I need for the time being, but it's also exceptionally outdated. The best move I could think of was to flash better <a href="/blog/notes/firmware-vs-software/">firmware</a> to it, so I considered <a href="https://dd-wrt.com/" target="_blank" rel="nofollow noopener noreferrer">DD-WRT</a> as I have used it a bit in the past, but stumbled upon <a href="https://freshtomato.org/index.html" target="_blank" rel="nofollow noopener noreferrer">FreshTomato</a>, which is not to be mistaken for <a href="https://advancedtomato.com/" target="_blank" rel="nofollow noopener noreferrer">AdvancedTomato</a>, a similar product, but older.</p>
+<p>So I switched back to an older router, a <a href="http://www.netgear.com/support/product/r7000" target="_blank" rel="nofollow noopener noreferrer">Netgear R7000 (AC1900)</a>. It handles just about anything I need for the time being, but it's also exceptionally outdated. The best move I could think of was to flash better <a href="/blog/notes/firmware-vs-software/">firmware</a> to it, so I considered <a href="https://dd-wrt.com/" target="_blank" rel="nofollow noopener noreferrer">DD-WRT</a> as I have used it a bit in the past, but stumbled upon <a href="https://freshtomato.org/index.html" target="_blank" rel="nofollow noopener noreferrer">FreshTomato</a>, which is not to be mistaken for <a href="https://advancedtomato.com/" target="_blank" rel="nofollow noopener noreferrer">AdvancedTomato</a>, a similar product, but older.</p>
 <p>Installing FreshTomato was easy, and the R7000 works great as a replacement for my last router, for now. It's also sparked the itch to try several more older routers because it's so much easier to install than I was expecting, coming from DD-WRT a really long time ago. Not that DD-WRT is bad, I just didn’t know what I was doing.</p>
-<p>It also just feels weird to say that something from 2017 is “older”. <em>Sigh</em>.</p>
+<p>It also just feels weird to say that something from 2017 is “older”.</p>
 <p><strong>WARNING: Flashing 3rd-party firmware can permanently break or damage any router.</strong></p>
 <h2 id="research-before-starting">Research Before Starting</h2>
-<p>Before starting, make sure the appropriate packages are even available to install. The main factor to focus on is the CPU and architecture, and other various versioning characters after the router model name on the sticker, usually on the back or bottom of virtually every router.</p>
+<p>Before starting, make sure the appropriate packages are available to install. The main factors to focus on are the CPU and architecture, as well as any version characters or suffixes around the router model name on the sticker, usually located on the back or bottom of virtually every router.</p>
 <p>Example: <code>R7000</code> VS <code>R7000P</code>.</p>
 <p>In this case, they look like the same router, but the &quot;P&quot; is not supported.</p>
 <p>This means <em>YOUR</em> router may not be supported or needs different files, <em>EVEN</em> if you have what looks like the <em>SAME</em> router, but with different specs, research thoroughly and double check the <a href="https://wiki.freshtomato.org/doku.php/hardware_compatibility#hardware_compatibility_table" target="_blank" rel="nofollow noopener noreferrer">compatibility page</a>.</p>
@@ -136,11 +136,11 @@
 <img src="/assets/img/posts/2026/r7000-aio-file.webp" loading="lazy" alt="r7000 aio file to extract">
 <p>I highly recommend validating the checksum, the values should be at the bottom of the download page you are using for your files and named &quot;MD5SUM&quot; and &quot;SHA256SUM&quot; or similar. If you don't know what I am talking about, read <a href="https://www.geeksforgeeks.org/system-design/understanding-checksum-algorithm-for-data-integrity/" target="_blank" rel="nofollow noopener noreferrer">this</a>.</p>
 <h3 id="factory-reset">Factory Reset</h3>
-<p>The install is a two step flashing process and recommends being on the original stock firmware to start.</p>
+<p>The install is a two-step flashing process and recommends being on the original stock firmware to start.</p>
 <p>So the first step is to factory reset the router by holding down the reset button on the back for roughly 20 seconds. This will erase whatever you have on the router, and if you bought this used, I personally wouldn't connect this to your network until it’s fully reset, and even then, still not to the internet until flashed with newer firmware, so be careful.</p>
 <p><em>Hint: use a paperclip or a pen to reach the button, you will feel it click.</em></p>
 <img src="/assets/img/posts/2026/reset-button-r7000.webp" loading="lazy" alt="reset button r7000">
-<p>Ensure its not plugged into anything except power, and let the router <em>fully</em> boot (all the lights are on).</p>
+<p>Ensure its not connected to anything except power, and let the router <em>fully</em> boot (all the lights are on).</p>
 <p>Hold down the reset button for roughly 20 seconds. Lights should start blinking or stuttering. Once you release the reset button, it should reboot on its own after another 20-ish seconds. If not, manually reboot it.</p>
 <h3 id="reach-the-update-page">Reach The Update Page</h3>
 <p>Connect an Ethernet cable from one of the ports on the router to a PC (NOT the one labeled &quot;Internet&quot; or &quot;WAN&quot;), then login to the admin panel and ensure it's on the right version. To reach the router via a browser, try one of these:</p>
@@ -157,7 +157,7 @@
 <img src="/assets/img/posts/2026/r7000-after-reset-1.webp" loading="lazy" alt="r7000 reset initial setup disagree options">
 <p>The password and username will be erased and irrelevant after the flash/install, so unless you are paranoid, you don't have to worry about it.</p>
 <img src="/assets/img/posts/2026/r7000-after-reset-2.webp" loading="lazy" alt="r7000 reset initial setup user and password">
-<p>When it says &quot;No Ethernet Cable is plugged into the Router Internet Port&quot; its talking about WAN, not your local cable. You are fine. Just breath...</p>
+<p>When it says &quot;No Ethernet Cable is plugged into the Router Internet Port&quot; its talking about WAN, not your local cable. You are fine. Just breathe...</p>
 <img src="/assets/img/posts/2026/r7000-after-reset-3.webp" loading="lazy" alt="r7000 reset initial setup cable warning">
 <h3 id="install-freshtomato">Install FreshTomato</h3>
 <p>After ensuring the router was working, it was time for the update page. (If you waited until now, download the files and extract them)</p>
@@ -173,15 +173,15 @@
 <li>pass: admin</li>
 </ul>
 <img src="/assets/img/posts/2026/freshtomato-first-login.webp" loading="lazy" alt="r7000 freshtomato first login dashboard page">
-<p>Once done, I was greeted with the FreshTomato UI. If you don't, there is most likely some left over stock firmware still cached somewhere.</p>
+<p>Once done, I was greeted with the FreshTomato UI. If you don't, there is most likely some leftover stock firmware still cached somewhere.</p>
 <p>Here are some trouble shooting steps to clear it out:</p>
 <ul>
 <li>Turn off the router an wait 30sec with the power cable fully unplugged. Then wait 2-3 minutes with the power back on. Then plug the Ethernet back in.</li>
 <li>Double check you don't have strict security settings, aggressive script or ad blockers, or &quot;HTTPS Only Mode&quot; on your browser again, then clear the cache. (don't forget to turn them back on when you are done)</li>
-<li>Do another reset by holding the button in the back using the same process as before in the &quot;Factory Reset&quot; section. However, this time it should not go back to the original Netgear firmware. <em>If it was flashed properly</em>, it will rest to the initial file we just flashed.</li>
+<li>Do another reset by holding the button in the back using the same process as before in the &quot;Factory Reset&quot; section. However, this time it should not go back to the original Netgear firmware. <em>If it was flashed properly</em>, it will reset to the initial file we just flashed.</li>
 </ul>
 <h4 id="final-form-flash">Final Form Flash</h4>
-<p>But wait theirs more! That was the initial flash. Next, do the nearly same same thing as before but use he the AIO file and go through the new FreshTomato UI under Administration this time.</p>
+<p>But wait theirs more! That was the initial flash. Next, do the nearly same thing as before but use the AIO file and go through the new FreshTomato UI under Administration this time.</p>
 <p>I recommend checking the clear NVRAM options if you have it. This will avoid the possible leftover cache issue from before.</p>
 <img src="/assets/img/posts/2026/freshtomato-update-page.webp" loading="lazy" alt="freshtomato update page">
 <p>After another reboot, the router should officially be on FreshTomato, it will look virtually the same after flashing the initial files but be ready to configure. GZ!</p>
@@ -196,7 +196,7 @@
 <p>It was time consuming because I am not super knowledgeable about networking, but it was never difficult to set up a wireless VLAN. Sadly, with the new <a href="https://wiki.freshtomato.org/doku.php/advanced-vlan" target="_blank" rel="nofollow noopener noreferrer">VLAN settings</a> in FreshTomato, I noticed I was no longer getting gigabit speeds. After some research, it turns out that the additional internal routing settings prevented full gigabit throughput.</p>
 <p>The general advice I gathered was to use device isolation instead of VLANs for older routers if you want the full bandwidth potential per connection instead of trying to create a hodgpoge guest network.</p>
 <p>Maybe there is a better way, or this is just confusion on my part, but I was hoping for the speed and the VLAN. To be fair, I’m asking for way more than I thought I would get out of this project.</p>
-<p>Anyways, the fact that I could just flash some new software to my old router at all, and it was clean and easy to use, was refreshing.</p>
+<p>Anyway, the fact that I could just flash some new software to my old router at all, and it was clean and easy to use, was refreshing.</p>
 <p>Lastly, I have to be honest, I attempted to flash the R7000P (AC2300) version first, then checked the specs/support page. AKA I’m a dumb arse and tried to flash the stronger version of the R7000, <em><strong>which is not supported.</strong></em></p>
 <img src="/assets/img/posts/2026/r7000-sadness.webp" loading="lazy" alt="AC2300 not supported">
 <p>It ended up being fine, but don't do that. If you see R7000 &quot;P&quot;, its no bueno as of the time I am writing this post. Maybe its not possible, but I hope someone changes that.</p>
