@@ -3,7 +3,6 @@ Sitemap: https://www.closeencoders.com/sitemap.xml
 # TDM Reservation for AI Training (W3C TDMRep)
 # x-tdm-reservation: 1
 
-
 # General rules for reputable search engines
 User-agent: *
 Disallow: /data
@@ -13,12 +12,8 @@ Disallow: /privacy
 Disallow: /search
 Disallow: /social
 Disallow: /reports
-Disallow: /about
-Disallow: /projects
-Disallow: /faq
-Disallow: /archive
 
-# --- ALLOWED FOR SEO & SOCIAL VISIBILITY ---
+# --- COMMENTED OUT FOR ALLOWED SEO & SOCIAL VISIBILITY ---
 # User-agent: Applebot
 # User-agent: Googlebot
 # User-agent: Meta-ExternalAgent
@@ -35,7 +30,7 @@ Disallow: /archive
 # User-agent: Slurp
 # User-agent: iaskspider
 
-# --- NOT ALLOWED ---
+# --- NOT ALLOWED TO THE FULL EXTENT A robots.txt CAN ---
 User-agent: GPTBot
 User-agent: Google-Extended
 User-agent: Google-CloudVertexBot
