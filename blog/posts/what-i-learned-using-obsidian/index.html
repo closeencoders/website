@@ -108,9 +108,9 @@
                     </figure>
                     
                 </header>
-                <div itemprop="articleBody"><p>I despise the idea of being trapped by applications and usually try to build my own dumbed-down version for a higher degree of freedom. I am a bit of a pirate in that sense, and that’s partially why I’m writing this. <strong>To help take control of your notes, not the other way around!</strong></p>
-<p>I was hooked by the idea of a second brain after watching videos by <a href="https://www.youtube.com/@aliabdaal" target="_blank" rel="nofollow noopener noreferrer">Ali Abdaal</a> and reading a book <a href="https://www.goodreads.com/book/show/59616977-building-a-second-brain" target="_blank" rel="nofollow noopener noreferrer">Building A Second Brain</a>. I’m not affiliated with either, but if you love taking notes, they could be worth a look.</p>
-<p>Obsidian feels freeing with its heavy customization and plugins, but it’s a trap in disguise for hoarding information and overthinking your notes. With the exception of specific plugins mentioned, I want the ideas not to be limited specifically to Obsidian, but only come from my perspective having used Obsidian.</p>
+                <div itemprop="articleBody"><p>I despise the idea of being trapped by applications and usually try to build my own dumbed-down version for a higher degree of freedom. I am a bit of a pirate in that sense, and that’s partially why I’m writing this. To help take control of your notes, not the other way around!</p>
+<p>I was hooked by the idea of a second brain after watching videos by <a href="https://www.youtube.com/@aliabdaal" target="_blank" rel="nofollow noopener noreferrer">Ali Abdaal</a> and reading the book <a href="https://www.goodreads.com/book/show/59616977-building-a-second-brain" target="_blank" rel="nofollow noopener noreferrer"><em>Building A Second Brain</em></a>. I’m not affiliated with either, but if you love taking notes, they could be worth a look.</p>
+<p>Obsidian feels freeing with its heavy customization and plugins, but it’s a trap in disguise for hoarding information and overthinking your notes. Except for the specific plugins mentioned, I don’t want these ideas to be limited to Obsidian, but only come from my perspective having used Obsidian.</p>
 <p>I condense all the issues I’ve encountered over the years into two core ideas and present my case for working through them.</p>
 <ul>
 <li>Creating notes that are easy to find and reference.</li>
@@ -118,12 +118,12 @@
 </ul>
 <h2 id="creating-notes">Creating Notes</h2>
 <p>Stopping the note-taking process from getting in the way of your work is key to making the notes work for you.</p>
-<p>The most important thing you can do is make the note accessible to your future self without spending too much time away. Everything else is irrelevant if you can’t find the information or remember that it’s there. This may sound obvious, but this is the <em><strong>number one</strong></em> reason people say “I take lots of notes but never use them.” If it's frustrating to find the notes, then why would anyone ever use them?</p>
+<p>The most important thing you can do is make the note accessible to your future self without spending too much time away from your work. Everything else is irrelevant if you can’t find the information or remember that it’s there. This may sound obvious, but this is the <em><strong>number one</strong></em> reason people say “I take lots of notes but never use them.” If it's frustrating to find the notes, then why would anyone ever use them?</p>
 <p>Once this is mastered, everything else, like plugins and wiki style linking becomes a bonus, not fluff. Otherwise, it's probably better to handwrite notes or use simple documents like Google Docs.</p>
 <h3 id="structure">Structure</h3>
 <p>Fleshing out a unique title, filename, and topic summary with solid keywords before anything is the most effective use of time. If the keywords expressing the topic of your note are overly generic, too specific, or spelled wrong, you won't find them. The first iteration of a note does not have to start out that way, it can evolve as you process the information onto the page.</p>
 <p>Don’t focus on making the content completely coherent either, only to convey enough you wouldn’t otherwise remember with correct spelling. Like a complicated set of steps, a list of references, or a quote with an author’s name you want to use in a paper or book later. Don’t let it venture into hoarding material for later, keep it on the topic at hand and let it be chicken scratch.</p>
-<p>Moving into an example, if I make a very generic note about cows, it will only convey the meaning to my future self that the file is about cows. The notes contents become too abstracted away from the user and force you to search through it.</p>
+<p>Moving into an example, if I make a very generic note about cows, it will only convey the meaning to my future self that the file is about cows. The note's contents become too abstracted away from the user and force you to search through it.</p>
 <p>I made some <em><strong>heavily</strong></em> simplified visuals in Markdown, but I think it gets the point across.</p>
 <p><code>Cow.md</code></p>
 <pre><code class="language-text"># Cow
@@ -132,6 +132,7 @@ They have many stomachs. They digest grass slowly in stages.
 If you farm cows, it's important to note this process.
 (https://external-cow-source.zom)
 I found this interesting because XYZ...
+What do you call a cow with now feet? Ground Beef!
 ...
 </code></pre>
 <p>This file can only be found with a filename search of “cow,” which forces me to do a mass search for specific information about the cow with something similar to  <code>ctrl + f</code> or <code>ctrl + shift + f</code>. I deem this type of note a “God Note” where the contents eventually don't contribute any real mean. In this case, it becomes <em>easier</em> to Google “cow” for more reliable and up-to-date information.</p>
@@ -145,14 +146,14 @@ I found this interesting because XYZ...
 <p>This file is specifically about “cow stomachs” and a process associated with it. If I was learning about the process of nutrient extraction in digestion and searched “stomach” or “cow,” these notes show up. Now this note about cow stomachs can be linked to anything for its isolated subject rather than to everything I know about cows.</p>
 <img src="/assets/img/posts/2026/obsidian-cow-search-ex1.webp" loading="lazy" alt="Cow Search Example">
 <p>This means that notes will not be interconnected based on the &quot;God Note&quot; without context, and should be easier to find.</p>
-<p>Take this next note on farming cows in relation to cows represent what I mean.</p>
+<p>Take this next note about cow farming pulling in cow information as an example of what I mean.</p>
 <p><code>Cow Farming.md</code> &lt;-- <code>Cow Stomach.md</code></p>
 <pre><code class="language-text"># Cow Farming
 
 It's important to know how [[cow stomach]]s process what you feed them so you can keep them healthy.
 I found this interesting because XYZ...
 </code></pre>
-<p>With this, the <code>Cow Stomachs.md</code> is now linked to <code>Cow Farming.md</code> without attaching everything you've ever learned about cows in <code>Cow.md</code> without context. This simultaneously avoids duplicating the source on cow digestion as you continue adding notes to related topics in the future.</p>
+<p>With this, <code>Cow Stomachs.md</code> is now linked to <code>Cow Farming.md</code> without attaching everything you've ever learned about cows in <code>Cow.md</code> without context. This simultaneously avoids duplicating the source on cow digestion as you continue adding notes to related topics in the future.</p>
 <p>The idea is to keep it flexible, don’t make your notes too specific or too generic, state the concept clearly so that searching and linking is less annoying as you add more. This does not mean you cannot have a <code>Cow.md</code> or a <code>Farm.md</code> with some generic information, meaning that these higher-level ideas are common and provide less context, so use them only when they make sense.</p>
 <p>A great example of this would be if your entire body of notes is on a very specific set of subjects like cows. In this case, it could make sense to use the <code>Cow.md</code> as some kind of index or hub that links everything to the key ideas, but all the subtopics on cows would still remain in their own note files to keep them isolated and reusable. Like a dashboard.</p>
 <pre><code class="language-text"># Cow Farming
@@ -173,7 +174,7 @@ I found this interesting because XYZ...
 <img src="/assets/img/posts/2026/obsidian-farm-search-ex1.webp" loading="lazy" alt="Farm Search Example">
 <p>If you don’t use complex YAML frontmatter and metadata for your notes, you can stop here.</p>
 <p>There is a strong case to be made for simplicity and not sorting all your notes into folders or harsh categories. I really liked a <a href="https://stephango.com/vault" target="_blank" rel="nofollow noopener noreferrer">blog post</a> by the creator of Obsidian which aligns with simplicity and outlines leaning on linking and meaning over classification, taxonomy, or folders.</p>
-<p>But if you do enjoy lots of fancy metadata, try not to wrap the note in tags or categories until after you write down and think through it for a while. Maybe run it through Grammarly as well to catch anything insane so it does not propagate to 30 different places forces painful renaming or context issues.</p>
+<p>But if you enjoy lots of fancy metadata, try not to wrap a new note in tags or categories until after you write down and think through it for a while. Maybe run it through Grammarly or at least spell check to catch anything insane before it propagates to several notes causing painful renaming and context issues.</p>
 <p>It’s easy to force links and tags between notes because the graph view with all the pretty dots is amusing when there are tons of connections. The main focus for linking should be to create a simple breadcrumb trail in your notes so you can find it later, not to make it pretty. If you have too many links, it loses its meaning.</p>
 <p>Then stop. Try to keep working on whatever you are working on and avoid the trap.</p>
 <p>Once you are sure the topic is super specific and can only be one of a handful of topics, then I would add a tag like “science” or whatever, but keep these broad. I cannot tell you how many times in the beginning I had to come back and revise my tags because I eventually hit an edge case that causes it to no longer make sense. Even my example below could eventually hit an edge case, at what point does learning about cows become agriculture or remain biology if its even biology at all:</p>
