@@ -199,7 +199,7 @@ tags:
 I found this interesting because XYZ...
 </code></pre>
 <h2 id="maintaining-notes">Maintaining Notes</h2>
-<img src="/assets/img/posts/2026/obsidian-dragging.gif" loading="lazy" alt="Dragging Obsidian Notes Around">
+<img src="/assets/img/posts/2026/obsidian-dragging.gif" loading="lazy" alt="Dragging Obsidian Notes Around In Graph View GIF Animation">
 <p>I alluded to it in the structure section, as the way notes are created and formatted directly correlates to how easily they can be maintained and found later on. But assuming you have that in the bag, maintaining notes can be a huge time sink, especially if you are a perfectionist. In which case I highly recommend never using Obsidian in the first place, you will lose more time than you save.</p>
 <h3 id="source-control">Source Control</h3>
 <p>A long time ago, I created a <a href="https://git-scm.com/" target="_blank" rel="nofollow noopener noreferrer">Git</a> repository with my notes in it for better control over the process, even before I started using Obsidian. If you're not familiar with source control, it's a way to track changes and, more importantly, revert changes if something goes wrong.</p>
@@ -209,9 +209,9 @@ I found this interesting because XYZ...
 <h3 id="portability">Portability</h3>
 <p>Many note-taking apps, Obsidian in particular, have lots of customization options. This is one of Obsidian’s greatest strengths, you can adapt it to just about any format you want with the right plugins and themes, but it’s easy to abuse.</p>
 <p>If done right, you can query everything in Obsidian down to an excruciating level and make it fit the exact mold you have in your head. But if done wrong, it feels like an addition, and your notes never feel quite right. Think of it like a spectrum, the more you customize it, the more complex it can become, and the harder it will be to maintain. You also have to consider if someone stops maintaining a plugin you become dependent on, what then?</p>
-<p>Obsidian has a solution for this, it keeps everything it does in files in the root directory of your vault, making it portable and allowing the source control from the previous section to track it. This not only applies to Obsidian’s settings, but also to your plugins and plugin settings. If you keep this location .obsidian directory with all or the desired JSON contents tracked in source control, or at least it a common location, every time you transfer or clone your notes, it should maintain the same structure.</p>
+<p>Obsidian has a solution for this, it keeps everything it does in files in the root directory of your vault, making it portable and allowing the source control from the previous section to track it. This not only applies to Obsidian’s settings, but also to your plugins and plugin settings. If you keep this location <code>.obsidian</code> directory with all or the desired JSON contents tracked in source control, or at least it a common location, every time you transfer or clone your notes, it should maintain the same structure.</p>
 <img src="/assets/img/posts/2026/obsidian-configuration-ex1.webp" loading="lazy" alt="Obsidian Configuration and Setting">
-<p>This makes everything you do and your workflow semi-portable. This does not just apply to Obsidian, whatever system you use, most applications keep configuration in a specific location in a similar manner.</p>
+<p>Keeping track of the JSON files of your choosing makes the workflow semi-portable. This does not just apply to Obsidian, most applications keep configuration in a specific location in a similar manner. This helps with maintainability because you don't have to reload a giant list of all the plugins and tweaks you did every time.</p>
 </div>
             </article>
             
