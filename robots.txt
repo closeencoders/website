@@ -29,6 +29,8 @@ Disallow: /reports
 # User-agent: OAI-SearchBot
 # User-agent: Slurp
 # User-agent: iaskspider
+# User-agent: FacebookBot
+# User-agent: GrokBot
 
 # --- NOT ALLOWED TO THE FULL EXTENT A robots.txt CAN ---
 User-agent: GPTBot
@@ -38,7 +40,6 @@ User-agent: ClaudeBot
 User-agent: Claude-User
 User-agent: anthropic-ai
 User-agent: CCBot
-User-agent: GrokBot
 User-agent: ERNIEBot
 User-agent: Bytespider
 User-agent: Amazonbot
@@ -75,7 +76,6 @@ User-agent: Seekr
 User-agent: peer39_crawler
 User-agent: FirecrawlAgent
 User-agent: Claude-Web
-User-agent: FacebookBot
 User-agent: magpie-crawler
 User-agent: NewsNow
 User-agent: news-please
