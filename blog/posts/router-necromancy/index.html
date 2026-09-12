@@ -108,15 +108,15 @@
                     </figure>
                     
                 </header>
-                <div itemprop="articleBody"><p>Maybe you can relate: a lightning storm barreled through my area the other day. It took out one of my routers and my homelab server. I had everything behind surge protectors, but I guess that didn’t matter.</p>
+                <div itemprop="articleBody"><p>Maybe you can relate, a lightning storm barreled through my area the other day. It took out one of my routers and my homelab server. I had everything behind surge protectors, but I guess that didn’t matter.</p>
 <p>I wanted a cheap fix, so I attempted to repair the router, but one of the surface-mounted components had exploded, leaving bits of what looked like shrapnel and melted plastic around it.</p>
 <p>So I switched back to an older router, a <a href="http://www.netgear.com/support/product/r7000" target="_blank" rel="nofollow noopener noreferrer">Netgear R7000 (AC1900)</a>. It handles just about anything I need for the time being, but it's also exceptionally outdated. The best move I could think of was to flash better <a href="/blog/notes/firmware-vs-software/">firmware</a> to it, so I considered <a href="https://dd-wrt.com/" target="_blank" rel="nofollow noopener noreferrer">DD-WRT</a> as I have used it a bit in the past, but stumbled upon <a href="https://freshtomato.org/index.html" target="_blank" rel="nofollow noopener noreferrer">FreshTomato</a>, which is not to be mistaken for <a href="https://advancedtomato.com/" target="_blank" rel="nofollow noopener noreferrer">AdvancedTomato</a>, a similar product, but older.</p>
 <p>Installing FreshTomato was easy, and the R7000 works great as a replacement for my last router, for now. It's also sparked the itch to try several more older routers because it's so much easier to install than I was expecting, coming from DD-WRT a really long time ago. Not that DD-WRT is bad, I just didn’t know what I was doing.</p>
 <p>It also just feels weird to say that something from 2017 is “older”.</p>
-<p><strong>WARNING: Flashing Third-party firmware can <em>permanently</em> break or damage any router.</strong></p>
+<p><strong>WARNING: Flashing third-party firmware can <em>permanently</em> break or damage any router.</strong></p>
 <h2 id="research-before-starting">Research Before Starting</h2>
 <p>Before starting, make sure the appropriate packages are available to install. The main factors to focus on are the CPU and architecture, as well as any version characters or suffixes around the router model name on the sticker, usually located on the back or bottom of virtually every router.</p>
-<p>Example: <code>R7000</code> VS <code>R7000P</code>.</p>
+<p>Example: <code>R7000</code> vs. <code>R7000P</code>.</p>
 <p>In this case, they look like the same router, but the &quot;P&quot; is not supported.</p>
 <p>This means <em>YOUR</em> router may not be supported or needs different files, <em>EVEN</em> if you have what looks like the <em>SAME</em> router, but with different specs, research thoroughly and double check the <a href="https://wiki.freshtomato.org/doku.php/hardware_compatibility#hardware_compatibility_table" target="_blank" rel="nofollow noopener noreferrer">compatibility page</a>.</p>
 <h3 id="what-is-firmware">What is Firmware?</h3>
@@ -146,7 +146,7 @@
 <p>So the first step is to factory reset the router by holding down the reset button on the back for roughly 20 seconds. This will erase whatever you have on the router, and if you bought this used, I personally wouldn't connect this to your network until it’s fully reset, and even then, still not to the internet until flashed with newer firmware, so be careful.</p>
 <p><em>Hint: use a paperclip or a pen to reach the button, you will feel it click.</em></p>
 <img src="/assets/img/posts/2026/reset-button-r7000.webp" loading="lazy" alt="reset button r7000">
-<p>Ensure its not connected to anything except power, and let the router <em>fully</em> boot (all the lights are on).</p>
+<p>Ensure it's not connected to anything except power, and let the router <em>fully</em> boot (all the lights are on).</p>
 <p>Hold down the reset button for roughly 20 seconds. Lights should start blinking or stuttering. Once you release the reset button, it should reboot on its own after another 20-ish seconds. If not, manually reboot it.</p>
 <h3 id="reach-the-update-page">Reach The Update Page</h3>
 <p>Connect an Ethernet cable from one of the ports on the router to a PC (NOT the one labeled &quot;Internet&quot; or &quot;WAN&quot;), then login to the admin panel and ensure it's on the right version. To reach the router via a browser, try one of these:</p>
@@ -163,7 +163,7 @@
 <img src="/assets/img/posts/2026/r7000-after-reset-1.webp" loading="lazy" alt="r7000 reset initial setup disagree options">
 <p>The password and username will be erased and irrelevant after the flash/install, so unless you are paranoid, you don't have to worry about it.</p>
 <img src="/assets/img/posts/2026/r7000-after-reset-2.webp" loading="lazy" alt="r7000 reset initial setup user and password">
-<p>When it says &quot;No Ethernet Cable is plugged into the Router Internet Port&quot; its talking about WAN, not your local cable. You are fine. Just breathe...</p>
+<p>When it says &quot;No Ethernet Cable is plugged into the Router Internet Port&quot; it's talking about WAN, not your local Ethernet cable. You are fine. Just breathe...</p>
 <img src="/assets/img/posts/2026/r7000-after-reset-3.webp" loading="lazy" alt="r7000 reset initial setup cable warning">
 <h3 id="install-freshtomato">Install FreshTomato</h3>
 <p>After ensuring the router was working, it was time for the update page. (If you waited until now, download the files and extract them)</p>
@@ -180,11 +180,11 @@
 </ul>
 <img src="/assets/img/posts/2026/freshtomato-first-login.webp" loading="lazy" alt="r7000 freshtomato first login dashboard page">
 <p>Once done, I was greeted with the FreshTomato UI. If you don't, there is most likely some leftover stock firmware still cached somewhere.</p>
-<p>Here are some trouble shooting steps to clear it out:</p>
+<p>Here are some troubleshooting steps to clear it out:</p>
 <ul>
-<li>Turn off the router an wait 30sec with the power cable fully unplugged. Then wait 2-3 minutes with the power back on. Then plug the Ethernet back in.</li>
+<li>Turn off the router and wait 30 seconds with the power cable fully unplugged. Then wait 2-3 minutes with the power back on. Then plug the Ethernet back in.</li>
 <li>Double check you don't have strict security settings, aggressive script or ad blockers, or &quot;HTTPS Only Mode&quot; on your browser again, then clear the cache. (don't forget to turn them back on when you are done)</li>
-<li>Do another reset by holding the button in the back using the same process as before in the &quot;Factory Reset&quot; section. However, this time it should not go back to the original Netgear firmware. <em>If it was flashed properly</em>, it will reset to the initial file we just flashed.</li>
+<li>Do another reset by holding the button on the back using the same process as before in the &quot;Factory Reset&quot; section. However, this time it should not go back to the original Netgear firmware. <em>If it was flashed properly</em>, it will reset to the initial file we just flashed.</li>
 </ul>
 <h4 id="final-form-flash">Final Form Flash</h4>
 <p>But wait, there’s more! That was the initial flash. Next, do the nearly same thing as before but use the AIO file and go through the new FreshTomato UI under Administration this time.</p>
@@ -193,7 +193,7 @@
 <p>After another reboot, the router should officially be on FreshTomato, it will look virtually the same after flashing the initial files but be ready to configure. GZ!</p>
 <p>One last step, just because you are on a fresh copy of shiny open source software to revamp an old router does NOT mean you are invisible. Take all the normal precautions and steps, like a solid admin password and desired security settings, then reboot and ensure it persisted.</p>
 <h3 id="r7000-results">R7000 Results</h3>
-<p>Compared to the stock firmware, this was much easier to use and navigate, and while not perfect, it was overall significantly better. Something I was really excited about was the UI themes, some of them looked kinda cool, but the setting is not in a super obvious spot, in my opinion.</p>
+<p>Compared to the stock firmware, this was much easier to use and navigate, and while not perfect, it was overall significantly better. Something I was really excited about was the UI themes, some of them looked kind of cool, but the setting is not in a super obvious spot, in my opinion.</p>
 <ol>
 <li>Administration</li>
 <li>Admin Access</li>
@@ -209,11 +209,11 @@
 <p>Anyway, the fact that I could just flash some new software to my old router at all, and it was clean and easy to use, was refreshing.</p>
 <p>Lastly, I have to be honest, I attempted to flash the R7000P (AC2300) version first, then checked the specs/support page. AKA I’m a dumb arse and tried to flash the stronger version of the R7000, <em><strong>which is not supported.</strong></em></p>
 <img src="/assets/img/posts/2026/r7000-sadness.webp" loading="lazy" alt="AC2300 not supported">
-<p>It ended up being fine, but don't do that. If you see R7000 &quot;P&quot;, its no bueno as of the time I am writing this post. Maybe its not possible, but I hope someone changes that.</p>
+<p>It ended up being fine, but don't do that. If you see R7000 &quot;P&quot;, its no bueno as of the time I am writing this post. Maybe it's not possible, but I hope someone changes that.</p>
 <h2 id="asus-rt-n66u-n900-dark-knight">ASUS RT-N66U (N900 Dark Knight)</h2>
 <p>That was it for the main router on my internal network, but I also had an even older router, an ASUS RT-N66U. I wanted to play with it now that I realized flashing is stupid easy.</p>
 <p>I did some research, the RT-N66U comes in different CPU variants. The B1 version uses a MIPS architecture, and the other is ARM. If you are unsure which one you have, it should be listed on the sticker on the bottom of the router, or you can sometimes find it in the UI.</p>
-<p>The good news is that with this model, I don't need a special “initial” transition flash like I did with the R7000, so its <em>kinda</em> one and done. The bad news is that this model is less powerful than the ARM version in most cases, according to the specs.</p>
+<p>The good news is that with this model, I don't need a special “initial” transition flash like I did with the R7000, so its kind of a one-and-done process. The bad news is that this model is less powerful than the ARM version in most cases, according to the specs.</p>
 <img src="/assets/img/posts/2026/nasus-reset-button.webp" loading="lazy" alt="asus router reset button">
 <p>...</p>
 <h2 id="forward">Forward</h2>
