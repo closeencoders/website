@@ -273,3 +273,20 @@ blockquote p {
   -ms-user-select: none;
   user-select: none;
 }
+
+
+
+
+.note-info {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 5px solid var(--accent);
+  border-radius: 0.5rem;
+  line-height: 1.6;
+  box-shadow: 0 2px 8px var(--accent);
+}
+
+.note-info::before {
+  content: "💡";
+  margin-right: 0.5rem;
+}
