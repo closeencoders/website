@@ -136,8 +136,9 @@ What do you call a cow with now feet? Ground Beef!
 ...
 </code></pre>
 <p>This file can only be found with a filename search of “cow,” which forces me to do a mass search for specific information about the cow with something similar to  (<code>ctrl + f</code>) or (<code>ctrl + shift + f</code>). I deem this type of note a “God Note” where the contents eventually don't contribute any real meaning. In this case, it becomes <em>easier</em> to Google “cow” for more reliable and up-to-date information.</p>
-<p>This does <em>not</em> mean having a <code>Cow.md</code> or a <code>Farm.md</code> with generic information is <em>bad</em>. The point is only that broad, higher-level notes provide less context, so I use them only when they have a clear purpose. An example could be dashboards and hubs, especially if the entire body of notes is on a specific subject. In this case, it may make sense to use <code>Cow.md</code> as a kind of index page that links everything to the key ideas, but all the subtopics on cows could still remain in their own note files to keep them isolated, searchable, and reusable. Most note-taking applications like Obsidian have tons of built-in functionality as well as great plugins for automation of dashboards.</p>
-<p>The process of collecting tidbits of information to support a topic, then compiling all the information into a single file with lots of headings is more like an essay. This is completely fine if that’s your goal, but there's a way to make notes easier to find.</p>
+<p>This does <em>not</em> mean having a <code>Cow.md</code> or a <code>Farm.md</code> with generic information is <em>bad</em>. The point is only that broad, higher-level notes provide less context, so I use them only when they have a clear purpose.</p>
+<p>Solid cases for broad files are dashboards, hubs, and categories, especially when the entire body of notes is on a specific subject. In this case, it may make sense to use <code>Cow.md</code> (or maybe something like <code>Agriculture.md</code>) as a kind of index page that links to everything and the key ideas, but all the subtopics on cows could still remain in their own note files to keep them isolated, searchable, and reusable. Most note-taking applications like Obsidian have built-in functionality as well as several <a href="https://community.obsidian.md/search?q=dashboard" target="_blank" rel="nofollow noopener noreferrer">plugins for dashboards</a>.</p>
+<p>Unlike dashboards, I would argue that the process of collecting hundreds or even thousands of tidbits of information to support a topic and then compiling all the information into a single file with lots of headings is more like writing an essay. This is completely fine if that’s your goal, but there’s a way to make notes easier to find.</p>
 <p><code>Cow Stomach.md</code></p>
 <pre><code class="language-text"># Cow Stomach
 
@@ -161,7 +162,7 @@ It's important to know how [[cow stomach]]s process what you feed them so you ca
 I found this interesting because XYZ...
 </code></pre>
 <div class="note-info">
-Note that you can make the entities plural like `Cows.md` so the linking contains the "s," but this may limit Obsidian's built in linking features visually and is only a stylistic preference.
+Note that you can make the entities plural like "Cows.md" and make everything lower case, it's only a stylistic preference.
 </div>
 <p>Here is a more fleshed out example with some more opinionated linking that demonstrates a decent breadcrumb trail between seemingly unrelated topics. I am not saying one or the other is bad, but in the case of searching, I find the isolation to be superior.</p>
 <img src="/assets/img/posts/2026/obsidian-file-isolation-ex1.webp" loading="lazy" alt="Obsidian Breadcrumb Example">
@@ -180,11 +181,12 @@ Note that you can make the entities plural like `Cows.md` so the linking contain
 <p>But if you enjoy lots of fancy metadata, try not to wrap a new note in tags or categories until after you write down and think through it for a while. Maybe run it through Grammarly or at least spell check to catch anything insane before it propagates to several notes causing painful renaming and context issues.</p>
 <p>It’s easy to force links and tags between notes because the graph view with all the pretty dots is amusing when there are tons of connections. The main focus for linking should be to create a simple breadcrumb trail in your notes so you can find it later, not to make it pretty. If you have too many links, it loses its meaning.</p>
 <p>Then stop. Try to keep working on whatever you are working on and avoid the trap.</p>
-<p>Once you are sure the topic is super specific and can only be one of a handful of topics, then I would add a tag like “science” or whatever, but keep these broad. I cannot tell you how many times in the beginning I had to come back and revise my tags because I eventually hit an edge case that causes it to no longer make sense. Even my example below could eventually hit an edge case, at what point does learning about cows become agriculture or remain biology if its even biology at all:</p>
+<p>Once you are sure the topic is understood and can only be one of a handful of categories, then I would consider add metadata classifications like “science” or whatever, but try keep these broad. I cannot tell you how many times in the beginning I had to come back and revise my tags because I eventually hit an edge case that causes it to no longer make sense. Even my example below could eventually hit an edge case, at what point does learning about cows become agriculture or remain biology?</p>
 <pre><code class="language-text">---
+category: [[agriculture]]
 tags:
-  - notes
-  - agriculture
+  - farming
+  - ...
 ---
 # Cow Farming
 
@@ -192,9 +194,10 @@ It's important to know how [[cow stomach]]s process what you feed them so you ca
 I found this interesting because XYZ...
 </code></pre>
 <pre><code class="language-text">---
+category: [[biology]]
 tags:
-  - notes
-  - biology
+  - digestion
+  - ...
 ---
 # Cow Stomachs
 
