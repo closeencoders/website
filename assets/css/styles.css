@@ -44,7 +44,7 @@ body {
   color: var(--text-color);
   text-rendering: optimizeLegibility;
 }
-p, ul {
+p, ul, ol {
   font-size: var(--desktop-font-size);
   line-height: 32px;
 }
@@ -172,7 +172,7 @@ blockquote p {
 
 @media (max-width: 721px) {
 
-  p, ul {
+  p, ul, ol {
     font-size: var(--mobile-font-size)
   }
 
