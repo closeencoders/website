@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="/assets/css/page.css">
 
     <title>Search</title>
-    <meta name="description" content="&lt;div id=&#34;posts-space&#34; class=&#34;wrap&#34; data-nosnippet&gt; &lt;div class=&#34;posts-search-panel no-select&#34; aria-hidden=&#34;true&#34;&gt; &lt;input id=&#34;posts-search-input&#34;...">
+    <meta name="description" content="&lt;style&gt; #posts-space { position: relative; } .post-search :is(h2, h3, p) { padding: 0; margin-bottom: 0.2rem; } .post-search :is(h2, h3) { font-size...">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://closeencoders.com/search">
 
     <meta property="og:site_name" content="Close Encoders">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Search">
-    <meta property="og:description" content="&lt;div id=&#34;posts-space&#34; class=&#34;wrap&#34; data-nosnippet&gt; &lt;div class=&#34;posts-search-panel no-select&#34; aria-hidden=&#34;true&#34;&gt; &lt;input id=&#34;posts-search-input&#34;...">
+    <meta property="og:description" content="&lt;style&gt; #posts-space { position: relative; } .post-search :is(h2, h3, p) { padding: 0; margin-bottom: 0.2rem; } .post-search :is(h2, h3) { font-size...">
     <meta property="og:url" content="https://closeencoders.com/search">
     <meta property="og:image"content="https://closeencoders.com/assets/img/large-logo.png">
     <meta property="og:image:alt" content="Search">
@@ -29,7 +29,7 @@
     <meta name="twitter:site" content="@closeencoders">
     <meta name="twitter:creator" content="@closeencoders">
     <meta name="twitter:title" content="Search">
-    <meta name="twitter:description" content="&lt;div id=&#34;posts-space&#34; class=&#34;wrap&#34; data-nosnippet&gt; &lt;div class=&#34;posts-search-panel no-select&#34; aria-hidden=&#34;true&#34;&gt; &lt;input id=&#34;posts-search-input&#34;...">
+    <meta name="twitter:description" content="&lt;style&gt; #posts-space { position: relative; } .post-search :is(h2, h3, p) { padding: 0; margin-bottom: 0.2rem; } .post-search :is(h2, h3) { font-size...">
     <meta name="twitter:image" content="https://closeencoders.com/assets/img/large-logo.png">
     <meta name="twitter:image:alt" content="Search">
 
@@ -70,7 +70,45 @@
 </header>
 
     <main class="wrap">
-        <div id="posts-space" class="wrap" data-nosnippet>
+        <style>
+#posts-space {
+  position: relative;
+}
+.post-search :is(h2, h3, p) {
+  padding: 0;
+  margin-bottom: 0.2rem;
+}
+.post-search :is(h2, h3) {
+  font-size: 1.3rem;
+}
+.posts-search-panel {
+  display: flex;
+  background-color: var(--bg-color);
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 30px;
+}
+.posts-search-panel input {
+  color: var(--accent-soft) !important;
+  flex-grow: 1;
+}
+.posts-search-panel .btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+}
+#posts-search-input {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-color);
+  height: 3rem;
+  margin: auto;
+  font-size: 14pt;
+}
+</style>
+<div id="posts-space" class="wrap" data-nosnippet>
     <div class="posts-search-panel no-select" aria-hidden="true">
         <input id="posts-search-input" type="search" placeholder="Search posts..." autocomplete="off">
         <button id="posts-search-button" class="btn" type="button" aria-label="Search posts">

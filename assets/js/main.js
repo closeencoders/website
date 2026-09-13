@@ -184,7 +184,7 @@ class PostManager {
       backToTopButton.onclick = function () {
         window.scrollTo({
           top: 0,
-          behavior: 'smooth' // Smooth scrolling!
+          behavior: 'smooth'
         });
       };
     }
