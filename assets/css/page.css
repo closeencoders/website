@@ -49,43 +49,6 @@
   text-decoration: underline;
 }
 
-#posts-space {
-  position: relative;
-}
-.post-search :is(h2, h3, p) {
-  padding: 0;
-  margin-bottom: 0.2rem;
-}
-.post-search :is(h2, h3) {
-  font-size: 1.3rem;
-}
-.posts-search-panel {
-  display: flex;
-  background-color: var(--bg-color);
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding-top: 30px;
-}
-.posts-search-panel input {
-  color: var(--accent-soft) !important;
-  flex-grow: 1;
-}
-.posts-search-panel .btn {
-  width: 2.5rem;
-  height: 2.5rem;
-  flex-shrink: 0;
-}
-#posts-search-input {
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--text-color);
-  height: 3rem;
-  margin: auto;
-  font-size: 14pt;
-}
-
 .read-page {
   min-width: 10px;
   max-width: var(--read-width);
